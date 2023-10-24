@@ -1,12 +1,27 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+
+import { WeatherService } from './services/weather/weather.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [WeatherService],
+  imports: [
+    CommonModule,
+    HttpClientModule,
+  ],
 })
-export class AppComponent {}
+export class AppComponent implements OnInit {
+  constructor(private weatherService: WeatherService) {}
+
+  ngOnInit() {
+    this.weatherService.getRealtimeWeather({ q: '53.1,-0.13' }).subscribe(res => {
+      console.log(res)
+    });
+  }
+}
