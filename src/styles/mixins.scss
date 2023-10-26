@@ -1,0 +1,16 @@
+@mixin svgSize($size, $selector) {
+  #{$selector} {
+    display: block;
+    width: $size;
+    height: $size;
+    min-width: $size;
+    min-height: $size;
+
+    svg {
+      width: $size;
+      height: $size;
+      min-width: $size;
+      min-height: $size;
+    }
+  }
+}
