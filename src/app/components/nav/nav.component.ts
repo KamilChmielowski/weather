@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 import { SvgIconComponent } from 'angular-svg-icon';
-import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
@@ -12,8 +12,9 @@ import { RouterLink } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     CommonModule,
-    SvgIconComponent,
     RouterLink,
+    RouterLinkActive,
+    SvgIconComponent,
   ],
 })
 export class NavComponent {}

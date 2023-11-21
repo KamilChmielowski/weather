@@ -17,9 +17,21 @@ button, a {
   cursor: pointer;
   color: $color-text;
   text-decoration: none;
+  transition: $transition-hover;
 
-  &:hover, &:focus {
+  &:hover, &:focus, &.active {
     color: $color-hover;
+  }
+
+  svg-icon {
+    fill: $color-text;
+    transition: $transition-hover;
+  }
+
+  &:hover, &:focus, &.active {
+    svg-icon {
+      fill: $color-hover;
+    }
   }
 }
 

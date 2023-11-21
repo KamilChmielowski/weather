@@ -14,3 +14,9 @@
     }
   }
 }
+
+@mixin hover {
+  &:hover, &:focus {
+    @content;
+  }
+}

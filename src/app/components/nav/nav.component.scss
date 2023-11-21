@@ -12,8 +12,16 @@
     border-radius: 2rem;
 
     .page {
+      display: flex;
+      flex-flow: column;
+      align-items: center;
       padding: 1rem;
-      text-align: center;
+
+      @include svgSize(1.5rem, 'svg-icon');
+
+      svg-icon {
+        margin-bottom: 0.4rem;
+      }
     }
   }
 }
