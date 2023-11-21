@@ -1,4 +1,18 @@
 @import 'mixins';
 @import 'variables';
 
-:host {}
+:host {
+  nav {
+    display: flex;
+    flex-flow: column;
+    background-color: $color-foreground;
+    height: 100%;
+    padding-top: 5rem;
+    box-sizing: border-box;
+
+    .page {
+      padding: 1rem;
+      text-align: center;
+    }
+  }
+}

@@ -6,12 +6,12 @@ import { SvgIconComponent } from 'angular-svg-icon';
 @Component({
   selector: 'app-aside',
   standalone: true,
-  templateUrl: './aside.component.html',
-  styleUrls: ['./aside.component.scss'],
+  templateUrl: './weather-aside.component.html',
+  styleUrls: ['./weather-aside.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     CommonModule,
     SvgIconComponent,
   ],
 })
-export class AsideComponent {}
+export class WeatherAsideComponent {}

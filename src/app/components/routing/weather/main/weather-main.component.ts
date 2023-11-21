@@ -5,12 +5,13 @@ import { SvgIconComponent } from 'angular-svg-icon';
 import { HeaderComponent } from './header/header.component';
 import { AirConditionsComponent } from './air-conditions/air-conditions.component';
 import { ForecastComponent } from './forecast/forecast.component';
+import { WeatherAsideComponent } from '../aside/weather-aside.component';
 
 @Component({
-  selector: 'app-main',
+  selector: 'app-weather-main',
   standalone: true,
-  templateUrl: './main.component.html',
-  styleUrls: ['./main.component.scss'],
+  templateUrl: './weather-main.component.html',
+  styleUrls: ['./weather-main.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     CommonModule,
@@ -18,6 +19,7 @@ import { ForecastComponent } from './forecast/forecast.component';
     HeaderComponent,
     AirConditionsComponent,
     ForecastComponent,
+    WeatherAsideComponent,
   ],
 })
-export class MainComponent {}
+export class WeatherMainComponent {}

@@ -5,19 +5,18 @@ import { NgModule } from '@angular/core';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 
 import { AppComponent } from './app.component';
-import { AsideComponent } from './components/aside/aside.component';
-import { MainComponent } from './components/main/main.component';
+
 import { NavComponent } from './components/nav/nav.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     AngularSvgIconModule.forRoot(),
-    AsideComponent,
     BrowserModule,
     HttpClientModule,
-    MainComponent,
     NavComponent,
+    AppRoutingModule,
   ],
   bootstrap: [AppComponent]
 })

@@ -1,4 +1,5 @@
 @import 'mixins';
+@import 'variables';
 
 html, body {
   height: 100%;
@@ -6,8 +7,19 @@ html, body {
 
 body {
   margin: 0;
-  color: #fff;
+  color: $color-text;
+  background-color: $color-background;
   font-family: Arial, serif;
+}
+
+button, a {
+  cursor: pointer;
+  color: $color-text;
+  text-decoration: none;
+
+  &:hover, &:focus {
+    color: $color-hover;
+  }
 }
 
 @include svgSize(4rem, 'svg-icon');
