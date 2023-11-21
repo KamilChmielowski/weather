@@ -4,14 +4,14 @@ import { CommonModule } from '@angular/common';
 import { SvgIconComponent } from 'angular-svg-icon';
 
 @Component({
-  selector: 'app-header',
+  selector: 'app-map-main',
   standalone: true,
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
+  templateUrl: './map-main.component.html',
+  styleUrls: ['./map-main.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     CommonModule,
     SvgIconComponent,
   ],
 })
-export class HeaderComponent {}
+export class MapMainComponent {}

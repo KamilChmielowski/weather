@@ -2,10 +2,11 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { SvgIconComponent } from 'angular-svg-icon';
-import { HeaderComponent } from './header/header.component';
+
 import { AirConditionsComponent } from './air-conditions/air-conditions.component';
 import { ForecastComponent } from './forecast/forecast.component';
 import { WeatherAsideComponent } from '../aside/weather-aside.component';
+import { WeatherHeaderComponent } from './header/weather-header.component';
 
 @Component({
   selector: 'app-weather-main',
@@ -14,12 +15,12 @@ import { WeatherAsideComponent } from '../aside/weather-aside.component';
   styleUrls: ['./weather-main.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
-    CommonModule,
-    SvgIconComponent,
-    HeaderComponent,
     AirConditionsComponent,
+    CommonModule,
     ForecastComponent,
+    SvgIconComponent,
     WeatherAsideComponent,
+    WeatherHeaderComponent,
   ],
 })
 export class WeatherMainComponent {}

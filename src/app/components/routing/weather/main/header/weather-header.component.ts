@@ -4,14 +4,14 @@ import { CommonModule } from '@angular/common';
 import { SvgIconComponent } from 'angular-svg-icon';
 
 @Component({
-  selector: 'app-weather-aside',
+  selector: 'app-weather-header',
   standalone: true,
-  templateUrl: './weather-aside.component.html',
-  styleUrls: ['./weather-aside.component.scss'],
+  templateUrl: './weather-header.component.html',
+  styleUrls: ['./weather-header.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     CommonModule,
     SvgIconComponent,
   ],
 })
-export class WeatherAsideComponent {}
+export class WeatherHeaderComponent {}

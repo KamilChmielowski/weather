@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HeaderComponent } from './header.component';
+import { MapMainComponent } from './map-main.component';
 
-describe('HeaderComponent', () => {
-  let component: HeaderComponent;
-  let fixture: ComponentFixture<HeaderComponent>;
+describe('MapMainComponent', () => {
+  let component: MapMainComponent;
+  let fixture: ComponentFixture<MapMainComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HeaderComponent]
+      imports: [MapMainComponent]
     });
-    fixture = TestBed.createComponent(HeaderComponent);
+    fixture = TestBed.createComponent(MapMainComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
