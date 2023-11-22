@@ -35,4 +35,8 @@ button, a {
   }
 }
 
+h1, p {
+  margin: 0;
+}
+
 @include svgSize(4rem, 'svg-icon');

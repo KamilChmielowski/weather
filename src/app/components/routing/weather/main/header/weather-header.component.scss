@@ -1,4 +1,33 @@
 @import 'mixins';
 @import 'variables';
 
-:host {}
+:host {
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    @include svgSize(12rem, 'svg-icon');
+
+    .details {
+      margin-left: 1rem;
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      h1, p {
+        margin-bottom: 1rem;
+      }
+
+      .rain {
+        margin-bottom: 2rem;
+      }
+
+      .temp {
+        font-size: 3rem;
+        font-weight: 600;
+      }
+    }
+  }
+}
