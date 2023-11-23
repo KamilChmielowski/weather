@@ -1,0 +1,54 @@
+@import 'mixins';
+@import 'variables';
+
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $color-foreground;
+  margin-top: 3rem;
+  padding: 2rem;
+  flex: 1;
+
+  footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .author {
+      text-align: center;
+
+      .img {
+        width: 4rem;
+        border-radius: 50%;
+        max-width: 200px;
+      }
+    }
+
+    .contact {
+      margin-left: 4rem;
+
+      @include svgSize(1.5rem, 'svg-icon');
+
+      p {
+        display: flex;
+        align-items: center;
+
+        svg-icon {
+          margin-right: 0.5rem;
+          fill: $color-shadow;
+        }
+      }
+    }
+  }
+
+
+  p {
+    padding: 0.5rem;
+
+    &.name {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+  }
+}

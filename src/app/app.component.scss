@@ -1,9 +1,14 @@
 :host {
   display: flex;
+  flex-flow: column;
   min-height: 100vh;
-  min-width: 1080px;
-  max-width: 80vw;
-  margin: 0 auto;
-  padding: 1rem;
-  box-sizing: border-box;
+
+  .app {
+    display: flex;
+    min-width: 1080px;
+    max-width: 80vw;
+    margin: 0 auto;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
 }
