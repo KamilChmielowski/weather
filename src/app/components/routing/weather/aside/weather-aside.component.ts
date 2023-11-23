@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { SvgIconComponent } from 'angular-svg-icon';
+import { DayItemComponent } from './day-item/day-item.component';
 
 @Component({
   selector: 'app-weather-aside',
@@ -12,6 +13,7 @@ import { SvgIconComponent } from 'angular-svg-icon';
   imports: [
     CommonModule,
     SvgIconComponent,
+    DayItemComponent,
   ],
 })
 export class WeatherAsideComponent {}

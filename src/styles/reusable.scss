@@ -16,6 +16,13 @@
   &-aside {
     display: block;
     width: 40%;
+    box-sizing: border-box;
+
+    aside {
+      display: flex;
+      flex-flow: column;
+      height: 100%;
+    }
   }
 }
 

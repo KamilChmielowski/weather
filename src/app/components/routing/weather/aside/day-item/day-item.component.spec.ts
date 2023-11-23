@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HourComponent } from './hour.component';
+import { DayItemComponent } from './day-item.component';
 
-describe('HourComponent', () => {
-  let component: HourComponent;
-  let fixture: ComponentFixture<HourComponent>;
+describe('DayItemComponent', () => {
+  let component: DayItemComponent;
+  let fixture: ComponentFixture<DayItemComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HourComponent]
+      imports: [DayItemComponent]
     });
-    fixture = TestBed.createComponent(HourComponent);
+    fixture = TestBed.createComponent(DayItemComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

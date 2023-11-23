@@ -1,7 +1,8 @@
 :host {
   display: flex;
-  min-height: 100%;
-  width: 1080px;
+  min-height: 100vh;
+  min-width: 1080px;
+  max-width: 80vw;
   margin: 0 auto;
   padding: 1rem;
   box-sizing: border-box;

@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { SvgIconComponent } from 'angular-svg-icon';
-import { HourComponent } from './hour/hour.component';
+import { HourItemComponent } from './hour-item/hour-item.component';
 
 @Component({
   selector: 'app-forecast',
@@ -13,7 +13,7 @@ import { HourComponent } from './hour/hour.component';
     imports: [
         CommonModule,
         SvgIconComponent,
-        HourComponent,
+        HourItemComponent,
     ],
 })
 export class ForecastComponent {}
