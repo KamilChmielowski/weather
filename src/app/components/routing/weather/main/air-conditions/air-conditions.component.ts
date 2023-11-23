@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { SvgIconComponent } from 'angular-svg-icon';
+import { PropertyItemComponent } from './property-item/property-item.component';
 
 @Component({
   selector: 'app-air-conditions',
@@ -12,6 +13,7 @@ import { SvgIconComponent } from 'angular-svg-icon';
   imports: [
     CommonModule,
     SvgIconComponent,
+    PropertyItemComponent,
   ],
 })
 export class AirConditionsComponent {}

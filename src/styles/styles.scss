@@ -10,7 +10,7 @@ body {
   margin: 0;
   color: $color-text;
   background-color: $color-background;
-  font-family: Arial, serif;
+  font-family: "Verdana", serif;
 }
 
 button, a {
@@ -21,6 +21,10 @@ button, a {
 
   &:hover, &:focus, &.active {
     color: $color-hover;
+  }
+
+  &:focus {
+    outline: 2px solid $color-hover;
   }
 
   svg-icon {
