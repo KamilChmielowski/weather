@@ -1,0 +1,18 @@
+@import 'variables';
+
+:host {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  width: 100%;
+
+  p.shadow {
+    margin-bottom: 0.5rem;
+  }
+
+  p.temp {
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+}

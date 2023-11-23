@@ -35,8 +35,14 @@ button, a {
   }
 }
 
-h1, p {
+h1, h2, p {
   margin: 0;
+}
+
+h2 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: $color-shadow;
 }
 
 @include svgSize(4rem, 'svg-icon');

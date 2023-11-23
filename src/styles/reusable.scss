@@ -24,4 +24,15 @@
   background-color: $color-foreground;
   border-radius: 2rem;
   padding: 1rem;
+
+  h2 {
+    margin: 1rem 1rem 1.5rem;
+  }
+}
+
+.shadow {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: $color-shadow;
 }

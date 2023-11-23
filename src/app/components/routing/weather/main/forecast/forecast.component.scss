@@ -1,4 +1,15 @@
-@import 'mixins';
 @import 'variables';
 
-:host {}
+:host {
+  .hours {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+
+    app-hour {
+      &:not(:last-child) {
+        border-right: 2px solid $color-border;
+      }
+    }
+  }
+}
