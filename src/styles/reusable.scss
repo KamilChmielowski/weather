@@ -29,7 +29,7 @@
 .card {
   display: block;
   background-color: $color-foreground;
-  border-radius: 2rem;
+  border-radius: 1.5rem;
   padding: 1rem;
 
   h2 {
@@ -42,4 +42,13 @@
   font-weight: 600;
   text-transform: uppercase;
   color: $color-shadow;
+}
+
+.chip-btn {
+  background: $color-background;
+  border: none;
+  border-radius: 10rem;
+  padding: 0.3rem 0.5rem;
+  font-weight: 600;
+  box-shadow: $box-shadow;
 }

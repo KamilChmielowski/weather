@@ -6,14 +6,7 @@
     justify-content: space-between;
     align-items: center;
 
-    .btn {
-      background: $color-background;
-      border: none;
-      height: 100%;
-      border-radius: 10rem;
-      padding: 0.3rem 0.5rem;
-      font-weight: 600;
-      box-shadow: $box-shadow;
+    .chip-btn {
       margin-bottom: 0.5rem;
     }
   }

@@ -7,6 +7,7 @@ import { AirConditionsComponent } from './air-conditions/air-conditions.componen
 import { ForecastComponent } from './forecast/forecast.component';
 import { WeatherAsideComponent } from '../aside/weather-aside.component';
 import { WeatherHeaderComponent } from './header/weather-header.component';
+import { MoreDetailsComponent } from './more-details/more-details.component';
 
 @Component({
   selector: 'app-weather-main',
@@ -21,6 +22,9 @@ import { WeatherHeaderComponent } from './header/weather-header.component';
     SvgIconComponent,
     WeatherAsideComponent,
     WeatherHeaderComponent,
+    MoreDetailsComponent,
   ],
 })
-export class WeatherMainComponent {}
+export class WeatherMainComponent {
+  moreDetails = false;
+}

@@ -2,10 +2,8 @@
   <div class="header">
     <h2>Air conditions</h2>
 
-    <button class="btn">See more</button>
+    <button class="chip-btn" (click)="seeMore$.emit()">See more</button>
   </div>
-
-
 
   <div class="properties">
     <app-property-item icon="sunny" label="Real feel" value="30°"></app-property-item>

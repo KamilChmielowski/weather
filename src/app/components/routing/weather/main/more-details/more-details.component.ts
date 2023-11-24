@@ -2,14 +2,13 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angul
 import { CommonModule } from '@angular/common';
 
 import { SvgIconComponent } from 'angular-svg-icon';
-
 import { PropertyItemComponent } from '../../../../elements/property-item/property-item.component';
 
 @Component({
-  selector: 'app-air-conditions',
+  selector: 'app-more-details',
   standalone: true,
-  templateUrl: './air-conditions.component.html',
-  styleUrls: ['./air-conditions.component.scss'],
+  templateUrl: './more-details.component.html',
+  styleUrls: ['./more-details.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     CommonModule,
@@ -17,6 +16,6 @@ import { PropertyItemComponent } from '../../../../elements/property-item/proper
     PropertyItemComponent,
   ],
 })
-export class AirConditionsComponent {
-  @Output() readonly seeMore$ = new EventEmitter<void>();
+export class MoreDetailsComponent {
+  @Output() readonly collapse$ = new EventEmitter<void>();
 }

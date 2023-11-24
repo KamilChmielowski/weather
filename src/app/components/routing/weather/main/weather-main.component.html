@@ -1,9 +1,11 @@
-<main>
+<article>
   <app-weather-header></app-weather-header>
 
-  <article>
+  <ng-container *ngIf="!moreDetails">
     <app-forecast class="card"></app-forecast>
 
-    <app-air-conditions class="card"></app-air-conditions>
-  </article>
-</main>
+    <app-air-conditions class="card" (seeMore$)="moreDetails=true"></app-air-conditions>
+  </ng-container>
+
+  <app-more-details *ngIf="moreDetails" (collapse$)="moreDetails=false"></app-more-details>
+</article>

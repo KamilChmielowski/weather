@@ -15,7 +15,8 @@
       display: flex;
       flex-flow: column;
       align-items: center;
-      padding: 1rem;
+      padding: 1rem 0.4rem;
+      margin: 0 0.4rem;
 
       @include svgSize(1.5rem, 'svg-icon');
 

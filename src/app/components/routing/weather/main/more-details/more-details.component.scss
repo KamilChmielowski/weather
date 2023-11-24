@@ -1,0 +1,34 @@
+@import 'variables';
+
+:host {
+  section {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+
+    app-property-item {
+      display: block;
+      width: calc(50% - 0.5rem);
+      margin-bottom: 1.2rem;
+      box-sizing: border-box;
+
+      &:nth-child(odd)  {
+        margin-right: 0.5rem;
+      }
+
+      &:nth-child(even)  {
+        margin-left: 0.5rem;
+      }
+
+      &:last-of-type, &:nth-last-of-type(2) {
+        margin-bottom: 0;
+      }
+    }
+
+    .chip-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1rem
+    }
+  }
+}
