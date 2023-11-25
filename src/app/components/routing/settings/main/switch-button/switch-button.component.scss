@@ -1,0 +1,66 @@
+@import 'variables';
+
+:host {
+  $width: 3.2rem;
+  $height: 1.6rem;
+
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: $width;
+    height: $height;
+
+    input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+
+      &:checked + .slider {
+        background-color: $color-hover;
+      }
+
+      &:focus + .slider {
+        box-shadow: 0 0 1px $color-hover;
+      }
+
+      &:checked + .slider:before {
+        -webkit-transform: translateX(1.2rem);
+        -ms-transform: translateX(1.2rem);
+        transform: translateX(1.2rem);
+      }
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: $color-button;
+      -webkit-transition: .4s;
+      transition: .4s;
+
+      &:before {
+        $space: 0.2rem;
+        position: absolute;
+        content: "";
+        height: calc($height - $space * 2);
+        width: calc($height - $space * 2);;
+        left: $space * 2;
+        bottom: $space;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+      }
+
+      &.round {
+        border-radius: $height;
+
+        &:before {
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+}

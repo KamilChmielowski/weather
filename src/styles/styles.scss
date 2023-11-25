@@ -17,7 +17,7 @@ button, a {
   cursor: pointer;
   color: $color-text;
   text-decoration: none;
-  transition: $transition-hover;
+  transition: color $transition-hover, background-color $transition-hover;
 
   &:hover, &:focus, &.active {
     color: $color-hover;
@@ -43,7 +43,7 @@ h1, h2, p {
   margin: 0;
 }
 
-h2 {
+h2, h3 {
   font-size: 0.8rem;
   text-transform: uppercase;
   color: $color-shadow;

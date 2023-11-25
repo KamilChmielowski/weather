@@ -1,7 +1,36 @@
-<aside>
+<article>
   <section>
-    <p>settings</p>
+    <h2>Units</h2>
+
+    <div class="card">
+      <h3>Temperature</h3>
+      <app-options-button [options]="temperature | keyvalue"></app-options-button>
+
+      <h3>Wind speed</h3>
+      <app-options-button [options]="windSpeed | keyvalue"></app-options-button>
+
+      <h3>Pressure</h3>
+      <app-options-button [options]="pressure | keyvalue"></app-options-button>
+
+      <h3>Precitipation</h3>
+      <app-options-button [options]="precitipation | keyvalue"></app-options-button>
+
+      <h3>Distance</h3>
+      <app-options-button [options]="distance | keyvalue"></app-options-button>
+    </div>
   </section>
 
-  <section></section>
-</aside>
+  <section>
+    <h2>Notifications</h2>
+
+    <div class="card notifications">
+      <div>
+        <p class="label">Desktop notifications</p>
+
+        <p class="desc">Be aware of the weather</p>
+      </div>
+
+      <app-switch-button></app-switch-button>
+    </div>
+  </section>
+</article>

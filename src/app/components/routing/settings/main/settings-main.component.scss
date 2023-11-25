@@ -1,3 +1,34 @@
 @import 'variables';
 
-:host {}
+:host {
+  section {
+    &:not(:last-of-type) {
+      margin-bottom: 1.5rem;
+    }
+
+    h2 {
+      color: $color-text;
+      text-transform: capitalize;
+      font-size: 1.1rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .card {
+      &.notifications {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .label {
+        font-size: 1rem;
+        margin-bottom: 0.3rem;
+      }
+
+      .desc {
+        color: $color-shadow;
+        font-size: 0.8rem;
+      }
+    }
+  }
+}

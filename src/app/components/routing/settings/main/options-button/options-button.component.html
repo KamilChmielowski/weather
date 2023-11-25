@@ -1,0 +1,6 @@
+<div class="options">
+  <button *ngFor="let option of options; let i = index"
+          [class.selected]="selectedIndex === i" (click)="selectedIndex = i">
+    {{ option.value }}
+  </button>
+</div>
