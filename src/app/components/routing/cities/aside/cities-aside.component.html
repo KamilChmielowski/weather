@@ -1,5 +1,22 @@
 <aside>
-  <section></section>
+  <app-weather-header></app-weather-header>
 
-  <section></section>
+  <section class="card">
+    <h2>Today's forecast</h2>
+
+    <div class="hours">
+      <app-hour-item [hour]="6" icon="sunny" [temp]="25"></app-hour-item>
+      <app-hour-item [hour]="9" icon="sunny" [temp]="28"></app-hour-item>
+      <app-hour-item [hour]="12" icon="sunny" [temp]="33"></app-hour-item>
+    </div>
+  </section>
+
+
+  <section class="card">
+    <h2>3-day forecast</h2>
+
+    <app-day-item day="Today" icon="sunny" conditions="Sunny" tempDay="36" tempNight="22"></app-day-item>
+    <app-day-item day="Tue" icon="sunny" conditions="Sunny" tempDay="37" tempNight="22"></app-day-item>
+    <app-day-item day="Wed" icon="sunny" conditions="Sunny" tempDay="34" tempNight="19"></app-day-item>
+  </section>
 </aside>

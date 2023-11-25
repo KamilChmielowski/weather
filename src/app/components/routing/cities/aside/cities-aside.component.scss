@@ -1,3 +1,25 @@
 @import 'variables';
 
-:host {}
+:host {
+  .card {
+    &:not(:last-of-type) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .hours {
+    display: flex;
+
+    app-hour-item {
+      &:not(:last-of-type) {
+        border-right: 2px solid $color-border;
+      }
+    }
+  }
+
+  app-day-item {
+    &:not(:last-of-type) {
+      border-bottom: 2px solid $color-border;
+    }
+  }
+}

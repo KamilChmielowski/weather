@@ -6,7 +6,7 @@
     justify-content: space-between;
     margin-bottom: 1rem;
 
-    app-hour {
+    app-hour-item {
       &:not(:last-child) {
         border-right: 2px solid $color-border;
       }
