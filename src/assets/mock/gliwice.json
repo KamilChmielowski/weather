@@ -1,0 +1,56 @@
+{
+    "results": [
+        {
+            "datasource": {
+                "sourcename": "openstreetmap",
+                "attribution": "© OpenStreetMap contributors",
+                "license": "Open Database License",
+                "url": "https://www.openstreetmap.org/copyright"
+            },
+            "country": "Poland",
+            "country_code": "pl",
+            "state": "Silesian Voivodeship",
+            "county": "Górnośląsko-Zagłębiowska Metropolia",
+            "city": "Gliwice",
+            "lon": 18.6657306,
+            "lat": 50.294113,
+            "formatted": "Gliwice, Górnośląsko-Zagłębiowska Metropolia, Poland",
+            "address_line1": "Gliwice",
+            "address_line2": "Górnośląsko-Zagłębiowska Metropolia, Poland",
+            "category": "administrative",
+            "timezone": {
+                "name": "Europe/Warsaw",
+                "offset_STD": "+01:00",
+                "offset_STD_seconds": 3600,
+                "offset_DST": "+02:00",
+                "offset_DST_seconds": 7200,
+                "abbreviation_STD": "CET",
+                "abbreviation_DST": "CEST"
+            },
+            "plus_code": "9F2W7MV8+J7",
+            "plus_code_short": "V8+J7 Gliwice, Górnośląsko-Zagłębiowska Metropolia, Poland",
+            "result_type": "city",
+            "rank": {
+                "importance": 0.6446964440511935,
+                "popularity": 8.995467104553104,
+                "confidence": 1,
+                "confidence_city_level": 1,
+                "match_type": "full_match"
+            },
+            "place_id": "514bf212526daa3240590b2aaa7ea5254940f00101f901ec18200000000000c00208",
+            "bbox": {
+                "lon1": 18.5429915,
+                "lat1": 50.2272112,
+                "lon2": 18.7563234,
+                "lat2": 50.3751413
+            }
+        }
+    ],
+    "query": {
+        "text": "gliwice",
+        "parsed": {
+            "city": "gliwice",
+            "expected_type": "unknown"
+        }
+    }
+}

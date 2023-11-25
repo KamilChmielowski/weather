@@ -1,5 +1,10 @@
 @import 'variables';
 
 :host {
-  background-color: $color-foreground;
+  article {
+    app-search-input {
+      display: block;
+      margin-bottom: 2rem;
+    }
+  }
 }

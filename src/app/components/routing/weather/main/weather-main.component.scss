@@ -1,6 +1,11 @@
 @import 'variables';
 
 :host {
+  app-search-input {
+    display: block;
+    margin-bottom: 1rem;
+  }
+
   app-forecast {
     margin-bottom: 1rem;
   }

@@ -2,6 +2,11 @@
 
 :host {
   article {
+    app-search-input {
+      display: block;
+      margin-bottom: 2rem;
+    }
+
     app-city-item {
       display: block;
       margin-bottom: 1rem;

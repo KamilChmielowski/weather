@@ -1,0 +1,22 @@
+@import 'variables';
+
+:host {
+  input {
+    background: $color-foreground;
+    border: none;
+    border-radius: 1rem;
+    padding: 0.8rem 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    color: $color-text;
+    font-size: 1rem;
+
+    &::placeholder {
+     color: $color-shadow;
+    }
+
+    &:focus {
+     outline: 2px solid $color-hover;
+    }
+  }
+}

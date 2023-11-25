@@ -8,6 +8,7 @@ import { ForecastComponent } from './forecast/forecast.component';
 import { WeatherAsideComponent } from '../aside/weather-aside.component';
 import { WeatherHeaderComponent } from './header/weather-header.component';
 import { MoreDetailsComponent } from './more-details/more-details.component';
+import { SearchInputComponent } from '../../../elements/search-input/search-input.component';
 
 @Component({
   selector: 'app-weather-main',
@@ -23,6 +24,7 @@ import { MoreDetailsComponent } from './more-details/more-details.component';
     WeatherAsideComponent,
     WeatherHeaderComponent,
     MoreDetailsComponent,
+    SearchInputComponent,
   ],
 })
 export class WeatherMainComponent {
