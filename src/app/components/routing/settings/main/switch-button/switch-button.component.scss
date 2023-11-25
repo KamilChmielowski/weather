@@ -21,6 +21,7 @@
 
       &:focus + .slider {
         box-shadow: 0 0 1px $color-hover;
+        outline: 2px solid $color-hover;
       }
 
       &:checked + .slider:before {
@@ -38,8 +39,11 @@
       right: 0;
       bottom: 0;
       background-color: $color-button;
-      -webkit-transition: .4s;
-      transition: .4s;
+      transition: color 0.4s, background-color 0.4s;
+
+      &:focus {
+        outline: 2px solid $color-hover;
+      }
 
       &:before {
         $space: 0.2rem;
@@ -61,6 +65,10 @@
           border-radius: 50%;
         }
       }
+    }
+
+    &:focus {
+      outline: 2px solid $color-hover;
     }
   }
 }

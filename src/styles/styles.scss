@@ -18,6 +18,8 @@ button, a {
   color: $color-text;
   text-decoration: none;
   transition: color $transition-hover, background-color $transition-hover;
+  background-color: transparent;
+  border: none;
 
   &:hover, &:focus, &.active {
     color: $color-hover;

@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 
 import { SvgIconComponent } from 'angular-svg-icon';
 
+import { NewsletterComponent } from './newsletter/newsletter.component';
+import { PremiumComponent } from './premium/premium.component';
+
 @Component({
   selector: 'app-settings-aside',
   standalone: true,
@@ -12,6 +15,8 @@ import { SvgIconComponent } from 'angular-svg-icon';
   imports: [
     CommonModule,
     SvgIconComponent,
+    PremiumComponent,
+    NewsletterComponent,
   ],
 })
 export class SettingsAsideComponent {}

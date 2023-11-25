@@ -1,0 +1,11 @@
+@import 'variables';
+
+:host {
+  ul {
+    li {
+      color: $color-shadow;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+  }
+}
