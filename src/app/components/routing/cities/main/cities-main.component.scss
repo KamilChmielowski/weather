@@ -1,5 +1,10 @@
 @import 'variables';
 
 :host {
-  background-color: $color-foreground;
+  article {
+    app-city-item {
+      display: block;
+      margin-bottom: 1rem;
+    }
+  }
 }

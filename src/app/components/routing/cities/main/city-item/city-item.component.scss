@@ -1,0 +1,50 @@
+@import 'mixins';
+@import 'variables';
+
+:host {
+  .city-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    @include svgSize(6rem, 'svg-icon');
+    box-sizing: border-box;
+    border: 2px solid transparent;
+    outline: none;
+
+    &:hover, &:focus {
+      background-color: inherit;
+      border: 2px solid $color-hover;
+    }
+  }
+
+  .container {
+    margin-left: 1rem;
+
+    .city {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    .hour {
+      display: flex;
+      color: $color-shadow;
+      font-size: 1rem;
+    }
+  }
+
+  .temp {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    font-size: 1.8rem;
+  }
+}
+
+:host-context(.current) {
+  .city-item {
+    background-color: inherit;
+    border: 2px solid $color-hover;
+  }
+}
