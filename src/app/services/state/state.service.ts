@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
 
-import { Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { RealtimeWeatherResponse } from '../weather/weather.model';
 
 @Injectable({ providedIn: 'root' })
 export class StateService {
   private _location$ = new Subject<[number, number]>();
-  private _weather$ = new Subject<RealtimeWeatherResponse>();
+  private _weather$ = new BehaviorSubject<RealtimeWeatherResponse | undefined>(undefined);
 
   get location$(): Observable<[number, number]> {
     return this._location$.asObservable();
   }
 
-  get weather$(): Observable<RealtimeWeatherResponse> {
+  get weather$(): Observable<RealtimeWeatherResponse | undefined> {
     return this._weather$.asObservable();
   }
 

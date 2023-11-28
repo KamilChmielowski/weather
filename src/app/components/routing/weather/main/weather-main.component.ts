@@ -5,10 +5,11 @@ import { SvgIconComponent } from 'angular-svg-icon';
 
 import { AirConditionsComponent } from './air-conditions/air-conditions.component';
 import { ForecastComponent } from './forecast/forecast.component';
-import { WeatherAsideComponent } from '../aside/weather-aside.component';
-import { WeatherHeaderComponent } from './header/weather-header.component';
 import { MoreDetailsComponent } from './more-details/more-details.component';
 import { SearchInputComponent } from '../../../elements/search-input/search-input.component';
+import { RealtimeWeatherResponse } from '../../../../services/weather/weather.model';
+import { WeatherAsideComponent } from '../aside/weather-aside.component';
+import { WeatherHeaderComponent } from './header/weather-header.component';
 
 @Component({
   selector: 'app-weather-main',
@@ -28,5 +29,7 @@ import { SearchInputComponent } from '../../../elements/search-input/search-inpu
   ],
 })
 export class WeatherMainComponent {
+  @Input() weather: RealtimeWeatherResponse | undefined;
+
   moreDetails = false;
 }

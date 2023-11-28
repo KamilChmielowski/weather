@@ -1,12 +1,12 @@
 <section>
-  <app-property-item class="card" icon="sunny" label="UV index" value="3"></app-property-item>
-  <app-property-item class="card" icon="sunny" label="Wind" value="0.2km/h"></app-property-item>
-  <app-property-item class="card" icon="sunny" label="Humidity" value="6%"></app-property-item>
-  <app-property-item class="card" icon="sunny" label="Visibility" value="12km"></app-property-item>
-  <app-property-item class="card" icon="sunny" label="Feels like" value="30°"></app-property-item>
-  <app-property-item class="card" icon="sunny" label="Change of rain" value="0%"></app-property-item>
-  <app-property-item class="card" icon="sunny" label="Pressure" value="1008 hPa"></app-property-item>
-  <app-property-item class="card" icon="sunny" label="Sunset" value="20:58"></app-property-item>
+  <app-property-item class="card" icon="sunny" label="Wind" [value]="weather?.current?.wind_kph + ' km/h'"></app-property-item>
+  <app-property-item class="card" icon="sunny" label="Pressure" [value]="weather?.current?.pressure_mb+' hPa'"></app-property-item>
+  <app-property-item class="card" icon="sunny" label="Precipitation" [value]="weather?.current?.precip_mm + ' mm'"></app-property-item>
+  <app-property-item class="card" icon="sunny" label="Cloud" [value]="weather?.current?.cloud + '%'"></app-property-item>
+  <app-property-item class="card" icon="sunny" label="Humidity" [value]="weather?.current?.humidity + ''"></app-property-item>
+  <app-property-item class="card" icon="sunny" label="Temperature Sense" [value]="weather?.current?.feelslike_c + '°C'"></app-property-item>
+  <app-property-item class="card" icon="sunny" label="Visibility" [value]="weather?.current?.vis_km + ' km'"></app-property-item>
+  <app-property-item class="card" icon="sunny" label="UV Index" [value]="weather?.current?.uv + ''"></app-property-item>
 
   <button class="chip-btn" (click)="collapse$.emit()">Collapse</button>
 </section>

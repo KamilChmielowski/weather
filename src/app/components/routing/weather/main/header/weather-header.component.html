@@ -1,10 +1,10 @@
 <header>
   <section class="details">
-    <h1>Gliwice</h1>
+    <h1>{{ weather?.location?.name }}</h1>
 
-    <p class="rain">Change of rain: 0%</p>
+    <p class="rain">{{ weather?.current?.condition?.text }}</p>
 
-    <p class="temp">31°</p>
+    <p class="temp">{{ weather?.current?.temp_c }}°C</p>
   </section>
 
   <svg-icon src="assets/svg/icons/sunny.svg"></svg-icon>

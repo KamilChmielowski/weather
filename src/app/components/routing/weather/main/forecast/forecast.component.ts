@@ -1,8 +1,10 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { SvgIconComponent } from 'angular-svg-icon';
+
 import { HourItemComponent } from './hour-item/hour-item.component';
+import { RealtimeWeatherResponse } from '../../../../../services/weather/weather.model';
 
 @Component({
   selector: 'app-forecast',
@@ -10,10 +12,12 @@ import { HourItemComponent } from './hour-item/hour-item.component';
   templateUrl: './forecast.component.html',
   styleUrls: ['./forecast.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [
-        CommonModule,
-        SvgIconComponent,
-        HourItemComponent,
-    ],
+  imports: [
+    CommonModule,
+    HourItemComponent,
+    SvgIconComponent,
+  ],
 })
-export class ForecastComponent {}
+export class ForecastComponent {
+  @Input() weather: RealtimeWeatherResponse | undefined;
+}

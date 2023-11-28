@@ -75,8 +75,8 @@ export class SearchInputComponent implements OnInit {
   }
 
   selectLocation(item: GeoAutocompleteFeature): void {
-    if (this.form.controls.search.value !== `${item.properties.city}, ${item.properties.country}`) {
-      this.form.controls.search.setValue(`${item.properties.city}, ${item.properties.country}`);
+    if (this.form.controls.search.value !== item.properties.city) {
+      this.form.controls.search.setValue(item.properties.city || '');
       this.stateService.updateLocation([item.properties.lat as number, item.properties.lon as number]);
       this.skipRequest = true;
     }
