@@ -4,19 +4,44 @@
 
     <div class="card">
       <h3>Temperature</h3>
-      <app-options-button [options]="temperature | keyvalue"></app-options-button>
+
+      <app-options-button
+        [selectedIndex]="temperature | settingIndex : settingsService.settings.temperature"
+        [options]="temperature | keyvalue"
+        (key$)="settingsService.temperature = $event">
+      </app-options-button>
 
       <h3>Wind speed</h3>
-      <app-options-button [options]="windSpeed | keyvalue"></app-options-button>
+
+      <app-options-button
+        [selectedIndex]="windSpeed | settingIndex : settingsService.settings.windSpeed"
+        [options]="windSpeed | keyvalue"
+        (key$)="settingsService.windSpeed = $event">
+      </app-options-button>
 
       <h3>Pressure</h3>
-      <app-options-button [options]="pressure | keyvalue"></app-options-button>
+
+      <app-options-button
+        [selectedIndex]="pressure | settingIndex : settingsService.settings.pressure"
+        [options]="pressure | keyvalue"
+        (key$)="settingsService.pressure = $event">
+      </app-options-button>
 
       <h3>Precitipation</h3>
-      <app-options-button [options]="precitipation | keyvalue"></app-options-button>
+
+      <app-options-button
+        [selectedIndex]="precitipation | settingIndex : settingsService.settings.precitipation"
+        [options]="precitipation | keyvalue"
+        (key$)="settingsService.precitipation = $event">
+      </app-options-button>
 
       <h3>Distance</h3>
-      <app-options-button [options]="distance | keyvalue"></app-options-button>
+
+      <app-options-button
+        [selectedIndex]="distance | settingIndex : settingsService.settings.distance"
+        [options]="distance | keyvalue"
+        (key$)="settingsService.distance = $event">
+      </app-options-button>
     </div>
   </section>
 

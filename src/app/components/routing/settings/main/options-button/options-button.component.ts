@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule, KeyValue } from '@angular/common';
 
 import { SvgIconComponent } from 'angular-svg-icon';
@@ -14,8 +14,14 @@ import { SvgIconComponent } from 'angular-svg-icon';
     SvgIconComponent,
   ],
 })
-export class OptionsButtonComponent {
-  @Input() options!: Array<KeyValue<string, string>>;
+export class OptionsButtonComponent<T> {
+  @Input() options!: Array<KeyValue<T, string>>;
+  @Input() selectedIndex = 0;
 
-  selectedIndex = 0;
+  @Output() readonly key$ = new EventEmitter<T>();
+
+  select(index: number, key: T): void {
+    this.selectedIndex = index;
+    this.key$.emit(key);
+  }
 }

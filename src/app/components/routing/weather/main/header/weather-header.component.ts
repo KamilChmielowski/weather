@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { SvgIconComponent } from 'angular-svg-icon';
 
 import { RealtimeWeatherResponse } from '../../../../../services/weather/weather.model';
+import { TempPipe } from '../../../../../pipes/temp.pipe';
 
 @Component({
   selector: 'app-weather-header',
@@ -14,6 +15,7 @@ import { RealtimeWeatherResponse } from '../../../../../services/weather/weather
   imports: [
     CommonModule,
     SvgIconComponent,
+    TempPipe,
   ],
 })
 export class WeatherHeaderComponent {

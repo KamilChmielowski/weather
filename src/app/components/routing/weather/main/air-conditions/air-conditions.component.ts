@@ -3,8 +3,11 @@ import { CommonModule } from '@angular/common';
 
 import { SvgIconComponent } from 'angular-svg-icon';
 
+import { PrecitipationPipe } from '../../../../../pipes/precitipation.pipe';
+import { PressurePipe } from '../../../../../pipes/pressure.pipe';
 import { PropertyItemComponent } from '../../../../elements/property-item/property-item.component';
 import { RealtimeWeatherResponse } from '../../../../../services/weather/weather.model';
+import { WindPipe } from '../../../../../pipes/wind.pipe';
 
 @Component({
   selector: 'app-air-conditions',
@@ -14,8 +17,11 @@ import { RealtimeWeatherResponse } from '../../../../../services/weather/weather
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     CommonModule,
-    SvgIconComponent,
+    PrecitipationPipe,
+    PressurePipe,
     PropertyItemComponent,
+    SvgIconComponent,
+    WindPipe,
   ],
 })
 export class AirConditionsComponent {

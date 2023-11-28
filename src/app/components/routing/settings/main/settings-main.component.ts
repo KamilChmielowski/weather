@@ -2,8 +2,18 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { SvgIconComponent } from 'angular-svg-icon';
+
+import {
+  Distance,
+  Precitipation,
+  Pressure,
+  Temperature,
+  WindSpeed
+} from '../../../../services/settings/settings.model';
 import { OptionsButtonComponent } from './options-button/options-button.component';
 import { SwitchButtonComponent } from './switch-button/switch-button.component';
+import { SettingsService } from '../../../../services/settings/settings.service';
+import { SettingIndexPipe } from './setting-index.pipe';
 
 @Component({
   selector: 'app-settings-main',
@@ -13,37 +23,40 @@ import { SwitchButtonComponent } from './switch-button/switch-button.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     CommonModule,
-    SvgIconComponent,
     OptionsButtonComponent,
+    SettingIndexPipe,
+    SvgIconComponent,
     SwitchButtonComponent,
   ],
 })
 export class SettingsMainComponent {
   readonly temperature = new Map([
-    [ 'c', 'Celsius' ],
-    [ 'f', 'Fahrenheit' ],
+    [ Temperature.celsius, 'Celsius' ],
+    [ Temperature.fahrenheit, 'Fahrenheit' ],
   ]);
 
   readonly windSpeed = new Map([
-    [ 'k', 'km/h' ],
-    [ 'm', 'm/s' ],
-    [ 'kn', 'Knots' ],
+    [ WindSpeed.kmPerHour, 'km/h' ],
+    [ WindSpeed.mPerSec, 'm/s' ],
+    [ WindSpeed.knots, 'Knots' ],
   ]);
 
   readonly pressure = new Map([
-    [ 'h', 'hPa' ],
-    [ 'i', 'Inches' ],
-    [ 'k', 'kPa' ],
-    [ 'm', 'mm' ],
+    [ Pressure.hectoPascal, 'hPa' ],
+    [ Pressure.inches, 'Inches of mercury' ],
+    [ Pressure.kiloPascal, 'kPa' ],
+    [ Pressure.mm, 'mmHg' ],
   ]);
 
   readonly precitipation = new Map([
-    [ 'm', 'Milimeters' ],
-    [ 'i', 'Inches' ],
+    [ Precitipation.milimeters, 'Milimeters' ],
+    [ Precitipation.inches, 'Inches' ],
   ]);
 
   readonly distance = new Map([
-    [ 'k', 'Kilometers' ],
-    [ 'm', 'Miles' ],
+    [ Distance.kilometers, 'Kilometers' ],
+    [ Distance.miles, 'Miles' ],
   ]);
+
+  constructor(public settingsService: SettingsService) {}
 }
