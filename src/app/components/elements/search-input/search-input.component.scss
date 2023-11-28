@@ -24,7 +24,7 @@
 
     .suggestions {
       position: absolute;
-      background-color: $color-foreground;
+      background-color: $color-background;
       top: 100%;
       width: 100%;
       display: flex;
@@ -38,8 +38,12 @@
         text-align: left;
         font-size: 0.9rem;
 
+        &:not(:last-of-type) {
+          border-bottom: 1px solid $color-border;
+        }
+
         &:hover, &:focus {
-          background-color: $color-button;
+          background-color: $color-foreground;
         }
       }
     }

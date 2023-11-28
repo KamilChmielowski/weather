@@ -1,7 +1,11 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
+import { switchMap } from 'rxjs';
+
 import { GeoapifyService } from './services/geoapify/geoapify.service';
+import { StateService } from './services/state/state.service';
 import { WeatherService } from './services/weather/weather.service';
+import { StateComponent } from './services/state/state.component';
 
 @Component({
   selector: 'app-root',
@@ -10,18 +14,26 @@ import { WeatherService } from './services/weather/weather.service';
   styleUrls: ['./app.component.scss'],
   providers: [WeatherService],
 })
-export class AppComponent implements OnInit {
+export class AppComponent extends StateComponent implements OnInit {
   constructor(
+    protected override stateService: StateService,
     private geolocationService: GeoapifyService,
     private weatherService: WeatherService,
-  ) {}
+  ) {
+    super(stateService)
+  }
 
   ngOnInit() {
-    // this.geolocationService.getGeolocation('gliwice').subscribe(res => {
-    //   console.log(res)
-    // })
-    // this.weatherService.getRealtimeWeather({ q: '53.1,-0.13' }).subscribe(res => {
-    //   console.log(res)
-    // });
+    this.observeLocation();
+  }
+
+  private observeLocation(): void {
+    this.subscription.add(
+      this.stateService.location$.pipe(
+        switchMap(location => this.weatherService
+          .getRealtimeWeather({ q: `${location[0]},${location[1]}` })
+        )
+      ).subscribe(weather => this.stateService.updateWeather(weather))
+    );
   }
 }

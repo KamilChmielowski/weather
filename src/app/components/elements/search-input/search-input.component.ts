@@ -1,9 +1,9 @@
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
-  Component, EventEmitter,
+  Component,
   Inject,
-  OnInit, Output,
+  OnInit,
 } from '@angular/core';
 import { CommonModule, DOCUMENT } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
@@ -13,6 +13,7 @@ import { SvgIconComponent } from 'angular-svg-icon';
 
 import { GeoapifyService } from '../../../services/geoapify/geoapify.service';
 import { GeoAutocompleteFeature, GeoAutocompleteResponse } from '../../../services/geoapify/geoautocomplete.model';
+import { StateService } from '../../../services/state/state.service';
 
 @Component({
   selector: 'app-search-input',
@@ -27,8 +28,6 @@ import { GeoAutocompleteFeature, GeoAutocompleteResponse } from '../../../servic
   ],
 })
 export class SearchInputComponent implements OnInit {
-  @Output() readonly location$ = new EventEmitter<[number, number]>();
-
   readonly form = new FormGroup({
     search: new FormControl<string>('')
   })
@@ -41,7 +40,8 @@ export class SearchInputComponent implements OnInit {
   constructor(
     private cdr: ChangeDetectorRef,
     @Inject(DOCUMENT) private document: Document,
-    private geolocationService: GeoapifyService
+    private geolocationService: GeoapifyService,
+    private stateService: StateService,
   ) {};
 
   ngOnInit() {
@@ -61,8 +61,10 @@ export class SearchInputComponent implements OnInit {
   }
 
   selectLocation(item: GeoAutocompleteFeature): void {
-    this.form.controls.search.setValue(`${item.properties.city}, ${item.properties.country}`);
-    this.location$.emit([item.properties.lat as number, item.properties.lon as number])
+    if (this.form.controls.search.value !== `${item.properties.city}, ${item.properties.country}`) {
+      this.form.controls.search.setValue(`${item.properties.city}, ${item.properties.country}`);
+      this.stateService.updateLocation([item.properties.lat as number, item.properties.lon as number])
+    }
     this.showSuggestions = false;
   }
 
