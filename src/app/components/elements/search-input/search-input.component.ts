@@ -8,7 +8,7 @@ import {
 import { CommonModule, DOCUMENT } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
-import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
+import { debounceTime, distinctUntilChanged, of, switchMap } from 'rxjs';
 import { SvgIconComponent } from 'angular-svg-icon';
 
 import { GeoapifyService } from '../../../services/geoapify/geoapify.service';
@@ -32,7 +32,9 @@ export class SearchInputComponent implements OnInit {
     search: new FormControl<string>('')
   })
 
+  isLoading = false;
   showSuggestions = false;
+  skipRequest = false;
   searchResults!: GeoAutocompleteResponse;
 
   private insideForm = false;
@@ -48,14 +50,26 @@ export class SearchInputComponent implements OnInit {
     this.form.controls.search!.valueChanges.pipe(
       distinctUntilChanged(),
       debounceTime(1000),
-      switchMap(value => this.geolocationService.getAutocomplete(value)),
+      switchMap(value => {
+        if (this.skipRequest) {
+          this.skipRequest = false;
+          return of(null);
+        }
+        this.isLoading = true;
+        this.cdr.markForCheck();
+        return this.geolocationService.getAutocomplete(value);
+      }),
     ).subscribe(value => {
+      if (!value) {
+        return;
+      }
       this.searchResults = {
         query: value.query,
         features: value.features
           .filter(value => value.properties.city)
           .filter((value, i, array) => array.findIndex(v => v.properties.city === value.properties.city) === i),
       };
+      this.isLoading = false;
       this.cdr.markForCheck();
     })
   }
@@ -63,7 +77,8 @@ export class SearchInputComponent implements OnInit {
   selectLocation(item: GeoAutocompleteFeature): void {
     if (this.form.controls.search.value !== `${item.properties.city}, ${item.properties.country}`) {
       this.form.controls.search.setValue(`${item.properties.city}, ${item.properties.country}`);
-      this.stateService.updateLocation([item.properties.lat as number, item.properties.lon as number])
+      this.stateService.updateLocation([item.properties.lat as number, item.properties.lon as number]);
+      this.skipRequest = true;
     }
     this.showSuggestions = false;
   }

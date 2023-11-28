@@ -8,4 +8,6 @@
       {{ item.properties.city + ', ' + item.properties.country }}
     </button>
   </div>
+
+  <svg-icon *ngIf="isLoading" src="assets/svg/loader/circle.svg"></svg-icon>
 </div>
