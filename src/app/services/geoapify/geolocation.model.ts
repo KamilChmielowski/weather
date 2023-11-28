@@ -1,28 +1,28 @@
-export interface CityGeolocationResponse {
-  results: [
-    {
-      datasource: GeolocationDataSource,
-      country: string,
-      country_code: string,
-      state: string,
-      county: string,
-      city: string,
-      lon: number,
-      lat: number,
-      formatted: string,
-      address_line1: string,
-      address_line2: string,
-      category: string,
-      timezone: GeolocationTimezone,
-      plus_code: string,
-      plus_code_short: string,
-      result_type: string,
-      rank: GeolocationRank,
-      place_id: string,
-      bbox: GeolocationBBox,
-    }
-  ],
+export interface GeolocationResponse {
+  results: GeolocationResult[],
   query: GeolocationQuery
+}
+
+export interface GeolocationResult {
+  datasource: GeolocationDataSource,
+  country: string,
+  country_code: string,
+  state: string,
+  county: string,
+  city: string,
+  lon: number,
+  lat: number,
+  formatted: string,
+  address_line1: string,
+  address_line2: string,
+  category: string,
+  timezone: GeolocationTimezone,
+  plus_code: string,
+  plus_code_short: string,
+  result_type: string,
+  rank: GeolocationRank,
+  place_id: string,
+  bbox: GeolocationBBox,
 }
 
 export interface GeolocationDataSource {
@@ -46,7 +46,7 @@ export interface GeolocationRank {
   importance: number,
   popularity: number,
   confidence: number,
-  confidence_city_level: number,
+  confidence_city_level: number | undefined,
   match_type: string,
 }
 

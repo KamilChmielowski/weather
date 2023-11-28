@@ -52,5 +52,9 @@
       font-size: 1.2rem;
       font-weight: 600;
     }
+
+    &:last-of-type {
+      padding-bottom: 0;
+    }
   }
 }

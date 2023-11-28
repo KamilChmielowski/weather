@@ -1,1 +1,11 @@
-<input placeholder="Enter location address here..." aria-label="Enter location address here"/>
+<div [formGroup]="form" class="form" (mouseleave)="mouseleave()" (mouseenter)="mouseenter()">
+  <input placeholder="Enter location address here..." aria-label="Enter location address here"
+         formControlName="search" (focusin)="showSuggestions = true" (focusout)="focusout()"/>
+
+  <div *ngIf="searchResults && showSuggestions" class="suggestions">
+    <button *ngFor="let item of searchResults.features"
+      (click)="selectLocation(item)">
+      {{ item.properties.city + ', ' + item.properties.country }}
+    </button>
+  </div>
+</div>
