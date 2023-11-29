@@ -43,4 +43,3 @@ export interface RealtimeWeatherResponse {
     gust_kph: number,
   }
 }
-

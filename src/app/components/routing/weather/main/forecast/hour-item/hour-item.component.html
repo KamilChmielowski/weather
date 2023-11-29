@@ -1,5 +1,5 @@
 <p class="shadow">{{ (hour > 12 ? hour - 12 : hour) + (hour > 12 ? ' PM' : ' AM') }}</p>
 
-<svg-icon [src]="'assets/svg/icons/' + icon + '.svg'"></svg-icon>
+<svg-icon [src]="('icons/' + icon) | svg"></svg-icon>
 
 <p class="temp">{{ temp }}°</p>

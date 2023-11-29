@@ -1,7 +1,7 @@
 <p class="day">{{ day }}</p>
 
 <p class="conditions">
-  <svg-icon [src]="'assets/svg/icons/' + icon + '.svg'"></svg-icon>
+  <svg-icon [src]="'icons/' + icon | svg"></svg-icon>
 
   <span class="label">{{ conditions }}</span>
 </p>

@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { SvgIconComponent } from 'angular-svg-icon';
 
 import { RealtimeWeatherResponse } from '../../../../../services/weather/weather.model';
+import { SvgPipe } from '../../../../../pipes/svg.pipe';
 import { TempPipe } from '../../../../../pipes/temp.pipe';
 
 @Component({
@@ -15,6 +16,7 @@ import { TempPipe } from '../../../../../pipes/temp.pipe';
   imports: [
     CommonModule,
     SvgIconComponent,
+    SvgPipe,
     TempPipe,
   ],
 })
