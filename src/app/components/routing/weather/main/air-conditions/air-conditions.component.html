@@ -6,9 +6,9 @@
   </div>
 
   <div class="properties">
-    <app-property-item icon="sunny" label="Wind" [value]="weather | wind"></app-property-item>
-    <app-property-item icon="sunny" label="Pressure" [value]="weather | pressure"></app-property-item>
-    <app-property-item icon="sunny" label="Precipitation" [value]="weather | precitipation"></app-property-item>
-    <app-property-item icon="sunny" label="Cloud" [value]="weather?.current?.cloud + '%'"></app-property-item>
+    <app-property-item icon="wind" label="Wind" [value]="weather | wind"></app-property-item>
+    <app-property-item icon="pressure" label="Pressure" [value]="weather | pressure"></app-property-item>
+    <app-property-item icon="rain" label="Precipitation" [value]="weather | precitipation"></app-property-item>
+    <app-property-item icon="cloud" label="Cloud" [value]="weather?.current?.cloud + '%'"></app-property-item>
   </div>
 </section>
