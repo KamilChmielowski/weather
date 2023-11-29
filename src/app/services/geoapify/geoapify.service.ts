@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 
 import { delay, Observable, of } from 'rxjs';
 
+import { environment } from '../../../environments/environment';
 import { GeolocationResponse } from './geolocation.model';
 import { GeoAutocompleteResponse } from './geoautocomplete.model';
 import { GeoAutocompleteMock } from './geoautocomplete.mock';
@@ -20,8 +21,7 @@ export class GeoapifyService {
   }
 
   getAutocomplete(text: string | null): Observable<GeoAutocompleteResponse> {
-    const isMock = true;
-    return !isMock
+    return environment.isProduction
       ? this.httpClient.get<GeoAutocompleteResponse>(
       `https://api.geoapify.com/v1/geocode/autocomplete?text=${text}&apiKey=${this.apiKey}`
       ) : of(GeoAutocompleteMock).pipe(
