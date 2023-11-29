@@ -1,10 +1,11 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { SvgIconComponent } from 'angular-svg-icon';
 
 import { DayItemComponent } from '../../weather/aside/day-item/day-item.component';
 import { HourItemComponent } from '../../weather/main/forecast/hour-item/hour-item.component';
+import { RealtimeWeatherResponse } from '../../../../services/weather/weather.model';
 import { WeatherHeaderComponent } from '../../weather/main/header/weather-header.component';
 
 @Component({
@@ -21,4 +22,6 @@ import { WeatherHeaderComponent } from '../../weather/main/header/weather-header
     WeatherHeaderComponent,
   ],
 })
-export class CitiesAsideComponent {}
+export class CitiesAsideComponent {
+  @Input() weather: RealtimeWeatherResponse | undefined;
+}
