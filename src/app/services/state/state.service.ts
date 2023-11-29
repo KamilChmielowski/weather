@@ -8,6 +8,12 @@ export class StateService {
   private _location$ = new Subject<[number, number]>();
   private _weather$ = new BehaviorSubject<RealtimeWeatherResponse | undefined>(undefined);
 
+  private _city: string = '';
+
+  get city(): string {
+    return this._city || ''
+  }
+
   get location$(): Observable<[number, number]> {
     return this._location$.asObservable();
   }
@@ -16,8 +22,9 @@ export class StateService {
     return this._weather$.asObservable();
   }
 
-  updateLocation(location: [number, number]): void {
+  updateLocation(location: [number, number], city: string | undefined): void {
     this._location$.next(location);
+    this._city = city || '';
   }
 
   updateWeather(weather: RealtimeWeatherResponse): void {
