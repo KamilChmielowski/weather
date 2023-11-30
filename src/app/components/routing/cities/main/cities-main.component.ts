@@ -4,7 +4,9 @@ import { CommonModule } from '@angular/common';
 import { SvgIconComponent } from 'angular-svg-icon';
 
 import { CityItemComponent } from './city-item/city-item.component';
-import { SearchInputComponent } from '../../../elements/search-input/search-input.component';
+import { CitySearchInputComponent } from './city-search-input/city-search-input.component';
+import { SvgPipe } from '../../../../pipes/svg.pipe';
+import { StateService } from '../../../../services/state/state.service';
 
 @Component({
   selector: 'app-cities-main',
@@ -14,9 +16,23 @@ import { SearchInputComponent } from '../../../elements/search-input/search-inpu
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     CityItemComponent,
+    CitySearchInputComponent,
     CommonModule,
     SvgIconComponent,
-    SearchInputComponent,
+    SvgPipe,
   ],
 })
-export class CitiesMainComponent {}
+export class CitiesMainComponent {
+  searchDisabled = true;
+
+  constructor(public stateService: StateService) {}
+
+
+  addNewLocation(): void {
+    this.searchDisabled = false;
+  }
+
+  addCity(): void {
+    this.searchDisabled = true;
+  }
+}

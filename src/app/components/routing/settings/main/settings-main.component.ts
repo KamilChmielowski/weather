@@ -49,8 +49,8 @@ export class SettingsMainComponent {
   ]);
 
   readonly precitipation = new Map([
-    [ Precitipation.inches, 'Inches' ],
     [ Precitipation.milimeters, 'Milimeters' ],
+    [ Precitipation.inches, 'Inches' ],
   ]);
 
   readonly distance = new Map([

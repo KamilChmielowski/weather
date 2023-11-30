@@ -2,10 +2,12 @@
   <section class="details">
     <h1>{{ weather?.location?.name }}</h1>
 
-    <p class="rain">{{ weather?.current?.condition?.text }}</p>
+    <p>{{ weather?.current?.condition?.text }}</p>
+
+    <p class="space">{{ weather?.location?.localtime }}</p>
 
     <p class="temp">{{ weather | temp }}</p>
   </section>
 
-  <svg-icon [src]="'weather/sunny' | svg"></svg-icon>
+  <svg-icon [src]="weather?.current?.condition | weather"></svg-icon>
 </header>

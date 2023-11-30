@@ -5,9 +5,11 @@
   .city-item {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     width: 100%;
     padding: 0.5rem 1rem;
-    @include svgSize(6rem, 'svg-icon');
+    height: 6rem;
+    @include svgSize(5rem, 'svg-icon');
     box-sizing: border-box;
     border: 2px solid transparent;
     outline: none;
@@ -22,6 +24,8 @@
 
   .container {
     margin-left: 1rem;
+    display: flex;
+    align-items: center;
 
     .city {
       font-size: 1.6rem;
@@ -34,12 +38,16 @@
       color: $color-shadow;
       font-size: 1rem;
     }
+
+    .text {
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
   }
 
   .temp {
     display: flex;
     justify-content: flex-end;
-    width: 100%;
     font-size: 2rem;
   }
 }

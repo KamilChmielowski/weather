@@ -9,9 +9,14 @@ export class StateService {
   private _weather$ = new BehaviorSubject<RealtimeWeatherResponse | undefined>(undefined);
 
   private _city: string = '';
+  private _cities: string[] =  [];
 
   get city(): string {
     return this._city || ''
+  }
+
+  get cities(): string[] {
+    return this._cities;
   }
 
   get location$(): Observable<[number, number]> {
@@ -25,6 +30,13 @@ export class StateService {
   updateLocation(location: [number, number], city: string | undefined): void {
     this._location$.next(location);
     this._city = city || '';
+    this.addCity(city);
+  }
+
+  addCity(city: string | undefined): void {
+    if (city) {
+      this._cities.push(city);
+    }
   }
 
   updateWeather(weather: RealtimeWeatherResponse): void {

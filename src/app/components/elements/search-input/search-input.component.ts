@@ -15,6 +15,7 @@ import { GeoapifyService } from '../../../services/geoapify/geoapify.service';
 import { GeoAutocompleteFeature, GeoAutocompleteResponse } from '../../../services/geoapify/geoautocomplete.model';
 import { StateComponent } from '../../../services/state/state.component';
 import { StateService } from '../../../services/state/state.service';
+import { SvgPipe } from '../../../pipes/svg.pipe';
 
 @Component({
   selector: 'app-search-input',
@@ -26,6 +27,7 @@ import { StateService } from '../../../services/state/state.service';
     CommonModule,
     ReactiveFormsModule,
     SvgIconComponent,
+    SvgPipe,
   ],
 })
 export class SearchInputComponent extends StateComponent implements OnInit {
@@ -56,17 +58,10 @@ export class SearchInputComponent extends StateComponent implements OnInit {
     }
   }
 
-  private setSearchValueProgrammatically(value: string | null): void {
-    this.form.controls.search.setValue(value);
-    this.skipRequest = true;
-  }
-
   selectLocation(item: GeoAutocompleteFeature): void {
     if (this.form.controls.search.value !== item.properties.city) {
       this.setSearchValueProgrammatically(item.properties.city || null);
-      this.form.controls.search.setValue(item.properties.city || '');
       this.stateService.updateLocation([item.properties.lat as number, item.properties.lon as number], item.properties.city);
-
     }
     this.showSuggestions = false;
   }
@@ -85,7 +80,12 @@ export class SearchInputComponent extends StateComponent implements OnInit {
     this.insideForm = true;
   }
 
-  private fetchLocationData(): void {
+  protected setSearchValueProgrammatically(value: string | null): void {
+    this.form.controls.search.setValue(value);
+    this.skipRequest = true;
+  }
+
+  protected fetchLocationData(): void {
     this.getAutocompleteObservable(this.form.controls.search!.valueChanges).subscribe(value => {
       if (!value) {
         return;
@@ -96,12 +96,12 @@ export class SearchInputComponent extends StateComponent implements OnInit {
     });
   }
 
-  private getAutocompleteObservable(observable: Observable<string | null>): Observable<GeoAutocompleteResponse | null> {
+  protected getAutocompleteObservable(observable: Observable<string | null>): Observable<GeoAutocompleteResponse | null> {
     return observable.pipe(
       distinctUntilChanged(),
       debounceTime(1000),
       switchMap(value => {
-        if (this.skipRequest) {
+        if (this.skipRequest || !value || value.length < 3) {
           this.skipRequest = false;
           return of(null);
         }
@@ -112,7 +112,7 @@ export class SearchInputComponent extends StateComponent implements OnInit {
     );
   }
 
-  private getFilteredResults(value: GeoAutocompleteResponse): GeoAutocompleteResponse {
+  protected getFilteredResults(value: GeoAutocompleteResponse): GeoAutocompleteResponse {
     return {
       query: value.query,
       features: value.features

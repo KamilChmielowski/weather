@@ -1,10 +1,12 @@
 <button class="city-item card">
-  <svg-icon [src]="'weather/sunny' | svg"></svg-icon>
-
   <div class="container">
-    <p class="city">Madrid</p>
+    <svg-icon [src]="'weather/sunny' | svg"></svg-icon>
 
-    <p class="hour">10:23</p>
+    <div class="text">
+      <p class="city">{{ city }}</p>
+
+      <p class="hour">10:23</p>
+    </div>
   </div>
 
   <p class="temp">31°</p>

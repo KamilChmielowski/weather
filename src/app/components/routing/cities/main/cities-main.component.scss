@@ -2,7 +2,7 @@
 
 :host {
   article {
-    app-search-input {
+    app-city-search-input {
       display: block;
       margin-bottom: 2rem;
     }
@@ -10,6 +10,35 @@
     app-city-item {
       display: block;
       margin-bottom: 1rem;
+    }
+
+    .add-city {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 6rem;
+      background-color: rgba($color-foreground, 0.5);
+      transition: background-color $transition-slow;
+
+      &:hover , &:focus {
+        background-color: $color-foreground;
+        color: $color-text;
+
+        svg-icon {
+          fill: $color-text;
+        }
+      }
+
+      svg-icon {
+        margin-right: 1rem;
+        background: rgba($color-background, 0.5);
+        border-radius: 100%;
+      }
+
+      span {
+        font-size: 1.2rem;
+      }
     }
   }
 }

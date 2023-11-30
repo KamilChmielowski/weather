@@ -6,6 +6,7 @@ import { SvgIconComponent } from 'angular-svg-icon';
 import { RealtimeWeatherResponse } from '../../../../../services/weather/weather.model';
 import { SvgPipe } from '../../../../../pipes/svg.pipe';
 import { TempPipe } from '../../../../../pipes/temp.pipe';
+import { WeatherPipe } from '../../../../../pipes/weather.pipe';
 
 @Component({
   selector: 'app-weather-header',
@@ -18,6 +19,7 @@ import { TempPipe } from '../../../../../pipes/temp.pipe';
     SvgIconComponent,
     SvgPipe,
     TempPipe,
+    WeatherPipe,
   ],
 })
 export class WeatherHeaderComponent {

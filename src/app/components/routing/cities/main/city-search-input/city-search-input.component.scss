@@ -1,0 +1,17 @@
+@import 'mixins';
+@import 'variables';
+
+:host {
+  .form {
+    input {
+      &[disabled] {
+        background-color: $color-background;
+        color: $color-background;
+
+        &::placeholder {
+          color: $color-background;
+        }
+      }
+    }
+  }
+}
