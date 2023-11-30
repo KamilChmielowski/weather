@@ -6,6 +6,11 @@ export interface SettingsModel {
   distance: Distance,
 }
 
+export interface Setting<T> {
+  key: T,
+  value: string;
+}
+
 export enum Temperature {
   celsius = 'c',
   fahrenheit = 'f',

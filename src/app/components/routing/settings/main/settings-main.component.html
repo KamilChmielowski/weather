@@ -7,7 +7,7 @@
 
       <app-options-button
         [selectedIndex]="temperature | settingIndex : settingsService.settings.temperature"
-        [options]="temperature | keyvalue"
+        [options]="temperature"
         (key$)="settingsService.temperature = $event">
       </app-options-button>
 
@@ -15,7 +15,7 @@
 
       <app-options-button
         [selectedIndex]="windSpeed | settingIndex : settingsService.settings.windSpeed"
-        [options]="windSpeed | keyvalue"
+        [options]="windSpeed"
         (key$)="settingsService.windSpeed = $event">
       </app-options-button>
 
@@ -23,7 +23,7 @@
 
       <app-options-button
         [selectedIndex]="pressure | settingIndex : settingsService.settings.pressure"
-        [options]="pressure | keyvalue"
+        [options]="pressure"
         (key$)="settingsService.pressure = $event">
       </app-options-button>
 
@@ -31,7 +31,7 @@
 
       <app-options-button
         [selectedIndex]="precitipation | settingIndex : settingsService.settings.precitipation"
-        [options]="precitipation | keyvalue"
+        [options]="precitipation"
         (key$)="settingsService.precitipation = $event">
       </app-options-button>
 
@@ -39,7 +39,7 @@
 
       <app-options-button
         [selectedIndex]="distance | settingIndex : settingsService.settings.distance"
-        [options]="distance | keyvalue"
+        [options]="distance"
         (key$)="settingsService.distance = $event">
       </app-options-button>
     </div>

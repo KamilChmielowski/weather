@@ -7,6 +7,7 @@ import {
   Distance,
   Precitipation,
   Pressure,
+  Setting,
   Temperature,
   WindSpeed
 } from '../../../../services/settings/settings.model';
@@ -30,33 +31,33 @@ import { SettingIndexPipe } from './setting-index.pipe';
   ],
 })
 export class SettingsMainComponent {
-  readonly temperature = new Map([
-    [ Temperature.celsius, 'Celsius' ],
-    [ Temperature.fahrenheit, 'Fahrenheit' ],
-  ]);
+  readonly temperature: Setting<Temperature>[] = [
+    { key: Temperature.celsius, value: 'Celsius' },
+    { key: Temperature.fahrenheit, value: 'Fahrenheit' },
+  ];
 
-  readonly windSpeed = new Map([
-    [ WindSpeed.kmPerHour, 'km/h' ],
-    [ WindSpeed.mPerSec, 'm/s' ],
-    [ WindSpeed.knots, 'Knots' ],
-  ]);
+  readonly windSpeed: Setting<WindSpeed>[] = [
+    { key: WindSpeed.kmPerHour, value: 'km/h' },
+    { key: WindSpeed.mPerSec, value: 'm/s' },
+    { key: WindSpeed.knots, value: 'Knots' },
+  ];
 
-  readonly pressure = new Map([
-    [ Pressure.hectoPascal, 'hPa' ],
-    [ Pressure.inches, 'Inches of mercury' ],
-    [ Pressure.kiloPascal, 'kPa' ],
-    [ Pressure.mm, 'mmHg' ],
-  ]);
+  readonly pressure: Setting<Pressure>[] = [
+    { key: Pressure.hectoPascal, value: 'hPa' },
+    { key: Pressure.inches, value: 'Inches of mercury' },
+    { key: Pressure.kiloPascal, value: 'kPa' },
+    { key: Pressure.mm, value: 'mmHg' },
+  ];
 
-  readonly precitipation = new Map([
-    [ Precitipation.milimeters, 'Milimeters' ],
-    [ Precitipation.inches, 'Inches' ],
-  ]);
+  readonly precitipation: Setting<Precitipation>[] = [
+    { key: Precitipation.milimeters, value: 'Milimeters' },
+    { key: Precitipation.inches, value: 'Inches' },
+  ];
 
-  readonly distance = new Map([
-    [ Distance.kilometers, 'Kilometers' ],
-    [ Distance.miles, 'Miles' ],
-  ]);
+  readonly distance: Setting<Distance>[] = [
+    { key: Distance.kilometers, value: 'Kilometers' },
+    { key: Distance.miles, value: 'Miles' },
+  ];
 
   constructor(public settingsService: SettingsService) {}
 }
