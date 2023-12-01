@@ -28,6 +28,17 @@
         font-size: 3rem;
         font-weight: 600;
       }
+
     }
+
+    svg-icon {
+      margin-right: 1rem;
+    }
+  }
+}
+
+:host-context(.icon-8) {
+  header {
+    @include svgSize(8rem, 'svg-icon');
   }
 }

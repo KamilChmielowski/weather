@@ -12,7 +12,6 @@ import { WeatherDataComponent } from '../../../services/weather/weather-data.com
   selector: 'app-aside',
   standalone: true,
   templateUrl: './cities.component.html',
-  styleUrls: ['./cities.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { 'class': 'layout-page' },
   imports: [
