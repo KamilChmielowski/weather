@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { SvgIconComponent } from 'angular-svg-icon';
 
 import { RealtimeWeatherResponse } from '../../../../../services/weather/weather.model';
+import { StateService } from '../../../../../services/state/state.service';
 import { SvgPipe } from '../../../../../pipes/svg.pipe';
 import { TempPipe } from '../../../../../pipes/temp.pipe';
 import { WeatherPipe } from '../../../../../pipes/weather.pipe';
@@ -24,4 +25,6 @@ import { WeatherPipe } from '../../../../../pipes/weather.pipe';
 })
 export class WeatherHeaderComponent {
   @Input() weather: RealtimeWeatherResponse | undefined;
+
+  constructor(public state: StateService,) {}
 }

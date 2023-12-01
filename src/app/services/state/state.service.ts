@@ -1,25 +1,38 @@
 import { Injectable } from '@angular/core';
 
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
+
+import { LocationModel } from './state.model';
 import { RealtimeWeatherResponse } from '../weather/weather.model';
 
 @Injectable({ providedIn: 'root' })
 export class StateService {
-  private _location$ = new Subject<[number, number]>();
+  private _location?: LocationModel;
+  private _locations: LocationModel[] = [];
+  private _weathers: (RealtimeWeatherResponse | undefined)[] = [];
+
+  private _location$ = new Subject<LocationModel>();
   private _weather$ = new BehaviorSubject<RealtimeWeatherResponse | undefined>(undefined);
 
-  private _city: string = '';
-  private _cities: string[] =  [];
+  private index = 0;
 
-  get city(): string {
-    return this._city || ''
+  get locations(): LocationModel[] {
+    return this._locations;
   }
 
-  get cities(): string[] {
-    return this._cities;
+  get location(): LocationModel | undefined {
+    return this._location;
   }
 
-  get location$(): Observable<[number, number]> {
+  get weathers(): (RealtimeWeatherResponse | undefined)[] {
+    return this._weathers;
+  }
+
+  get weather(): RealtimeWeatherResponse | undefined {
+    return this._weathers[this.index];
+  }
+
+  get location$(): Observable<LocationModel> {
     return this._location$.asObservable();
   }
 
@@ -27,19 +40,27 @@ export class StateService {
     return this._weather$.asObservable();
   }
 
-  updateLocation(location: [number, number], city: string | undefined): void {
-    this._location$.next(location);
-    this._city = city || '';
-    this.addCity(city);
-  }
-
-  addCity(city: string | undefined): void {
-    if (city) {
-      this._cities.push(city);
+  addLocation(location: LocationModel): void {
+    if (this._locations.length < 5 && this._locations.findIndex(value => value.city === location.city) === -1) {
+      this._locations.push(location);
+      this.index = this._locations.length - 1;
+      this._location$.next(this._locations[this.index]);
     }
   }
 
-  updateWeather(weather: RealtimeWeatherResponse): void {
+  updateLocation(location: LocationModel): void {
+    this._location = location;
+    this._location$.next(location);
+  }
+
+  changeLocation(city: string): void {
+    this.index = this._locations.findIndex(location => location.city === city);
+    this._location = this._locations[this.index];
+    this._location$.next(this._location);
+  }
+
+  addWeather(weather: RealtimeWeatherResponse | undefined): void {
+    this.weathers[this.index] = weather;
     this._weather$.next(weather);
   }
 }

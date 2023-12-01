@@ -53,15 +53,18 @@ export class SearchInputComponent extends StateComponent implements OnInit {
 
   ngOnInit() {
     this.fetchLocationData();
-    if (this.stateService.city) {
-      this.setSearchValueProgrammatically(this.stateService.city);
+    if (this.stateService.location) {
+      this.setSearchValueProgrammatically(this.stateService.location.city);
     }
   }
 
   selectLocation(item: GeoAutocompleteFeature): void {
     if (this.form.controls.search.value !== item.properties.city) {
       this.setSearchValueProgrammatically(item.properties.city || null);
-      this.stateService.updateLocation([item.properties.lat as number, item.properties.lon as number], item.properties.city);
+      this.stateService.updateLocation({
+        city: item.properties.city as string,
+        coords: [item.properties.lat as number, item.properties.lon as number],
+      });
     }
     this.showSuggestions = false;
   }

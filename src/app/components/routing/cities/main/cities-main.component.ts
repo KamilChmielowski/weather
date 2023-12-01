@@ -27,7 +27,6 @@ export class CitiesMainComponent {
 
   constructor(public stateService: StateService) {}
 
-
   addNewLocation(): void {
     this.searchDisabled = false;
   }

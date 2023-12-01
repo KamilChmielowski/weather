@@ -1,9 +1,11 @@
 <article>
   <app-city-search-input [disabled]="searchDisabled" (city$)="addCity()"></app-city-search-input>
 
-  <app-city-item *ngFor="let city of stateService.cities" [class.current]="stateService.city === city" [city]="city"></app-city-item>
+  <app-city-item *ngFor="let item of stateService.locations"
+                 [class.current]="stateService.location?.city === item.city" [city]="item.city" (click)="stateService.changeLocation(item.city)">
+  </app-city-item>
 
-  <button class="add-city card" (click)="addNewLocation()">
+  <button class="add-city card" (click)="addNewLocation()" *ngIf="stateService.locations.length < 5">
     <svg-icon [src]="'other/add' | svg"></svg-icon>
     <span>Add new location</span>
   </button>

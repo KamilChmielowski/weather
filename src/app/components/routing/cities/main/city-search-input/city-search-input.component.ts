@@ -52,10 +52,13 @@ export class CitySearchInputComponent extends SearchInputComponent implements On
   }
 
   override selectLocation(item: GeoAutocompleteFeature): void {
-    if (this.stateService.city !== item.properties.city) {
-     this.city$.emit(item.properties.city);
+    if (this.stateService.location?.city !== item.properties.city) {
+      this.city$.emit(item.properties.city);
       this.setSearchValueProgrammatically('');
-      this.stateService.updateLocation([item.properties.lat as number, item.properties.lon as number], item.properties.city);
+      this.stateService.addLocation({
+        city: item.properties.city as string,
+        coords: [item.properties.lat as number, item.properties.lon as number],
+      });
     }
     this.showSuggestions = false;
   }
