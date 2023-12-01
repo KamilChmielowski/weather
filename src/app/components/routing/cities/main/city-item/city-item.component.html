@@ -1,13 +1,13 @@
 <button class="city-item card">
   <div class="container">
-    <svg-icon [src]="'weather/sunny' | svg"></svg-icon>
+    <svg-icon [src]="iconSrc"></svg-icon>
 
     <div class="text">
       <p class="city">{{ city }}</p>
 
-      <p class="hour">10:23</p>
+      <p class="date">{{ date }}</p>
     </div>
   </div>
 
-  <p class="temp">31°</p>
+  <p class="temp">{{ temp }}</p>
 </button>

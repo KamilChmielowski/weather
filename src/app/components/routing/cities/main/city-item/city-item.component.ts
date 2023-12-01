@@ -18,6 +18,7 @@ import { SvgPipe } from '../../../../../pipes/svg.pipe';
 })
 export class CityItemComponent {
   @Input() city!: string;
-  @Input() hour!: string;
-  @Input() temp!: string;
+  @Input() date!: Date | undefined;
+  @Input() temp!: string | undefined;
+  @Input() iconSrc: string = '';
 }

@@ -1,8 +1,13 @@
 <article>
   <app-city-search-input [disabled]="searchDisabled" (city$)="addCity()"></app-city-search-input>
 
-  <app-city-item *ngFor="let item of stateService.locations"
-                 [class.current]="stateService.location?.city === item.city" [city]="item.city" (click)="stateService.changeLocation(item.city)">
+  <app-city-item *ngFor="let item of stateService.locations; let i = index"
+                 [class.current]="stateService.location?.city === item.city"
+                 [city]="item.city"
+                 [date]="stateService.weathers[i]?.location?.localtime"
+                 [temp]="stateService.weathers[i] | temp"
+                 [iconSrc]="stateService.weathers[i]?.current?.condition | weather"
+                 (click)="stateService.changeLocation(item.city)">
   </app-city-item>
 
   <button class="add-city card" (click)="addNewLocation()" *ngIf="stateService.locations.length < 5">
