@@ -1,12 +1,16 @@
 <div [formGroup]="form" class="form" (mouseleave)="mouseleave()" (mouseenter)="mouseenter()">
   <input placeholder="Enter location address here..." aria-label="Enter location address here"
-         formControlName="search" (focusin)="showSuggestions = true" (focusout)="focusout()"/>
+         formControlName="search" (focusin)="focusin()" (focusout)="focusout()"/>
 
   <div *ngIf="searchResults && showSuggestions" class="suggestions">
     <button *ngFor="let item of searchResults.features"
       (click)="selectLocation(item)">
       {{ item.properties.city + ', ' + item.properties.country }}
     </button>
+  </div>
+
+  <div class="hint" *ngIf="isFocused && (form?.controls?.search?.value?.length || 0) < 3">
+    {{ form.controls.search.value?.length }}/3
   </div>
 
   <svg-icon *ngIf="isLoading" [src]="'loader/circle' | svg"></svg-icon>

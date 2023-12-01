@@ -35,6 +35,7 @@ export class SearchInputComponent extends StateComponent implements OnInit {
     search: new FormControl<string>('')
   })
 
+  isFocused = false;
   isLoading = false;
   showSuggestions = false;
   skipRequest = false;
@@ -69,10 +70,16 @@ export class SearchInputComponent extends StateComponent implements OnInit {
     this.showSuggestions = false;
   }
 
+  focusin(): void {
+    this.showSuggestions = true;
+    this.isFocused = true;
+  }
+
   focusout(): void {
     if (!this.insideForm) {
       this.showSuggestions = false;
     }
+    this.isFocused = false;
   }
 
   mouseleave(): void {

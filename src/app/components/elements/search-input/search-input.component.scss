@@ -51,6 +51,14 @@
       }
     }
 
+    .hint {
+      position: absolute;
+      bottom: 0.8rem;
+      right: 1rem;
+      font-size: 0.6rem;
+      color: $color-shadow;
+    }
+
     svg-icon {
       position: absolute;
       top: 0.4rem;
