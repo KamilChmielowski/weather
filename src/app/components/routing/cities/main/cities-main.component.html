@@ -1,5 +1,7 @@
 <article>
-  <app-city-search-input [disabled]="searchDisabled" (city$)="addCity()"></app-city-search-input>
+  <app-city-search-input
+    [disabled]="searchDisabled" (city$)="searchDisabled=true" (focusout$)="focusout()">
+  </app-city-search-input>
 
   <app-city-item *ngFor="let item of stateService.locations; let i = index"
                  [class.current]="stateService.location?.city === item.city"
@@ -10,8 +12,14 @@
                  (click)="stateService.changeLocation(item.city)">
   </app-city-item>
 
-  <button class="add-city card" (click)="addNewLocation()" *ngIf="stateService.locations.length < 5">
+  <button class="add-city card" (click)="addNewLocation()" *ngIf="stateService.locations.length < 5"
+    [disabled]="!searchDisabled">
     <svg-icon [src]="'other/add' | svg"></svg-icon>
-    <span>Add new location</span>
+    <span>{{ searchDisabled ? 'Add new location' : 'Adding location...' }}</span>
   </button>
+
+  <ng-container *ngFor="let number of [1,2,3,4]">
+    <div class="placeholder card" *ngIf="stateService.locations.length - number < 0"></div>
+  </ng-container>
+
 </article>

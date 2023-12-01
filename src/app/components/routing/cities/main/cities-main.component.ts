@@ -28,14 +28,20 @@ import { WeatherPipe } from '../../../../pipes/weather.pipe';
 })
 export class CitiesMainComponent {
   searchDisabled = true;
+  blockButton = false;
 
   constructor(public stateService: StateService) {}
 
   addNewLocation(): void {
+    if (this.blockButton) {
+      return;
+    }
     this.searchDisabled = false;
   }
 
-  addCity(): void {
+  focusout(): void {
     this.searchDisabled = true;
+    this.blockButton = true;
+    setTimeout(() => this.blockButton = false, 100);
   }
 }

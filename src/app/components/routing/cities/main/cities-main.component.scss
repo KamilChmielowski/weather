@@ -9,7 +9,10 @@
 
     app-city-item {
       display: block;
-      margin-bottom: 1rem;
+
+      &:not(:last-child) {
+        margin-bottom: 1rem;
+      }
     }
 
     .add-city {
@@ -20,6 +23,7 @@
       height: 6rem;
       background-color: rgba($color-foreground, 0.5);
       transition: background-color $transition-slow;
+      margin-bottom: 1rem;
 
       &:hover , &:focus {
         background-color: $color-foreground;
@@ -27,6 +31,20 @@
 
         svg-icon {
           fill: $color-text;
+        }
+      }
+
+      &[disabled] {
+        cursor: default;
+        background-color: #666;
+
+        &:hover , &:focus {
+          background-color: #666;
+          color: $color-text;
+
+          svg-icon {
+            fill: $color-text;
+          }
         }
       }
 
@@ -38,6 +56,16 @@
 
       span {
         font-size: 1.2rem;
+      }
+    }
+
+    .placeholder {
+      height: 6rem;
+      border: 2px dotted $color-shadow;
+      box-sizing: border-box;
+
+      &:not(:last-of-type) {
+        margin-bottom: 1rem;
       }
     }
   }

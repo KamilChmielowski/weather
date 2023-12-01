@@ -33,6 +33,7 @@ export class CitySearchInputComponent extends SearchInputComponent implements On
   @Input() disabled = false;
 
   @Output() readonly city$ = new EventEmitter<string>();
+  @Output() readonly focusout$ = new EventEmitter<void>();
 
   @ViewChild('input', { static: false }) private readonly inputRef!: ElementRef<HTMLInputElement>;
 
@@ -61,5 +62,10 @@ export class CitySearchInputComponent extends SearchInputComponent implements On
       });
     }
     this.showSuggestions = false;
+  }
+
+  override focusout() {
+    super.focusout();
+    this.focusout$.emit();
   }
 }
