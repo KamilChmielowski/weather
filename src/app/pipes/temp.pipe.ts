@@ -12,7 +12,10 @@ export class TempPipe implements PipeTransform {
   constructor(private settingsService: SettingsService) {}
 
   transform(weather: RealtimeWeatherResponse | undefined, feelslike = false): string {
-    return this.settingsService.settings.temperature === Temperature.celsius
+    if (!weather) {
+      return '';
+    }
+    return !weather ? '' : this.settingsService.settings.temperature === Temperature.celsius
       ? (feelslike ? weather?.current?.feelslike_c : weather?.current?.temp_c) + ' °C'
       : (feelslike ? weather?.current?.feelslike_f : weather?.current?.temp_f) + ' °F' || '';
   }

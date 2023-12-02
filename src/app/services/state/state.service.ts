@@ -7,14 +7,20 @@ import { RealtimeWeatherResponse } from '../weather/weather.model';
 
 @Injectable({ providedIn: 'root' })
 export class StateService {
+  private _isLoading = true;
   private _location?: LocationModel;
   private _locations: LocationModel[] = [];
   private _weathers: (RealtimeWeatherResponse | undefined)[] = [];
 
+  private _isLoading$ = new BehaviorSubject<boolean>(this._isLoading);
   private _location$ = new Subject<LocationModel>();
   private _weather$ = new BehaviorSubject<RealtimeWeatherResponse | undefined>(undefined);
 
   private index = 0;
+
+  get isLoading(): boolean {
+    return this._isLoading;
+  }
 
   get locations(): LocationModel[] {
     return this._locations;
@@ -32,12 +38,21 @@ export class StateService {
     return this._weathers[this.index];
   }
 
+  get isLoading$(): Observable<boolean> {
+    return this._isLoading$.asObservable();
+  }
+
   get location$(): Observable<LocationModel> {
     return this._location$.asObservable();
   }
 
   get weather$(): Observable<RealtimeWeatherResponse | undefined> {
     return this._weather$.asObservable();
+  }
+
+  updateLoading(isLoading: boolean) {
+    this._isLoading = isLoading;
+    this._isLoading$.next(isLoading);
   }
 
   addLocation(location: LocationModel): void {

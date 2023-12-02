@@ -12,6 +12,9 @@ export class WindPipe implements PipeTransform {
   constructor(private settingsService: SettingsService) {}
 
   transform(weather: RealtimeWeatherResponse | undefined): string {
+    if (!weather) {
+      return '';
+    }
     switch(this.settingsService.settings.windSpeed) {
       case WindSpeed.kmPerHour: return weather?.current?.wind_kph + ' km/h'
       case WindSpeed.mPerSec: return weather?.current?.wind_mph + ' m/s'

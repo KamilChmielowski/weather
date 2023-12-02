@@ -12,6 +12,9 @@ export class PrecitipationPipe implements PipeTransform {
   constructor(private settingsService: SettingsService) {}
 
   transform(weather: RealtimeWeatherResponse | undefined): string {
+    if (!weather) {
+      return '';
+    }
     return Precitipation.inches === this.settingsService.precitipation
       ? `${ weather?.current?.precip_in } in`
       : `${ weather?.current?.precip_mm } mm`;

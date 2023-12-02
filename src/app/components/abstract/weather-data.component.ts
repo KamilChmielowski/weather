@@ -1,8 +1,8 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 
-import { StateComponent } from '../state/state.component';
-import { RealtimeWeatherResponse } from './weather.model';
-import { StateService } from '../state/state.service';
+import { RealtimeWeatherResponse } from '../../services/weather/weather.model';
+import { StateComponent } from './state.component';
+import { StateService } from '../../services/state/state.service';
 
 @Component({ template: '' })
 export abstract class WeatherDataComponent extends StateComponent implements OnInit {

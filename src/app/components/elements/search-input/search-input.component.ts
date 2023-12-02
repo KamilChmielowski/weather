@@ -13,7 +13,7 @@ import { SvgIconComponent } from 'angular-svg-icon';
 
 import { GeoapifyService } from '../../../services/geoapify/geoapify.service';
 import { GeoAutocompleteFeature, GeoAutocompleteResponse } from '../../../services/geoapify/geoautocomplete.model';
-import { StateComponent } from '../../../services/state/state.component';
+import { StateComponent } from '../../abstract/state.component';
 import { StateService } from '../../../services/state/state.service';
 import { SvgPipe } from '../../../pipes/svg.pipe';
 

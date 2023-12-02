@@ -1,4 +1,6 @@
-export const GeoAutocompleteMock = {
+import { of } from 'rxjs';
+
+export const geoAutocompleteMock = of({
   "type": "FeatureCollection",
   "features": [
     {
@@ -171,4 +173,4 @@ export const GeoAutocompleteMock = {
       "expected_type": "unknown"
     }
   }
-}
+});

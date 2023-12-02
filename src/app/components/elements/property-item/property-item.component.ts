@@ -2,6 +2,8 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { SvgIconComponent } from 'angular-svg-icon';
+
+import { LoadingComponent } from '../../abstract/loading.component';
 import { SvgPipe } from '../../../pipes/svg.pipe';
 
 @Component({
@@ -16,7 +18,7 @@ import { SvgPipe } from '../../../pipes/svg.pipe';
         SvgPipe,
     ],
 })
-export class PropertyItemComponent {
+export class PropertyItemComponent extends LoadingComponent {
   @Input() icon!: string;
   @Input() label!: string;
   @Input() value!: string;

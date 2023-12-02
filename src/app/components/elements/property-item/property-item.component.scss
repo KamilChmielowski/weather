@@ -19,5 +19,12 @@
     margin-left: 1.9rem;
     font-size: 1.4rem;
     font-weight: 600;
+    min-height: 1.7rem;
+  }
+}
+
+:host-context(.loading) {
+  .value {
+    animation: $skeleton-animation-card;
   }
 }

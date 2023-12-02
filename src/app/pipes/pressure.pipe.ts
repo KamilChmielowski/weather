@@ -12,6 +12,9 @@ export class PressurePipe implements PipeTransform {
   constructor(private settingsService: SettingsService) {}
 
   transform(weather: RealtimeWeatherResponse | undefined): string {
+    if (!weather) {
+      return '';
+    }
     switch(this.settingsService.settings.pressure) {
       case Pressure.hectoPascal: return weather?.current?.pressure_mb + ' hPa'
       case Pressure.kiloPascal: return ((weather?.current?.pressure_mb || 0) * 0.1).toFixed(2) + ' kPa'

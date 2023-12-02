@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { switchMap } from 'rxjs';
 
 import { GeoapifyService } from './services/geoapify/geoapify.service';
-import { StateComponent } from './services/state/state.component';
+import { StateComponent } from './components/abstract/state.component';
 import { StateService } from './services/state/state.service';
 import { WeatherService } from './services/weather/weather.service';
 

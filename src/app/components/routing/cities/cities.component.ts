@@ -6,7 +6,7 @@ import { SvgIconComponent } from 'angular-svg-icon';
 import { CitiesAsideComponent } from './aside/cities-aside.component';
 import { CitiesMainComponent } from './main/cities-main.component';
 import { StateService } from '../../../services/state/state.service';
-import { WeatherDataComponent } from '../../../services/weather/weather-data.component';
+import { WeatherDataComponent } from '../../abstract/weather-data.component';
 
 @Component({
   selector: 'app-aside',

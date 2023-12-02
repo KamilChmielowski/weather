@@ -10,14 +10,20 @@
     @include svgSize(12rem, 'svg-icon');
 
     .details {
-      margin-left: 1rem;
+      margin: 0 1rem;
+      width: 100%;
 
       h1 {
         font-size: 2rem;
+        min-height: 2.5rem;
       }
 
       h1, p {
         margin-bottom: 1rem;
+      }
+
+      .condition, .space {
+        min-height: 1.2rem;
       }
 
       .space {
@@ -27,8 +33,8 @@
       .temp {
         font-size: 3rem;
         font-weight: 600;
+        min-height: 3.7rem;
       }
-
     }
 
     svg-icon {
@@ -41,4 +47,26 @@
   header {
     @include svgSize(8rem, 'svg-icon');
   }
+}
+
+:host-context(.loading) {
+  header {
+    .details {
+      h1, p {
+        animation: $skeleton-animation;
+      }
+
+      .condition, .space {
+        width: 50%;
+      }
+
+      .temp {
+        width: 65%;
+      }
+    }
+
+    svg-icon {
+      animation: $skeleton-animation;
+    }
+  };
 }

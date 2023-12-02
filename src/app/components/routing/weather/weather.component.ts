@@ -5,7 +5,7 @@ import { SvgIconComponent } from 'angular-svg-icon';
 
 import { StateService } from '../../../services/state/state.service';
 import { WeatherAsideComponent } from './aside/weather-aside.component';
-import { WeatherDataComponent } from '../../../services/weather/weather-data.component';
+import { WeatherDataComponent } from '../../abstract/weather-data.component';
 import { WeatherMainComponent } from './main/weather-main.component';
 
 @Component({

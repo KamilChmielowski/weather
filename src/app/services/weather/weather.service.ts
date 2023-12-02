@@ -1,11 +1,12 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { catchError, Observable } from 'rxjs';
+import { catchError, finalize, Observable, tap } from 'rxjs';
 
 import { mockRealtimeWeather } from './weather.mock';
 import { RealtimeWeatherResponse } from './weather.model';
 import { environment } from '../../../environments/environment';
+import { StateService } from '../state/state.service';
 
 export interface RealtimeWeatherParams {
   q: string;
@@ -14,7 +15,10 @@ export interface RealtimeWeatherParams {
 @Injectable({ providedIn: 'root' })
 export class WeatherService {
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(
+    private httpClient: HttpClient,
+    private stateService: StateService,
+  ) {}
 
   getRealtimeWeather(searchParams: RealtimeWeatherParams): Observable<RealtimeWeatherResponse> {
     return environment.isProduction
@@ -27,7 +31,11 @@ export class WeatherService {
         params: new HttpParams({
           fromObject: JSON.parse(JSON.stringify(searchParams)),
         }),
-      }).pipe(catchError(() => mockRealtimeWeather))
+      }).pipe(
+        tap(() => this.stateService.updateLoading(true)),
+        catchError(() => mockRealtimeWeather),
+        finalize(() => this.stateService.updateLoading(false)),
+      )
       : mockRealtimeWeather;
   }
 }

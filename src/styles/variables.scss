@@ -8,3 +8,23 @@ $color-button: #35455e;
 $box-shadow: 0 3px 4px 0 #333;
 $transition-hover: cubic-bezier(0.79, 0, 0.22, 1) 300ms;
 $transition-slow: cubic-bezier(0.79, 0, 0.22, 1) 500ms;
+$skeleton-animation: skeleton-loading 1s linear infinite alternate;
+$skeleton-animation-card: skeleton-loading-card 1s linear infinite alternate;
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: $color-foreground;
+  }
+  100% {
+    background-color: $color-button;
+  }
+}
+
+@keyframes skeleton-loading-card {
+  0% {
+    background-color: rgba($color-button, 0.15);
+  }
+  100% {
+    background-color: $color-button;
+  }
+}

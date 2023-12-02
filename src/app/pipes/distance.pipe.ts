@@ -12,7 +12,10 @@ export class DistancePipe implements PipeTransform {
   constructor(private settingsService: SettingsService) {}
 
   transform(weather: RealtimeWeatherResponse | undefined): string {
-    return Distance.kilometers === this.settingsService.distance
+    if (!weather) {
+      return '';
+    }
+    return Distance.kilometers === this.settingsService.settings.distance
       ? `${ weather?.current?.vis_km } km`
       : `${ weather?.current?.vis_miles } mi`;
   }

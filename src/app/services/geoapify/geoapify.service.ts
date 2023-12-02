@@ -1,18 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { delay, Observable, of } from 'rxjs';
+import { catchError, delay, Observable } from 'rxjs';
 
 import { environment } from '../../../environments/environment';
 import { GeolocationResponse } from './geolocation.model';
 import { GeoAutocompleteResponse } from './geoautocomplete.model';
-import { GeoAutocompleteMock } from './geoautocomplete.mock';
+import { geoAutocompleteMock } from './geoAutocompleteMock';
 
 @Injectable({ providedIn: 'root' })
 export class GeoapifyService {
   private readonly apiKey = '3d8f5406c9304cc58cabfdb82ac768f9';
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient,) {}
 
   getGeolocation(city: string): Observable<GeolocationResponse> {
     return this.httpClient.get<GeolocationResponse>(
@@ -24,7 +24,9 @@ export class GeoapifyService {
     return environment.isProduction
       ? this.httpClient.get<GeoAutocompleteResponse>(
       `https://api.geoapify.com/v1/geocode/autocomplete?text=${text}&apiKey=${this.apiKey}`
-      ) : of(GeoAutocompleteMock).pipe(
+      ).pipe(
+        catchError(() => geoAutocompleteMock),
+      ) : geoAutocompleteMock.pipe(
         delay(500),
       );
   }
