@@ -4,7 +4,9 @@
 
     <p class="condition">{{ weather?.current?.condition?.text }}</p>
 
-    <p class="space">{{ weather?.location?.localtime }}</p>
+    <p class="date1">{{ weather?.location?.localtime | date: 'EEEE, d.M.y' }}</p>
+
+    <p class="date2">{{ weather?.location?.localtime | date: 'h:mm:ss a zzzz' }}</p>
 
     <p class="temp">{{ weather | temp }}</p>
   </section>

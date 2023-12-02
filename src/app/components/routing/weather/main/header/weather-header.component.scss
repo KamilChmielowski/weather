@@ -18,15 +18,15 @@
         min-height: 2.5rem;
       }
 
-      h1, p {
+      h1, p, .date1 {
         margin-bottom: 1rem;
       }
 
-      .condition, .space {
+      .condition, .date1, .date2 {
         min-height: 1.2rem;
       }
 
-      .space {
+      .date2 {
         margin-bottom: 2rem;
       }
 
@@ -56,8 +56,8 @@
         animation: $skeleton-animation;
       }
 
-      .condition, .space {
-        width: 50%;
+      .condition, .date1, .date2 {
+        width: 60%;
       }
 
       .temp {
