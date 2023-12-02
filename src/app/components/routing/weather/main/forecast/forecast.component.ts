@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { SvgIconComponent } from 'angular-svg-icon';
 
 import { HourItemComponent } from './hour-item/hour-item.component';
-import { RealtimeWeatherResponse } from '../../../../../services/weather/weather.model';
+import { WeatherDataComponent } from '../../../../abstract/weather-data.component';
 
 @Component({
   selector: 'app-forecast',
@@ -18,6 +18,4 @@ import { RealtimeWeatherResponse } from '../../../../../services/weather/weather
     SvgIconComponent,
   ],
 })
-export class ForecastComponent {
-  @Input() weather: RealtimeWeatherResponse | undefined;
-}
+export class ForecastComponent extends WeatherDataComponent {}

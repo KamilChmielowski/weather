@@ -5,7 +5,7 @@ import { SvgIconComponent } from 'angular-svg-icon';
 
 import { DayItemComponent } from '../../weather/aside/day-item/day-item.component';
 import { HourItemComponent } from '../../weather/main/forecast/hour-item/hour-item.component';
-import { RealtimeWeatherResponse } from '../../../../services/weather/weather.model';
+import { WeatherDataComponent } from '../../../abstract/weather-data.component';
 import { WeatherHeaderComponent } from '../../weather/main/header/weather-header.component';
 
 @Component({
@@ -22,6 +22,4 @@ import { WeatherHeaderComponent } from '../../weather/main/header/weather-header
     WeatherHeaderComponent,
   ],
 })
-export class CitiesAsideComponent {
-  @Input() weather: RealtimeWeatherResponse | undefined;
-}
+export class CitiesAsideComponent extends WeatherDataComponent {}

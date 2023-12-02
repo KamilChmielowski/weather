@@ -2,9 +2,62 @@ export interface RealtimeWeatherParams {
   q: string;
 }
 
+export interface ForecastWeatherParams {
+  q: string;
+  days?: number;
+}
+
 export interface RealtimeWeatherResponse {
   location: RealtimeWeatherLocation,
   current: RealtimeWeatherCurrent,
+}
+
+export interface ForecastWeatherResponse extends RealtimeWeatherResponse {
+  forecast: {
+    forecastday: Forecastday[];
+  }
+}
+
+export interface Forecastday {
+  date: Date,
+  date_epoch: number,
+  day: ForecastWeatherDay,
+  astro: ForecastWeatherAstro,
+  hour: RealtimeWeatherCurrent[]
+}
+
+export interface ForecastWeatherDay {
+  maxtemp_c: number,
+  maxtemp_f: number,
+  mintemp_c: number,
+  mintemp_f:number,
+  avgtemp_c: number,
+  avgtemp_f: number,
+  maxwind_mph: number,
+  maxwind_kph: number,
+  totalprecip_mm: number,
+  totalprecip_in: number,
+  totalsnow_cm: number,
+  avgvis_km: number,
+  avgvis_miles: number,
+  avghumidity: number,
+  daily_will_it_rain: number,
+  daily_chance_of_rain: number,
+  daily_will_it_snow: number,
+  daily_chance_of_snow: number,
+  condition: RealtimeWeatherConditions,
+  uv: 1,
+}
+
+export interface ForecastWeatherAstro {
+  sunrise: Date,
+  sunset: Date,
+  moonrise: Date,
+  moonset: Date,
+  moon_phase: string,
+  moon_illumination: number,
+  is_moon_up: number,
+  is_sun_up: number,
 }
 
 export interface RealtimeWeatherLocation {

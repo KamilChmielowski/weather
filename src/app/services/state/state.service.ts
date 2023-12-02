@@ -2,19 +2,19 @@ import { Injectable } from '@angular/core';
 
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
+import { ForecastWeatherResponse } from '../weather/weather.model';
 import { LocationModel } from './state.model';
-import { RealtimeWeatherResponse } from '../weather/weather.model';
 
 @Injectable({ providedIn: 'root' })
 export class StateService {
   private _isLoading = true;
   private _location?: LocationModel;
   private _locations: LocationModel[] = [];
-  private _weathers: (RealtimeWeatherResponse | undefined)[] = [];
+  private _weathers: (ForecastWeatherResponse | undefined)[] = [];
 
   private _isLoading$ = new BehaviorSubject<boolean>(this._isLoading);
   private _location$ = new Subject<LocationModel>();
-  private _weather$ = new BehaviorSubject<RealtimeWeatherResponse | undefined>(undefined);
+  private _weather$ = new BehaviorSubject<ForecastWeatherResponse | undefined>(undefined);
 
   private index = 0;
 
@@ -30,11 +30,11 @@ export class StateService {
     return this._location;
   }
 
-  get weathers(): (RealtimeWeatherResponse | undefined)[] {
+  get weathers(): (ForecastWeatherResponse | undefined)[] {
     return this._weathers;
   }
 
-  get weather(): RealtimeWeatherResponse | undefined {
+  get weather(): ForecastWeatherResponse | undefined {
     return this._weathers[this.index];
   }
 
@@ -46,7 +46,7 @@ export class StateService {
     return this._location$.asObservable();
   }
 
-  get weather$(): Observable<RealtimeWeatherResponse | undefined> {
+  get weather$(): Observable<ForecastWeatherResponse | undefined> {
     return this._weather$.asObservable();
   }
 
@@ -74,7 +74,7 @@ export class StateService {
     this._location$.next(this._location);
   }
 
-  addWeather(weather: RealtimeWeatherResponse | undefined): void {
+  addWeather(weather: ForecastWeatherResponse | undefined): void {
     this.weathers[this.index] = weather;
     this._weather$.next(weather);
   }

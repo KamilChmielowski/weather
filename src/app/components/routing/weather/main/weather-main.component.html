@@ -1,13 +1,13 @@
 <article>
   <app-search-input></app-search-input>
 
-  <app-weather-header [weather]="weather"></app-weather-header>
+  <app-weather-header></app-weather-header>
 
   <ng-container *ngIf="!moreDetails">
-    <app-forecast class="card" [weather]="weather"></app-forecast>
+    <app-forecast class="card"></app-forecast>
 
-    <app-air-conditions class="card" [weather]="weather" (seeMore$)="moreDetails=true"></app-air-conditions>
+    <app-air-conditions class="card" (seeMore$)="moreDetails=true"></app-air-conditions>
   </ng-container>
 
-  <app-more-details *ngIf="moreDetails" [weather]="weather" (collapse$)="moreDetails=false"></app-more-details>
+  <app-more-details *ngIf="moreDetails" (collapse$)="moreDetails=false"></app-more-details>
 </article>

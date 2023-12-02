@@ -7,8 +7,8 @@ import { AirConditionsComponent } from './air-conditions/air-conditions.componen
 import { ForecastComponent } from './forecast/forecast.component';
 import { MoreDetailsComponent } from './more-details/more-details.component';
 import { SearchInputComponent } from '../../../elements/search-input/search-input.component';
-import { RealtimeWeatherResponse } from '../../../../services/weather/weather.model';
 import { WeatherAsideComponent } from '../aside/weather-aside.component';
+import { WeatherDataComponent } from '../../../abstract/weather-data.component';
 import { WeatherHeaderComponent } from './header/weather-header.component';
 
 @Component({
@@ -28,8 +28,6 @@ import { WeatherHeaderComponent } from './header/weather-header.component';
     SearchInputComponent,
   ],
 })
-export class WeatherMainComponent {
-  @Input() weather: RealtimeWeatherResponse | undefined;
-
+export class WeatherMainComponent extends WeatherDataComponent {
   moreDetails = false;
 }

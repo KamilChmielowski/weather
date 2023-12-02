@@ -7,8 +7,8 @@ import { DistancePipe } from '../../../../../pipes/distance.pipe';
 import { PrecitipationPipe } from '../../../../../pipes/precitipation.pipe';
 import { PressurePipe } from '../../../../../pipes/pressure.pipe';
 import { PropertyItemComponent } from '../../../../elements/property-item/property-item.component';
-import { RealtimeWeatherResponse } from '../../../../../services/weather/weather.model';
 import { TempPipe } from '../../../../../pipes/temp.pipe';
+import { WeatherDataComponent } from '../../../../abstract/weather-data.component';
 import { WindPipe } from '../../../../../pipes/wind.pipe';
 
 @Component({
@@ -28,8 +28,6 @@ import { WindPipe } from '../../../../../pipes/wind.pipe';
     WindPipe,
   ],
 })
-export class MoreDetailsComponent {
-  @Input() weather: RealtimeWeatherResponse | undefined;
-
+export class MoreDetailsComponent extends WeatherDataComponent {
   @Output() readonly collapse$ = new EventEmitter<void>();
 }

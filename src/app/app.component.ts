@@ -31,7 +31,8 @@ export class AppComponent extends StateComponent implements OnInit {
     this.subscription.add(
       this.stateService.location$.pipe(
         switchMap(model => this.weatherService
-          .getRealtimeWeather({ q: `${model.coords[0]},${model.coords[1]}` })
+          // .getRealtimeWeather({ q: `${model.coords[0]},${model.coords[1]}` })
+          .getForecastWeather({ q: model.city, days: 7 })
         )
       ).subscribe(weather => this.stateService.addWeather(weather))
     );

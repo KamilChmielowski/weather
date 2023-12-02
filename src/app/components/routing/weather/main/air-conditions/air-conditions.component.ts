@@ -6,7 +6,7 @@ import { SvgIconComponent } from 'angular-svg-icon';
 import { PrecitipationPipe } from '../../../../../pipes/precitipation.pipe';
 import { PressurePipe } from '../../../../../pipes/pressure.pipe';
 import { PropertyItemComponent } from '../../../../elements/property-item/property-item.component';
-import { RealtimeWeatherResponse } from '../../../../../services/weather/weather.model';
+import { WeatherDataComponent } from '../../../../abstract/weather-data.component';
 import { WindPipe } from '../../../../../pipes/wind.pipe';
 
 @Component({
@@ -24,8 +24,6 @@ import { WindPipe } from '../../../../../pipes/wind.pipe';
     WindPipe,
   ],
 })
-export class AirConditionsComponent {
-  @Input() weather: RealtimeWeatherResponse | undefined;
-
+export class AirConditionsComponent extends WeatherDataComponent {
   @Output() readonly seeMore$ = new EventEmitter<void>();
 }
