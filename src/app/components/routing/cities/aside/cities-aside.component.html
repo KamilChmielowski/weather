@@ -1,21 +1,54 @@
 <aside>
   <app-weather-header class="icon-8"></app-weather-header>
 
-<!--  <section class="card">-->
-<!--    <h2>Today's forecast</h2>-->
+  <section class="card">
+    <h2>Today's forecast</h2>
 
-<!--    <div class="hours">-->
-<!--      <app-hour-item [hour]="6" icon="sunny" [temp]="25"></app-hour-item>-->
-<!--      <app-hour-item [hour]="9" icon="sunny" [temp]="28"></app-hour-item>-->
-<!--      <app-hour-item [hour]="12" icon="sunny" [temp]="33"></app-hour-item>-->
-<!--    </div>-->
-<!--  </section>-->
+    <div class="hours">
+      <app-hour-item [hour]="currentHour <= 15 ? currentHour + 3 : currentHour <= 18 ? currentHour + 2 : 20"
+                     [condition]="weather?.forecast?.forecastday?.at(0)?.hour?.at(6)?.condition"
+                     [temp]="weather?.forecast?.forecastday?.at(0)?.hour?.at(6)?.temp_c | temp: weather?.forecast?.forecastday?.at(0)?.hour?.at(6)?.temp_f">
+      </app-hour-item>
 
-<!--  <section class="card">-->
-<!--    <h2>3-day forecast</h2>-->
+      <app-hour-item [hour]="currentHour <= 15 ? currentHour + 6 : currentHour <= 18 ? currentHour + 4 : 22"
+                     [condition]="weather?.forecast?.forecastday?.at(0)?.hour?.at(9)?.condition"
+                     [temp]="weather?.forecast?.forecastday?.at(0)?.hour?.at(9)?.temp_c | temp: weather?.forecast?.forecastday?.at(0)?.hour?.at(9)?.temp_f">
+      </app-hour-item>
 
-<!--    <app-day-item day="Today" icon="sunny" conditions="Sunny" tempDay="36" tempNight="22"></app-day-item>-->
-<!--    <app-day-item day="Tue" icon="sunny" conditions="Sunny" tempDay="37" tempNight="22"></app-day-item>-->
-<!--    <app-day-item day="Wed" icon="sunny" conditions="Sunny" tempDay="34" tempNight="19"></app-day-item>-->
-<!--  </section>-->
+      <app-hour-item [hour]="currentHour <= 15 ? currentHour + 9 : currentHour <= 18 ? currentHour + 6 : 24"
+                     [condition]="weather?.forecast?.forecastday?.at(0)?.hour?.at(12)?.condition"
+                     [temp]="weather?.forecast?.forecastday?.at(0)?.hour?.at(12)?.temp_c | temp: weather?.forecast?.forecastday?.at(0)?.hour?.at(12)?.temp_f">
+      </app-hour-item>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>3-day forecast</h2>
+
+    <app-day-item
+      day="Today"
+      [conditions]="weather?.forecast?.forecastday?.at(0)?.day?.condition"
+      [temp]="weather?.forecast?.forecastday?.at(0)?.day?.avgtemp_c | temp : weather?.forecast?.forecastday?.at(0)?.day?.avgtemp_f"
+      [maxTemp]="weather?.forecast?.forecastday?.at(0)?.day?.maxtemp_c | temp : weather?.forecast?.forecastday?.at(0)?.day?.maxtemp_f"
+      [minTemp]="weather?.forecast?.forecastday?.at(0)?.day?.mintemp_c | temp : weather?.forecast?.forecastday?.at(0)?.day?.mintemp_f"
+    ></app-day-item>
+
+    <app-day-item
+      [day]="weather?.location?.localtime | day : 1"
+      [conditions]="weather?.forecast?.forecastday?.at(1)?.day?.condition"
+      [temp]="weather?.forecast?.forecastday?.at(1)?.day?.avgtemp_c | temp : weather?.forecast?.forecastday?.at(1)?.day?.avgtemp_f"
+      [maxTemp]="weather?.forecast?.forecastday?.at(1)?.day?.maxtemp_c | temp : weather?.forecast?.forecastday?.at(1)?.day?.maxtemp_f"
+      [minTemp]="weather?.forecast?.forecastday?.at(1)?.day?.mintemp_c | temp : weather?.forecast?.forecastday?.at(1)?.day?.mintemp_f"
+      maxTemp="22">
+    </app-day-item>
+
+    <app-day-item
+      [day]="weather?.location?.localtime | day : 2"
+      [conditions]="weather?.forecast?.forecastday?.at(2)?.day?.condition"
+      [temp]="weather?.forecast?.forecastday?.at(2)?.day?.avgtemp_c | temp : weather?.forecast?.forecastday?.at(2)?.day?.avgtemp_f"
+      [maxTemp]="weather?.forecast?.forecastday?.at(2)?.day?.maxtemp_c | temp : weather?.forecast?.forecastday?.at(2)?.day?.maxtemp_f"
+      [minTemp]="weather?.forecast?.forecastday?.at(2)?.day?.mintemp_c | temp : weather?.forecast?.forecastday?.at(2)?.day?.mintemp_f"
+      maxTemp="19">
+    </app-day-item>
+  </section>
 </aside>

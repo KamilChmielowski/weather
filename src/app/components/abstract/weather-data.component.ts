@@ -20,7 +20,7 @@ export abstract class WeatherDataComponent extends LoadingComponent implements O
     this.observeWeather();
   }
 
-  private observeWeather(): void {
+  protected observeWeather(): void {
     this.subscription.add(
       this.stateService.weather$.subscribe(weather => {
         this.weather = weather;

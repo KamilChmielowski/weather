@@ -10,6 +10,7 @@
 
   p.shadow {
     margin-bottom: 0.5rem;
+    min-height: 0.95rem;
 
     .midday {
       font-size: 0.7rem;
@@ -32,6 +33,12 @@
 }
 
 :host-context(.loading) {
+  p.shadow {
+    animation: $skeleton-animation-card;
+    color: transparent;
+    width: 40%;
+  }
+
   p.temp {
     animation: $skeleton-animation-card;
     width: 80%;
