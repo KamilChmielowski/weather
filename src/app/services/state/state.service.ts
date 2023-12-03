@@ -57,6 +57,7 @@ export class StateService {
 
   addLocation(location: LocationModel): void {
     if (this._locations.length < 5 && this._locations.findIndex(value => value.city === location.city) === -1) {
+      this._location = location;
       this._locations.push(location);
       this.index = this._locations.length - 1;
       this._location$.next(this._locations[this.index]);

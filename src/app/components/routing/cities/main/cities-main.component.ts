@@ -6,9 +6,9 @@ import { SvgIconComponent } from 'angular-svg-icon';
 import { CityItemComponent } from './city-item/city-item.component';
 import { CitySearchInputComponent } from './city-search-input/city-search-input.component';
 import { SvgPipe } from '../../../../pipes/svg.pipe';
-import { StateService } from '../../../../services/state/state.service';
 import { TempPipe } from '../../../../pipes/temp.pipe';
 import { WeatherPipe } from '../../../../pipes/weather.pipe';
+import { WeatherDataComponent } from '../../../abstract/weather-data.component';
 
 @Component({
   selector: 'app-cities-main',
@@ -26,11 +26,9 @@ import { WeatherPipe } from '../../../../pipes/weather.pipe';
     WeatherPipe,
   ],
 })
-export class CitiesMainComponent {
+export class CitiesMainComponent extends WeatherDataComponent {
   searchDisabled = true;
   blockButton = false;
-
-  constructor(public stateService: StateService) {}
 
   addNewLocation(): void {
     if (this.blockButton) {
