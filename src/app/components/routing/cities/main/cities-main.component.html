@@ -7,7 +7,7 @@
                  [class.current]="stateService.location?.city === item.city"
                  [city]="item.city"
                  [date]="stateService.weathers[i]?.location?.localtime"
-                 [temp]="stateService.weathers[i]?.current | temp"
+                 [temp]="stateService.weathers[i]?.current?.temp_c | temp: stateService.weathers[i]?.current?.temp_f"
                  [iconSrc]="stateService.weathers[i]?.current?.condition | weather"
                  (click)="stateService.changeLocation(item.city)">
   </app-city-item>

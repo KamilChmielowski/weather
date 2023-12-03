@@ -2,7 +2,10 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { SvgIconComponent } from 'angular-svg-icon';
+
+import { RealtimeWeatherConditions } from '../../../../../services/weather/weather.model';
 import { SvgPipe } from '../../../../../pipes/svg.pipe';
+import { WeatherPipe } from '../../../../../pipes/weather.pipe';
 
 @Component({
   selector: 'app-day-item',
@@ -10,16 +13,17 @@ import { SvgPipe } from '../../../../../pipes/svg.pipe';
   templateUrl: './day-item.component.html',
   styleUrls: ['./day-item.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [
-        CommonModule,
-        SvgIconComponent,
-        SvgPipe,
-    ],
+  imports: [
+    CommonModule,
+    SvgIconComponent,
+    SvgPipe,
+    WeatherPipe,
+  ],
 })
 export class DayItemComponent {
   @Input() day!: string;
-  @Input() icon!: string;
-  @Input() conditions!: string;
-  @Input() tempDay!: string;
-  @Input() tempNight!: string;
+  @Input() conditions: RealtimeWeatherConditions | undefined;
+  @Input() temp!: string;
+  @Input() maxTemp!: string;
+  @Input() minTemp!: string;
 }

@@ -1,9 +1,17 @@
-<p class="day">{{ day }}</p>
-
-<p class="conditions">
-  <svg-icon [src]="'weather/' + icon | svg"></svg-icon>
-
-  <span class="label">{{ conditions }}</span>
+<p class="day">
+  <span class="day-span">{{ day }}</span>
 </p>
 
-<p class="temp">{{ tempDay }} / <span class="night">{{ tempNight}}</span>°</p>
+<p class="conditions">
+  <svg-icon [src]="conditions | weather"></svg-icon>
+
+  <span class="label">{{ conditions?.text }}</span>
+</p>
+
+<div class="numbers">
+  <p class="other-temp">{{ maxTemp }}</p>
+
+  <p class="temp">{{ temp }}</p>
+
+  <p class="other-temp">{{ minTemp }}</p>
+</div>

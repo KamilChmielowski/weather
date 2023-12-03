@@ -4,12 +4,14 @@
 :host {
   display: flex;
   align-items: center;
+  min-height: 6.4rem;
 
   @include svgSize(3.5rem, 'svg-icon');
 
   .day {
     width: 25%;
     color: $color-shadow;
+    min-height: 1.2rem;
   }
 
   .conditions {
@@ -18,18 +20,65 @@
     width: 45%;
     font-size: 0.9rem;
     font-weight: 600;
+    min-height: 6.45rem;
 
-    svg-icon {
+    svg-icon, .label {
       margin-right: 0.8rem;
+    }
+
+    .label {
+      min-height: 1.2rem;
+      width: 100%;
     }
   }
 
-  .temp {
+  .numbers {
     width: 30%;
-    text-align: right;
+    display: flex;
+    flex-flow: column;
+    align-items: flex-end;
 
-    .night {
+    .temp {
+      font-size: 1.2rem;
+      min-height: 1.3rem;
+    }
+
+    .other-temp {
       color: $color-shadow;
+      margin: 0.2rem 0;
+      min-height: 1.2rem;
+    }
+  }
+}
+
+:host-context(.loading) {
+  .day {
+    .day-span {
+      width: 70%;
+      color: transparent;
+      min-height: 1.2rem;
+      display: block;
+      animation: $skeleton-animation;
+    }
+  }
+
+  .conditions {
+    svg-icon, .label {
+      animation: $skeleton-animation;
+    }
+  }
+
+  .numbers {
+    .other-temp, .temp {
+      animation: $skeleton-animation;
+    }
+
+    .other-temp {
+      width: 60%;
+    }
+
+    .temp {
+      width: 70%;
     }
   }
 }
