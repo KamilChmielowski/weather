@@ -1,12 +1,12 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 
+import { ForecastWeatherResponse } from '../../services/weather/weather.model';
 import { LoadingComponent } from './loading.component';
-import { RealtimeWeatherResponse } from '../../services/weather/weather.model';
 import { StateService } from '../../services/state/state.service';
 
 @Component({ template: '' })
 export abstract class WeatherDataComponent extends LoadingComponent implements OnInit {
-  protected weather?: RealtimeWeatherResponse | undefined;
+  protected weather?: ForecastWeatherResponse | undefined;
 
   constructor(
     protected override cdr: ChangeDetectorRef,

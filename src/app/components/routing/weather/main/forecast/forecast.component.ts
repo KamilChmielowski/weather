@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { SvgIconComponent } from 'angular-svg-icon';
 
 import { HourItemComponent } from './hour-item/hour-item.component';
+import { TempPipe } from '../../../../../pipes/temp.pipe';
 import { WeatherDataComponent } from '../../../../abstract/weather-data.component';
 
 @Component({
@@ -16,6 +17,7 @@ import { WeatherDataComponent } from '../../../../abstract/weather-data.componen
     CommonModule,
     HourItemComponent,
     SvgIconComponent,
+    TempPipe,
   ],
 })
 export class ForecastComponent extends WeatherDataComponent {}

@@ -8,7 +8,7 @@
 
     <p class="date2">{{ weather?.location?.localtime | date: 'h:mm:ss a zzzz' }}</p>
 
-    <p class="temp">{{ weather | temp }}</p>
+    <p class="temp">{{ weather?.current | temp }}</p>
   </section>
 
   <svg-icon [src]="weather?.current?.condition | weather"></svg-icon>

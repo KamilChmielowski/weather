@@ -2,11 +2,34 @@
   <h2>Today's forecast</h2>
 
   <div class="hours">
-    <app-hour-item [hour]="6" icon="sunny" [temp]="25"></app-hour-item>
-    <app-hour-item [hour]="9" icon="sunny" [temp]="28"></app-hour-item>
-    <app-hour-item [hour]="12" icon="sunny" [temp]="33"></app-hour-item>
-    <app-hour-item [hour]="15" icon="sunny" [temp]="34"></app-hour-item>
-    <app-hour-item [hour]="18" icon="sunny" [temp]="32"></app-hour-item>
-    <app-hour-item [hour]="21" icon="sunny" [temp]="30"></app-hour-item>
+    <app-hour-item [hour]="6"
+                   [condition]="weather?.forecast?.forecastday?.at(0)?.hour?.at(6)?.condition"
+                   [temp]="weather?.forecast?.forecastday?.at(0)?.hour?.at(6) | temp">
+    </app-hour-item>
+
+    <app-hour-item [hour]="9"
+                   [condition]="weather?.forecast?.forecastday?.at(0)?.hour?.at(9)?.condition"
+                   [temp]="weather?.forecast?.forecastday?.at(0)?.hour?.at(9) | temp">
+    </app-hour-item>
+
+    <app-hour-item [hour]="12"
+                   [condition]="weather?.forecast?.forecastday?.at(0)?.hour?.at(12)?.condition"
+                   [temp]="weather?.forecast?.forecastday?.at(0)?.hour?.at(12) | temp">
+    </app-hour-item>
+
+    <app-hour-item [hour]="15"
+                   [condition]="weather?.forecast?.forecastday?.at(0)?.hour?.at(15)?.condition"
+                   [temp]="weather?.forecast?.forecastday?.at(0)?.hour?.at(15) | temp">
+    </app-hour-item>
+
+    <app-hour-item [hour]="18"
+                   [condition]="weather?.forecast?.forecastday?.at(0)?.hour?.at(18)?.condition"
+                   [temp]="weather?.forecast?.forecastday?.at(0)?.hour?.at(18) | temp">
+    </app-hour-item>
+
+    <app-hour-item [hour]="21"
+                   [condition]="weather?.forecast?.forecastday?.at(0)?.hour?.at(21)?.condition"
+                   [temp]="weather?.forecast?.forecastday?.at(0)?.hour?.at(21) | temp">
+    </app-hour-item>
   </div>
 </section>

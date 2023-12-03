@@ -1,3 +1,4 @@
+@import 'mixins';
 @import 'variables';
 
 :host {
@@ -5,6 +6,7 @@
   flex-flow: column;
   align-items: center;
   width: 100%;
+  @include svgSize(3rem, 'svg-icon');
 
   p.shadow {
     margin-bottom: 0.5rem;
@@ -12,7 +14,26 @@
 
   p.temp {
     margin-top: 0.5rem;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 600;
+    min-height: 1.35rem;
+    width: 95%;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  svg-icon {
+    margin: 0.5rem 0;
+  }
+}
+
+:host-context(.loading) {
+  p.temp {
+    animation: $skeleton-animation-card;
+    width: 80%;
+  }
+
+  svg-icon {
+    animation: $skeleton-animation-card;
   }
 }
