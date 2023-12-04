@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 import { ForecastWeatherResponse } from '../weather/weather.model';
 import { LocationModel } from './state.model';
@@ -9,15 +9,17 @@ import { locations } from './state.mock';
 @Injectable({ providedIn: 'root' })
 export class StateService {
   private _isLoading = true;
-  private _location?: LocationModel;
+  private _location?: LocationModel | undefined;
   private _locations: LocationModel[] = [];
   private _weathers: (ForecastWeatherResponse | undefined)[] = [];
 
   private _isLoading$ = new BehaviorSubject<boolean>(this._isLoading);
-  private _location$ = new Subject<LocationModel>();
+  private _location$ = new BehaviorSubject<LocationModel | undefined>(undefined);
   private _weather$ = new BehaviorSubject<ForecastWeatherResponse | undefined>(undefined);
 
   private index = 0;
+
+  isWelcome = true;
 
   constructor() {
     this.loadLocationFromStorage();
@@ -47,7 +49,7 @@ export class StateService {
     return this._isLoading$.asObservable();
   }
 
-  get location$(): Observable<LocationModel> {
+  get location$(): Observable<LocationModel | undefined> {
     return this._location$.asObservable();
   }
 
@@ -66,7 +68,7 @@ export class StateService {
       this._locations.push(location);
       this.index = this._locations.length - 1;
       this._location$.next(this._locations[this.index]);
-      this.updateLocationInStorage(locations)
+      this.updateLocationsInStorage(this._locations);
     }
   }
 
@@ -94,7 +96,7 @@ export class StateService {
     this._weather$.next(weathers[this.index]);
   }
 
-  private updateLocationInStorage(locations: LocationModel[]): void {
+  private updateLocationsInStorage(locations: LocationModel[]): void {
     localStorage.setItem('locations', JSON.stringify(locations));
   }
 

@@ -1,6 +1,6 @@
 <main>
   <div class="app">
-    <app-nav></app-nav>
+    <app-nav *ngIf="!stateService.isWelcome"></app-nav>
 
     <router-outlet></router-outlet>
   </div>

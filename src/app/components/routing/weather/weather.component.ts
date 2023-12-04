@@ -41,8 +41,10 @@ export class WeatherComponent extends WeatherDataComponent {
   protected override observeLocation(): void {
     this.subscription.add(
       this.stateService.location$.pipe(
-        switchMap(model => this.weatherService
-          .getForecastWeather({ q: model.city, days: 7 })
+        switchMap(model => {
+          return this.weatherService
+              .getForecastWeather({ q: model?.city || this.stateService.locations[0].city, days: 7 })
+          }
         )
       ).subscribe(weather => this.stateService.addWeather(weather))
     );
