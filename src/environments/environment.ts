@@ -1,3 +1,4 @@
 export const environment = {
-  isProduction: true
+  isProduction: true,
+  apiDelay: 1000,
 };

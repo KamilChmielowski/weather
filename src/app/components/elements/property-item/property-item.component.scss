@@ -23,7 +23,7 @@
   }
 }
 
-:host-context(.loading) {
+@include loading() {
   .value {
     animation: $skeleton-animation-card;
   }

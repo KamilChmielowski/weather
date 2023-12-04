@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { catchError, finalize, Observable, tap } from 'rxjs';
+import { catchError, delay, finalize, Observable, tap } from 'rxjs';
 
 import { mockForecastWeather, mockRealtimeWeather } from './weather.mock';
 import {
@@ -54,6 +54,7 @@ export class WeatherService {
   private loadingPipe(observable: Observable<any>): Observable<any> {
     return observable.pipe(
       tap(() => this.stateService.updateLoading(true)),
+      delay(environment.apiDelay),
       finalize(() => this.stateService.updateLoading(false)),
     );
   }

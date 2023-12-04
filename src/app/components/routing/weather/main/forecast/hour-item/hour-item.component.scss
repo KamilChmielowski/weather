@@ -32,11 +32,11 @@
   }
 }
 
-:host-context(.loading) {
+@include loading() {
   p.shadow {
     animation: $skeleton-animation-card;
     color: transparent;
-    width: 40%;
+    width: 45%;
   }
 
   p.temp {

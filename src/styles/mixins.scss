@@ -20,3 +20,19 @@
     @content;
   }
 }
+
+@mixin loading {
+  :host-context(.loading) {
+    * {
+      color: transparent !important;
+    }
+
+    svg-icon {
+      svg {
+        display: none;
+      }
+    }
+
+    @content;
+  }
+}

@@ -98,7 +98,11 @@ export class StateService {
     localStorage.setItem('locations', JSON.stringify(locations));
   }
 
-  private loadLocationFromStorage() {
+  private loadLocationFromStorage(): void {
+    this._locations = StateService.getLocationFromStorage();
+  }
+
+  static getLocationFromStorage(): LocationModel[] {
     let locations;
     try {
       locations = JSON.parse(localStorage.getItem('locations') || '[]') || [];
@@ -106,15 +110,15 @@ export class StateService {
       locations = [];
     }
     if (!Array.isArray(locations) || locations.length === 0 || locations.length > 5) {
-      return;
+      return [];
     }
     if (locations.some((location: any) => !this.isLocationModel(location))) {
-      return;
+      return [];
     }
-    this._locations = locations;
+    return locations;
   }
 
-  private isLocationModel(model: any | LocationModel): model is LocationModel {
+  private static isLocationModel(model: any | LocationModel): model is LocationModel {
     return model.city !== undefined
       && model.city !== null
       && model.coords !== undefined

@@ -65,7 +65,7 @@
   }
 }
 
-:host-context(.loading) {
+@include loading() {
   .container {
     svg-icon, .city, .date {
       animation: $skeleton-animation-card;

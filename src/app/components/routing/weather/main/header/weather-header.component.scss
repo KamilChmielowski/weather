@@ -49,7 +49,7 @@
   }
 }
 
-:host-context(.loading) {
+@include loading() {
   header {
     .details {
       h1 {

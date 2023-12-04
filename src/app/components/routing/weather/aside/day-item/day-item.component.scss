@@ -55,7 +55,7 @@
   }
 }
 
-:host-context(.loading) {
+@include loading() {
   .day {
     .day-span {
       width: 70%;
