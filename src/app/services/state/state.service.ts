@@ -79,11 +79,19 @@ export class StateService {
     this.index = this._locations.findIndex(location => location.city === city);
     this._location = this._locations[this.index];
     this._location$.next(this._location);
+    if (this._weathers[this.index]) {
+      this._weather$.next(this._weathers[this.index]);
+    }
   }
 
   addWeather(weather: ForecastWeatherResponse | undefined): void {
     this.weathers[this.index] = weather;
     this._weather$.next(weather);
+  }
+
+  updateWeathers(weathers: ForecastWeatherResponse[]): void {
+    this._weathers = weathers;
+    this._weather$.next(weathers[this.index]);
   }
 
   private updateLocationInStorage(locations: LocationModel[]): void {

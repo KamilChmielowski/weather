@@ -18,6 +18,7 @@ export abstract class WeatherDataComponent extends LoadingComponent implements O
   override ngOnInit(): void {
     super.ngOnInit();
     this.observeWeather();
+    this.observeLocation();
   }
 
   protected observeWeather(): void {
@@ -26,6 +27,12 @@ export abstract class WeatherDataComponent extends LoadingComponent implements O
         this.weather = weather;
         this.cdr.markForCheck();
       })
+    );
+  }
+
+  protected observeLocation(): void {
+    this.subscription.add(
+      this.stateService.location$.subscribe(location => this.cdr.markForCheck())
     );
   }
 }
