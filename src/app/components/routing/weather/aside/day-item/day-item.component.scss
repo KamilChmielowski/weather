@@ -49,6 +49,10 @@
       min-height: 1.2rem;
     }
   }
+
+  .no-data {
+    display: none;
+  }
 }
 
 :host-context(.loading) {
@@ -63,12 +67,16 @@
   }
 
   .conditions {
+    display: flex;
+
     svg-icon, .label {
       animation: $skeleton-animation;
     }
   }
 
   .numbers {
+    display: flex;
+
     .other-temp, .temp {
       animation: $skeleton-animation;
     }
@@ -80,5 +88,9 @@
     .temp {
       width: 70%;
     }
+  }
+
+  .message {
+    display: none;
   }
 }

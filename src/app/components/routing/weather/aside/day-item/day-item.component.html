@@ -2,16 +2,18 @@
   <span class="day-span">{{ day }}</span>
 </p>
 
-<p class="conditions">
+<p class="conditions" [class.no-data]="!conditions">
   <svg-icon [src]="conditions | weather"></svg-icon>
 
   <span class="label">{{ conditions?.text }}</span>
 </p>
 
-<div class="numbers">
+<div class="numbers" [class.no-data]="!temp">
   <p class="other-temp">{{ maxTemp }}</p>
 
   <p class="temp">{{ temp }}</p>
 
   <p class="other-temp">{{ minTemp }}</p>
 </div>
+
+<p *ngIf="!temp && !conditions" class="message">Data not available</p>
