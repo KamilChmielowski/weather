@@ -9,7 +9,7 @@ import { StateService } from '../../../services/state/state.service';
 import { WeatherDataComponent } from '../../abstract/weather-data.component';
 
 @Component({
-  selector: 'app-aside',
+  selector: 'app-cities',
   standalone: true,
   templateUrl: './cities.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,

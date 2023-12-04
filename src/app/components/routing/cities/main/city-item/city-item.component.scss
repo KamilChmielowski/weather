@@ -27,23 +27,26 @@
     display: flex;
     align-items: center;
 
-    .city {
-      font-size: 1.6rem;
-      font-weight: 600;
-      margin-bottom: 0.2rem;
-      text-align: left;
-    }
-
-    .date {
-      display: flex;
-      color: $color-shadow;
-      font-size: 1rem;
-      text-align: left;
-    }
-
     .text {
       margin-left: 1rem;
       margin-right: 1rem;
+      width: 100%;
+
+      .city {
+        font-size: 1.6rem;
+        font-weight: 600;
+        margin-bottom: 0.2rem;
+        text-align: left;
+        min-height: 1.85rem;;
+      }
+
+      .date {
+        display: flex;
+        color: $color-shadow;
+        font-size: 1rem;
+        text-align: left;
+        min-height: 1.15rem;
+      }
     }
   }
 
@@ -51,6 +54,7 @@
     display: flex;
     justify-content: flex-end;
     font-size: 2rem;
+    min-height: 2.25rem;
   }
 }
 
@@ -58,5 +62,22 @@
   .city-item {
     background-color: inherit;
     border: 2px solid $color-hover;
+  }
+}
+
+:host-context(.loading) {
+  .container {
+    svg-icon, .city, .date {
+      animation: $skeleton-animation-card;
+    }
+
+    .city {
+      color: transparent;
+    }
+  }
+
+  .temp {
+    animation: $skeleton-animation-card;
+    width: 20%;
   }
 }
