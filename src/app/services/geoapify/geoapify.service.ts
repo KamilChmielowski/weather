@@ -26,8 +26,6 @@ export class GeoapifyService {
       `https://api.geoapify.com/v1/geocode/autocomplete?text=${text}&apiKey=${this.apiKey}`
       ).pipe(
         catchError(() => geoAutocompleteMock),
-      ) : geoAutocompleteMock.pipe(
-        delay(500),
-      );
+      ) : geoAutocompleteMock.pipe(delay(500));
   }
 }
