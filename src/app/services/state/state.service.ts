@@ -86,6 +86,15 @@ export class StateService {
     }
   }
 
+  removeLocation(): void {
+    const index = this._locations.findIndex(model => model.city === this._location?.city);
+    if (index >= 0) {
+      this._locations.splice(index, 1);
+      this.updateLocationsInStorage(this._locations);
+      this.changeLocation(this._locations[0].city);
+    }
+  }
+
   addWeather(weather: ForecastWeatherResponse | undefined): void {
     this.weathers[this.index] = weather;
     this._weather$.next(weather);

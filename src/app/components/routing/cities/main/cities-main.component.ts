@@ -29,6 +29,7 @@ import { WeatherDataComponent } from '../../../abstract/weather-data.component';
 export class CitiesMainComponent extends WeatherDataComponent {
   searchDisabled = true;
   blockButton = false;
+  removeConfirmed = false;
 
   addNewLocation(): void {
     if (this.blockButton) {
@@ -41,5 +42,14 @@ export class CitiesMainComponent extends WeatherDataComponent {
     this.searchDisabled = true;
     this.blockButton = true;
     setTimeout(() => this.blockButton = false, 100);
+  }
+
+  removeLocation(): void {
+    if (this.removeConfirmed) {
+      this.stateService.removeLocation();
+      this.removeConfirmed = false;
+    } else {
+      this.removeConfirmed = true;
+    }
   }
 }

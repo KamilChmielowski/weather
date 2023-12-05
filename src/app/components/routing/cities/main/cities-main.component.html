@@ -21,4 +21,11 @@
   <ng-container *ngFor="let number of [1,2,3,4]">
     <div class="placeholder card" *ngIf="stateService.locations.length - number < 0"></div>
   </ng-container>
+
+  <button class="delete-button" *ngIf="stateService.locations.length > 0"
+  (click)="removeLocation()" (focusout)="removeConfirmed=false">
+    <svg-icon class="delete" src="/assets/svg/other/delete.svg"></svg-icon>
+
+    <span>{{ removeConfirmed ? 'Are you sure?' : 'Remove current location' }}</span>
+  </button>
 </article>

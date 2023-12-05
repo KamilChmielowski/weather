@@ -1,7 +1,10 @@
+@import 'mixins';
 @import 'variables';
 
 :host {
   article {
+    @include svgSize(1.5rem, 'svg-icon.delete');
+
     app-city-search-input {
       display: block;
       margin-bottom: 2rem;
@@ -9,10 +12,7 @@
 
     app-city-item {
       display: block;
-
-      &:not(:last-child) {
-        margin-bottom: 1rem;
-      }
+      margin-bottom: 1rem;
     }
 
     .add-city {
@@ -63,9 +63,32 @@
       height: 6rem;
       border: 2px dotted $color-shadow;
       box-sizing: border-box;
+      margin-bottom: 1rem;
+    }
 
-      &:not(:last-of-type) {
-        margin-bottom: 1rem;
+    .delete-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+      background-color: $color-foreground;
+      border: none;
+      border-radius: 2rem;
+      color: $color-text;
+      font-weight: 600;
+      width: 50%;
+
+      &:hover, &:focus {
+        background-color: rgba($color-hover, .5);
+        color: #fff;
+
+        svg-icon {
+          fill: #fff;
+        }
+      }
+
+      svg-icon {
+        margin-right: 0.5rem;
       }
     }
   }

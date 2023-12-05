@@ -53,7 +53,7 @@ export class CitySearchInputComponent extends SearchInputComponent implements On
   }
 
   override selectLocation(item: GeoAutocompleteFeature): void {
-    if (this.stateService.location?.city !== item.properties.city) {
+    if (!this.stateService.locations.find(location => location.city === item.properties.city)) {
       this.city$.emit(item.properties.city);
       this.setSearchValueProgrammatically('');
       this.stateService.addLocation({
