@@ -28,9 +28,9 @@ export class WeatherComponent extends WeatherDataComponent {
   constructor(
     protected override cdr: ChangeDetectorRef,
     protected override stateService: StateService,
-    private weatherService: WeatherService,
+    protected override weatherService: WeatherService,
   ) {
-    super(cdr, stateService);
+    super(cdr, stateService, weatherService);
   }
 
   override ngOnInit() {

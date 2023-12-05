@@ -1,6 +1,6 @@
 <header>
   <section class="details">
-    <h1>{{ state.location?.city || state.locations[0].city }}</h1>
+    <h1>{{ stateService.location?.city || stateService.locations[0].city }}</h1>
 
     <p class="condition">{{ weather?.current?.condition?.text }}</p>
 

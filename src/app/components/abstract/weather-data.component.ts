@@ -1,8 +1,11 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 
+import { forkJoin } from 'rxjs';
+
 import { ForecastWeatherResponse } from '../../services/weather/weather.model';
 import { LoadingComponent } from './loading.component';
 import { StateService } from '../../services/state/state.service';
+import { WeatherService } from '../../services/weather/weather.service';
 
 @Component({ template: '' })
 export abstract class WeatherDataComponent extends LoadingComponent implements OnInit {
@@ -11,6 +14,7 @@ export abstract class WeatherDataComponent extends LoadingComponent implements O
   constructor(
     protected override cdr: ChangeDetectorRef,
     protected override stateService: StateService,
+    protected weatherService: WeatherService,
   ) {
     super(cdr, stateService);
   }
@@ -34,5 +38,18 @@ export abstract class WeatherDataComponent extends LoadingComponent implements O
     this.subscription.add(
       this.stateService.location$.subscribe(location => this.cdr.markForCheck())
     );
+  }
+
+  protected fetchLocations(): void {
+    if (this.stateService.locations?.length === 0) {
+      return;
+    }
+    forkJoin(this.stateService.locations.map(location => {
+      return this.weatherService.getForecastWeather({ q: location.city, days: 7 });
+    })).subscribe(response => {
+      this.stateService.changeLocation(this.stateService.locations[0].city);
+      this.stateService.updateWeathers(response);
+      this.cdr.markForCheck();
+    })
   }
 }
