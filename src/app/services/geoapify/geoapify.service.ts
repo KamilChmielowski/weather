@@ -6,7 +6,7 @@ import { catchError, delay, Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { GeolocationResponse } from './geolocation.model';
 import { GeoAutocompleteResponse } from './geoautocomplete.model';
-import { geoAutocompleteMock } from './geoAutocompleteMock';
+import { getAutocompleteMock } from './get-autocomplete.mock';
 
 @Injectable({ providedIn: 'root' })
 export class GeoapifyService {
@@ -25,7 +25,7 @@ export class GeoapifyService {
       ? this.httpClient.get<GeoAutocompleteResponse>(
       `https://api.geoapify.com/v1/geocode/autocomplete?text=${text}&apiKey=${this.apiKey}`
       ).pipe(
-        catchError(() => geoAutocompleteMock),
-      ) : geoAutocompleteMock.pipe(delay(500));
+        catchError(() => getAutocompleteMock),
+      ) : getAutocompleteMock.pipe(delay(500));
   }
 }

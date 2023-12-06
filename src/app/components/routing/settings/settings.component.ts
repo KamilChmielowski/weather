@@ -7,7 +7,7 @@ import { SettingsMainComponent } from './main/settings-main.component';
 import { SettingsAsideComponent } from './aside/settings-aside.component';
 
 @Component({
-  selector: 'app-aside',
+  selector: 'app-settings',
   standalone: true,
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.scss'],

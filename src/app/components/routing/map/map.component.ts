@@ -10,7 +10,7 @@ import { WeatherDataComponent } from '../../abstract/weather-data.component';
 import { WeatherService } from '../../../services/weather/weather.service';
 
 @Component({
-  selector: 'app-aside',
+  selector: 'app-map',
   standalone: true,
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss'],
