@@ -16,6 +16,7 @@ import { GeoAutocompleteFeature, GeoAutocompleteResponse } from '../../../servic
 import { StateComponent } from '../../abstract/state.component';
 import { StateService } from '../../../services/state/state.service';
 import { SvgPipe } from '../../../pipes/svg.pipe';
+import { WeatherService } from '../../../services/weather/weather.service';
 
 @Component({
   selector: 'app-search-input',
@@ -44,10 +45,11 @@ export class SearchInputComponent extends StateComponent implements OnInit {
   private insideForm = false;
 
   constructor(
-    private cdr: ChangeDetectorRef,
-    @Inject(DOCUMENT) private document: Document,
-    private geolocationService: GeoapifyService,
+    protected cdr: ChangeDetectorRef,
+    @Inject(DOCUMENT) protected document: Document,
+    protected geolocationService: GeoapifyService,
     protected override stateService: StateService,
+    protected weatherService: WeatherService,
   ) {
     super(stateService);
   };

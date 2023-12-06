@@ -1,8 +1,14 @@
 import {
   ChangeDetectionStrategy,
-  Component, ElementRef, EventEmitter,
-  Input, OnChanges, OnInit, Output,
-  SimpleChanges, ViewChild,
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
+  ViewChild,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -60,6 +66,7 @@ export class CitySearchInputComponent extends SearchInputComponent implements On
         city: item.properties.city as string,
         coords: [item.properties.lat as number, item.properties.lon as number],
       });
+      this.fetchLocationWeather();
     }
     this.showSuggestions = false;
   }
@@ -67,5 +74,14 @@ export class CitySearchInputComponent extends SearchInputComponent implements On
   override focusout() {
     super.focusout();
     this.focusout$.emit();
+  }
+
+  private fetchLocationWeather(): void {
+    this.weatherService
+      .getForecastWeather({ q: this.stateService.location?.city || '', days: 7 })
+      .subscribe(response => {
+        this.stateService.addWeather(response);
+        this.cdr.markForCheck();
+      });
   }
 }
