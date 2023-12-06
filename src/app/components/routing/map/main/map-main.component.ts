@@ -2,7 +2,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { SvgIconComponent } from 'angular-svg-icon';
-import { SearchInputComponent } from '../../../elements/search-input/search-input.component';
 
 @Component({
   selector: 'app-map-main',
@@ -13,7 +12,6 @@ import { SearchInputComponent } from '../../../elements/search-input/search-inpu
   imports: [
     CommonModule,
     SvgIconComponent,
-    SearchInputComponent,
   ],
 })
 export class MapMainComponent {}

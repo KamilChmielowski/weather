@@ -65,6 +65,26 @@
   }
 }
 
+:host-context(.map) {
+  .city-item {
+    @include svgSize(4rem, 'svg-icon');
+  }
+
+  .container {
+    .text {
+
+      .city {
+        font-size: 1.3rem;
+      }
+    }
+  }
+
+  .temp {
+    font-size: 1.6rem;
+    min-height: 1.85rem;
+  }
+}
+
 @include loading() {
   .container {
     svg-icon, .city, .date {

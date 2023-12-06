@@ -2,9 +2,14 @@
   <app-city-item *ngFor="let item of stateService.locations; let i = index"
                  [class.current]="stateService.location?.city === item.city"
                  [city]="item.city"
+                 class="map"
                  [date]="stateService.weathers[i]?.location?.localtime"
                  [temp]="stateService.weathers[i]?.current?.temp_c | temp: stateService.weathers[i]?.current?.temp_f"
                  [iconSrc]="stateService.weathers[i]?.current?.condition | weather"
                  (click)="stateService.changeLocation(item.city)">
   </app-city-item>
+
+  <ng-container *ngFor="let number of [1,2,3,4,5]">
+    <div class="placeholder card" *ngIf="stateService.locations.length - number < 0"></div>
+  </ng-container>
 </aside>
