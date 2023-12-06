@@ -3,8 +3,9 @@ import { Injectable } from '@angular/core';
 
 import { catchError, delay, finalize, Observable, tap } from 'rxjs';
 
-import { mockForecastWeather, mockRealtimeWeather } from './weather.mock';
+import { mockAstronomyWeather, mockForecastWeather, mockRealtimeWeather } from './weather.mock';
 import {
+  AstronomyWeatherResponse,
   ForecastWeatherParams,
   ForecastWeatherResponse,
   RealtimeWeatherParams,
@@ -49,6 +50,14 @@ export class WeatherService {
         this.httpClient.get<ForecastWeatherResponse>(`${this.weatherBase}forecast.json`, this.options(searchParams))
       ).pipe(catchError(() => mockForecastWeather))
       : mockForecastWeather;
+  }
+
+  getAstronomyWeather(city: string): Observable<AstronomyWeatherResponse> {
+    return environment.isProduction
+      ? this.loadingPipe(
+        this.httpClient.get<AstronomyWeatherResponse>(`${this.weatherBase}astronomy.json`, this.options(city))
+      ).pipe(catchError(() => mockAstronomyWeather))
+      : mockAstronomyWeather;
   }
 
   private loadingPipe(observable: Observable<any>): Observable<any> {

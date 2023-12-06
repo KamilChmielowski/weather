@@ -12,6 +12,7 @@ const routes: Routes = [
       { path: 'weather', loadComponent: () => import('./components/routing/weather/weather.component').then(mod => mod.WeatherComponent) },
       { path: 'cities', loadComponent: () => import('./components/routing/cities/cities.component').then(mod => mod.CitiesComponent) },
       { path: 'map', loadComponent: () => import('./components/routing/map/map.component').then(mod => mod.MapComponent) },
+      { path: 'astronomy', loadComponent: () => import('./components/routing/map/map.component').then(mod => mod.MapComponent) },
       { path: 'settings', loadComponent: () => import('./components/routing/settings/settings.component').then(mod => mod.SettingsComponent) },
     ],
     canActivate: [LocationRequiredGuardService]

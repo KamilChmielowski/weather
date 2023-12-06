@@ -102,3 +102,21 @@ export interface RealtimeWeatherConditions {
   icon: string,
   code: number,
 }
+
+export interface AstronomyWeatherResponse {
+  location: RealtimeWeatherLocation,
+  astronomy: AstronomyWeather,
+}
+
+export interface AstronomyWeather {
+  astro: {
+    sunrise: string,
+    sunset: string,
+    moonrise: string,
+    moonset: string,
+    moon_phase: string,
+    moon_illumination: number,
+    is_moon_up: number,
+    is_sun_up: number,
+  }
+}

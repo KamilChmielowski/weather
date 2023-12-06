@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 import { SvgIconComponent } from 'angular-svg-icon';
+
 import { SvgPipe } from '../../pipes/svg.pipe';
 
 @Component({
@@ -11,12 +12,12 @@ import { SvgPipe } from '../../pipes/svg.pipe';
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [
-        CommonModule,
-        RouterLink,
-        RouterLinkActive,
-        SvgIconComponent,
-        SvgPipe,
-    ],
+  imports: [
+    CommonModule,
+    RouterLink,
+    RouterLinkActive,
+    SvgIconComponent,
+    SvgPipe,
+  ],
 })
 export class NavComponent {}

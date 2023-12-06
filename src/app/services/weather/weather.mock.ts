@@ -1,6 +1,6 @@
 import { of } from 'rxjs';
 
-import { ForecastWeatherResponse, RealtimeWeatherResponse } from './weather.model';
+import { AstronomyWeatherResponse, ForecastWeatherResponse, RealtimeWeatherResponse } from './weather.model';
 
 export const mockRealtimeWeather = of<RealtimeWeatherResponse> ({
   location: {
@@ -3024,3 +3024,30 @@ export const mockForecastWeather = of<ForecastWeatherResponse> ({
     }
   } as unknown as ForecastWeatherResponse
 );
+
+export const mockAstronomyWeather = of<AstronomyWeatherResponse>(
+  {
+    location: {
+      name: 'Gliwice',
+      region: "",
+      country: 'Poland',
+      lat: 50.28,
+      lon: 18.67,
+      tz_id: 'Europe/Warsaw',
+      localtime_epoch: 1701883949,
+      localtime: '2023-12-06 18:32' as unknown as Date
+    },
+    astronomy: {
+      astro: {
+        sunrise: "07:29 AM",
+        sunset: "03:43 PM",
+        moonrise: "No moonrise",
+        moonset: "12:54 PM",
+        moon_phase: "Waning Crescent",
+        moon_illumination: 43,
+        is_moon_up: 1,
+        is_sun_up: 0
+      }
+    }
+  }
+)
