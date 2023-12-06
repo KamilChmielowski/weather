@@ -1,11 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { CitiesComponent } from './components/routing/cities/cities.component';
 import { LocationRequiredGuardService } from './services/guard/location-required-guard.service';
-import { MapComponent } from './components/routing/map/map.component';
-import { SettingsComponent } from './components/routing/settings/settings.component';
-import { WeatherComponent } from './components/routing/weather/weather.component';
 import { WelcomeComponent } from './components/routing/welcome/welcome.component';
 
 const routes: Routes = [
@@ -13,10 +9,10 @@ const routes: Routes = [
   {
     path: '',
     children: [
-      { path: 'weather', component: WeatherComponent },
-      { path: 'cities', component: CitiesComponent },
-      { path: 'map', component: MapComponent },
-      { path: 'settings', component: SettingsComponent },
+      { path: 'weather', loadComponent: () => import('./components/routing/weather/weather.component').then(mod => mod.WeatherComponent) },
+      { path: 'cities', loadComponent: () => import('./components/routing/cities/cities.component').then(mod => mod.CitiesComponent) },
+      { path: 'map', loadComponent: () => import('./components/routing/map/map.component').then(mod => mod.MapComponent) },
+      { path: 'settings', loadComponent: () => import('./components/routing/settings/settings.component').then(mod => mod.SettingsComponent) },
     ],
     canActivate: [LocationRequiredGuardService]
   },
