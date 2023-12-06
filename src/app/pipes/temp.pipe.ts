@@ -11,7 +11,7 @@ export class TempPipe implements PipeTransform {
   constructor(private settingsService: SettingsService) {}
 
   transform(tempC: number | undefined, tempF: number | undefined): string {
-    if (!tempC) {
+    if (tempC === undefined || tempC === null) {
       return '';
     }
     return this.settingsService.settings.temperature === Temperature.celsius
