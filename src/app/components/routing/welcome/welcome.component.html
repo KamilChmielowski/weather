@@ -1,3 +1,13 @@
 <article>
   <app-search-input class="standalone"></app-search-input>
+
+  <div class="location">
+    <p>or find your address automatically</p>
+
+    <button (click)="findUserLocationBasedOnIp()" [class.loading]="isIpLoading">
+      <svg-icon *ngIf="!isIpLoading" [src]="'nav/map' | svg"></svg-icon>
+
+      <svg-icon *ngIf="isIpLoading" [src]="'loader/circle' | svg"></svg-icon>
+    </button>
+  </div>
 </article>

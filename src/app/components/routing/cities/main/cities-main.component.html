@@ -24,7 +24,7 @@
 
   <button class="delete-button" *ngIf="stateService.locations.length > 0"
   (click)="removeLocation()" (focusout)="removeConfirmed=false">
-    <svg-icon class="delete" src="/assets/svg/other/delete.svg"></svg-icon>
+    <svg-icon class="delete" [src]="'other/delete' | svg"></svg-icon>
 
     <span>{{ removeConfirmed ? 'Are you sure?' : 'Remove current location' }}</span>
   </button>

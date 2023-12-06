@@ -1,3 +1,4 @@
+@import 'mixins';
 @import 'variables';
 
 :host {
@@ -9,9 +10,30 @@
 
   article {
     display: flex;
+    flex-flow: column;
 
     app-search-input {
       width: 50vw;
+    }
+
+    .location {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      margin-top: 3rem;
+
+      p {
+        font-size: 1.8rem;
+        color: $color-shadow;
+      }
+
+      button {
+        background-color: $color-foreground;
+        border-radius: 50%;
+        margin-left: 1rem;
+        padding: 1rem;
+        @include svgSize(5rem, 'svg-icon');
+      }
     }
   }
 }

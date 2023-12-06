@@ -25,6 +25,10 @@ button, a {
     color: $color-hover;
   }
 
+  &.loading {
+    cursor: default;
+  }
+
   &:focus {
     outline: 2px solid $color-hover;
   }
