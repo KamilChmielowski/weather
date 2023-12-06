@@ -2,6 +2,7 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 
 import { forkJoin } from 'rxjs';
 
+import { environment } from '../../../environments/environment';
 import { ForecastWeatherResponse } from '../../services/weather/weather.model';
 import { LoadingComponent } from './loading.component';
 import { StateService } from '../../services/state/state.service';
@@ -36,7 +37,7 @@ export abstract class WeatherDataComponent extends LoadingComponent implements O
 
   protected observeLocation(): void {
     this.subscription.add(
-      this.stateService.location$.subscribe(location => this.cdr.markForCheck())
+      this.stateService.location$.subscribe(() => this.cdr.markForCheck())
     );
   }
 
@@ -45,7 +46,7 @@ export abstract class WeatherDataComponent extends LoadingComponent implements O
       return;
     }
     forkJoin(this.stateService.locations.map(location => {
-      return this.weatherService.getForecastWeather({ q: location.city, days: 7 });
+      return this.weatherService.getForecastWeather({ q: location.city, days: environment.forecastDays });
     })).subscribe(response => {
       this.stateService.changeLocation(this.stateService.locations[0].city);
       this.stateService.updateWeathers(response);

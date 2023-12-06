@@ -15,6 +15,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { SvgIconComponent } from 'angular-svg-icon';
 
+import { environment } from '../../../../../../environments/environment';
 import { GeoAutocompleteFeature } from '../../../../../services/geoapify/geoautocomplete.model';
 import { SearchInputComponent } from '../../../../elements/search-input/search-input.component';
 import { SvgPipe } from '../../../../../pipes/svg.pipe';
@@ -78,7 +79,7 @@ export class CitySearchInputComponent extends SearchInputComponent implements On
 
   private fetchLocationWeather(): void {
     this.weatherService
-      .getForecastWeather({ q: this.stateService.location?.city || '', days: 7 })
+      .getForecastWeather({ q: this.stateService.location?.city || '', days: environment.forecastDays })
       .subscribe(response => {
         this.stateService.addWeather(response);
         this.cdr.markForCheck();

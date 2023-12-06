@@ -1,4 +1,5 @@
 export const environment = {
-  isProduction: true,
   apiDelay: 1000,
+  forecastDays: 7,
+  isProduction: true,
 };

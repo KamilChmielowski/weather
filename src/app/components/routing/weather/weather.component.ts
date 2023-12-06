@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { SvgIconComponent } from 'angular-svg-icon';
 import { switchMap } from 'rxjs';
 
+import { environment } from '../../../../environments/environment';
 import { StateService } from '../../../services/state/state.service';
 import { WeatherAsideComponent } from './aside/weather-aside.component';
 import { WeatherDataComponent } from '../../abstract/weather-data.component';
@@ -41,10 +42,11 @@ export class WeatherComponent extends WeatherDataComponent {
   protected override observeLocation(): void {
     this.subscription.add(
       this.stateService.location$.pipe(
-        switchMap(model => {
-          return this.weatherService
-              .getForecastWeather({ q: model?.city || this.stateService.locations[0].city, days: 7 })
-          }
+        switchMap(model => this.weatherService
+          .getForecastWeather({
+            q: model?.city || this.stateService.locations[0].city,
+            days: environment.forecastDays
+          })
         )
       ).subscribe(weather => this.stateService.addWeather(weather))
     );
