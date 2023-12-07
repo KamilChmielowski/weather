@@ -1,10 +1,11 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { SvgIconComponent } from 'angular-svg-icon';
-import { SvgPipe } from '../../../../pipes/svg.pipe';
-import { RiseSetComponent } from './rise-set/rise-set.component';
+import { AstronomyWeatherResponse } from '../../../../services/weather/weather.model';
 import { MoonInfoComponent } from './moon-info/moon-info.component';
+import { RiseSetComponent } from './rise-set/rise-set.component';
+import { WeatherDataComponent } from '../../../abstract/weather-data.component';
+import { WeatherHeaderComponent } from '../../weather/main/header/weather-header.component';
 
 @Component({
   selector: 'app-astronomy-main',
@@ -14,10 +15,12 @@ import { MoonInfoComponent } from './moon-info/moon-info.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     CommonModule,
-    SvgIconComponent,
-    SvgPipe,
-    RiseSetComponent,
     MoonInfoComponent,
+    RiseSetComponent,
+    WeatherHeaderComponent,
   ],
 })
-export class AstronomyMainComponent {}
+export class AstronomyMainComponent extends WeatherDataComponent {
+  @Input() @HostBinding('class.astronomy-loading') astronomyLoading = true;
+  @Input() astronomy!: AstronomyWeatherResponse;
+}

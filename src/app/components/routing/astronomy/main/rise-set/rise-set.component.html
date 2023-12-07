@@ -1,25 +1,29 @@
 <section class="card">
   <div class="column">
     <p>
-      <span class="text">Sunrise: </span>07:29 AM
+      <span class="text">Sunrise: </span>
+      <span class="value">{{ sunrise }}</span>
     </p>
 
     <svg-icon [src]="'astronomy/sunrise' | svg" class="moonrise"></svg-icon>
 
     <p>
-      <span class="text">Moonrise: </span>No moonrise
+      <span class="text">Moonrise: </span>
+      <span class="value">{{ moonrise }}</span>
     </p>
   </div>
 
   <div class="column">
     <p>
-      <span class="text">Sunset: </span>03:43 PM
+      <span class="text">Sunset: </span>
+      <span class="value">{{ sunset }}</span>
     </p>
 
     <svg-icon [src]="'astronomy/sunset' | svg" class="moonset"></svg-icon>
 
     <p>
-      <span class="text">Moonset: </span>12:54 PM
+      <span class="text">Moonset: </span>
+      <span class="value">{{ moonset }}</span>
     </p>
   </div>
 </section>

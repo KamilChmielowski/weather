@@ -12,8 +12,21 @@
       align-items: center;
 
       p {
+        font-size: 1.3rem;
+        display: flex;
+        align-items: center;
+
         .text {
           color: $color-shadow;
+          margin-right: 0.4rem;
+          font-size: 1rem;
+          min-width: 5rem;
+          text-align: right;
+        }
+
+        .value {
+          min-height: 1.55rem;
+          min-width: 7rem;
         }
       }
 
@@ -30,6 +43,21 @@
           svg {
             fill: #d7a74d;
           }
+        }
+      }
+    }
+  }
+}
+
+:host-context(.astronomy-loading) {
+  section {
+    .column {
+      p {
+        .text {
+        }
+
+        .value {
+          animation: $skeleton-animation-card;
         }
       }
     }

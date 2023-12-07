@@ -3,11 +3,11 @@
 :host {
   app-moon-phase {
     display: block;
-    margin-bottom: 0.5rem;
+    padding: 0.5rem 2px;
 
     &.current {
       border: 2px solid $color-hover;
-      padding: 0.5rem 0;
+      padding: calc(0.5rem - 2px) 0;
     }
   }
 }

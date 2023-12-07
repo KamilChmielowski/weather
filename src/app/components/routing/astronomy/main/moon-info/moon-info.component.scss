@@ -5,11 +5,12 @@
     padding: 1rem 2rem;
 
     .properties {
-      width: 100%;
+      display: flex;
 
-      app-property-item-no-loading {
+      app-property-item-moon {
         margin-top: 2rem;
         display: block;
+        margin-bottom: 1.2rem;
 
         &[label="Phase"] {
           width: 60%;

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { SvgIconComponent } from 'angular-svg-icon';
@@ -14,7 +14,13 @@ import { SvgPipe } from '../../../../../pipes/svg.pipe';
   imports: [
     CommonModule,
     SvgIconComponent,
-    SvgPipe
+    SvgPipe,
   ],
 })
-export class RiseSetComponent {}
+export class RiseSetComponent {
+  @Input() @HostBinding('class.astronomy-loading') astronomyLoading = true;
+  @Input() sunrise: string | undefined;
+  @Input() sunset: string | undefined;
+  @Input() moonrise: string | undefined;
+  @Input() moonset: string | undefined;
+}

@@ -1,13 +1,9 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { SvgIconComponent } from 'angular-svg-icon';
-import { PressurePipe } from '../../../../../pipes/pressure.pipe';
-import { PropertyItemComponent } from '../../../../elements/property-item/property-item.component';
-import { WindPipe } from '../../../../../pipes/wind.pipe';
-import {
-  PropertyItemNoLoadingComponent
-} from '../../../../elements/property-item-no-loading/property-item-no-loading.component';
+
+import { PropertyItemMoonComponent } from './property-item-moon/property-item-moon.component';
 
 @Component({
   selector: 'app-moon-info',
@@ -18,10 +14,11 @@ import {
   imports: [
     CommonModule,
     SvgIconComponent,
-    PressurePipe,
-    PropertyItemComponent,
-    WindPipe,
-    PropertyItemNoLoadingComponent
+    PropertyItemMoonComponent,
   ],
 })
-export class MoonInfoComponent {}
+export class MoonInfoComponent {
+  @Input() @HostBinding('class.astronomy-loading') astronomyLoading = true;
+  @Input() moonPhase: string | undefined;
+  @Input() moonIllumination: number | undefined;
+}

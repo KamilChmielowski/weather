@@ -1,0 +1,32 @@
+@import 'mixins';
+@import 'variables';
+
+:host {
+  .name {
+    display: flex;
+    align-items: center;
+    color: $color-shadow;
+    margin-bottom: 0.4rem;
+
+    @include svgSize(1.5rem, 'svg-icon');
+
+    svg-icon {
+      margin-right: 0.4rem;
+    }
+  }
+
+  .value {
+    margin-left: 1.9rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    min-height: 1.7rem;
+  }
+}
+
+:host-context(.astronomy-loading) {
+  .value {
+    animation: $skeleton-animation-card;
+    width: 70%;
+  }
+}
+

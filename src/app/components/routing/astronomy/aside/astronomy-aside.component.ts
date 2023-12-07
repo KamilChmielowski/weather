@@ -1,12 +1,10 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { SvgIconComponent } from 'angular-svg-icon';
 
-import { WeatherDataComponent } from '../../../abstract/weather-data.component';
-import { PropertyItemComponent } from '../../../elements/property-item/property-item.component';
-import { SvgPipe } from '../../../../pipes/svg.pipe';
 import { MoonPhaseComponent } from './moon-phase/moon-phase.component';
+import { SvgPipe } from '../../../../pipes/svg.pipe';
 
 @Component({
   selector: 'app-astronomy-aside',
@@ -16,9 +14,22 @@ import { MoonPhaseComponent } from './moon-phase/moon-phase.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     CommonModule,
+    MoonPhaseComponent,
     SvgIconComponent,
     SvgPipe,
-    MoonPhaseComponent,
   ],
 })
-export class AstronomyAsideComponent {}
+export class AstronomyAsideComponent {
+  @Input() moonPhase: string | undefined;
+
+  protected readonly phases = [
+    'New Moon',
+    'Waxing Crescent',
+    'First Quarter',
+    'Waxing Gibbous',
+    'Full Moon',
+    'Waning Gibbous',
+    'Last Quarter',
+    'Waning Crescent'
+  ];
+}

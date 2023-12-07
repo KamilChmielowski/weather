@@ -1,5 +1,17 @@
 <article>
-  <app-rise-set></app-rise-set>
+  <app-weather-header></app-weather-header>
 
-  <app-moon-info></app-moon-info>
+  <app-rise-set
+    [astronomyLoading]="astronomyLoading"
+    [sunrise]="astronomy.astronomy.astro.sunrise"
+    [sunset]="astronomy.astronomy.astro.sunset"
+    [moonrise]="astronomy.astronomy.astro.moonrise"
+    [moonset]="astronomy.astronomy.astro.moonset"
+  ></app-rise-set>
+
+  <app-moon-info
+    [astronomyLoading]="astronomyLoading"
+    [moonIllumination]="astronomy.astronomy.astro.moon_illumination"
+    [moonPhase]="astronomy.astronomy.astro.moon_phase"
+  ></app-moon-info>
 </article>

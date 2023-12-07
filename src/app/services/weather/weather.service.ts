@@ -35,7 +35,7 @@ export class WeatherService {
 
   getRealtimeWeather(searchParams: RealtimeWeatherParams): Observable<RealtimeWeatherResponse> {
     return environment.isProduction
-      ? this.loadingPipe(
+      ? this.loadingPipe<RealtimeWeatherResponse>(
         this.httpClient.get<RealtimeWeatherResponse>(`${this.weatherBase}current.json`, this.options(searchParams))
       ).pipe(catchError(() => mockRealtimeWeather))
       : mockRealtimeWeather;
@@ -46,7 +46,7 @@ export class WeatherService {
       searchParams.days = 7;
     }
     return environment.isProduction
-      ? this.loadingPipe(
+      ? this.loadingPipe<ForecastWeatherResponse>(
         this.httpClient.get<ForecastWeatherResponse>(`${this.weatherBase}forecast.json`, this.options(searchParams))
       ).pipe(catchError(() => mockForecastWeather))
       : mockForecastWeather;
@@ -54,13 +54,15 @@ export class WeatherService {
 
   getAstronomyWeather(city: string): Observable<AstronomyWeatherResponse> {
     return environment.isProduction
-      ? this.loadingPipe(
-        this.httpClient.get<AstronomyWeatherResponse>(`${this.weatherBase}astronomy.json`, this.options(city))
-      ).pipe(catchError(() => mockAstronomyWeather))
+      ? this.httpClient.get<AstronomyWeatherResponse>(`${this.weatherBase}astronomy.json`, this.options({ q: city.toLowerCase() }))
+        .pipe(
+          delay(environment.apiDelay),
+          catchError(() => mockAstronomyWeather)
+        )
       : mockAstronomyWeather;
   }
 
-  private loadingPipe(observable: Observable<any>): Observable<any> {
+  private loadingPipe<T>(observable: Observable<T>): Observable<T> {
     return observable.pipe(
       tap(() => this.stateService.updateLoading(true)),
       delay(environment.apiDelay),

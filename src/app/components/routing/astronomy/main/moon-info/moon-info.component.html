@@ -2,8 +2,8 @@
   <h2>Moon info</h2>
 
   <div class="properties">
-    <app-property-item-no-loading icon="moon/full-moon" label="Phase" [value]="'Waning Crescent'"></app-property-item-no-loading>
+    <app-property-item-moon [astronomyLoading]="astronomyLoading" icon="moon/full-moon" label="Phase" [value]="moonPhase || ''"></app-property-item-moon>
 
-    <app-property-item-no-loading icon="moon/last-quarter" label="Illumination" [value]="50 + '%'"></app-property-item-no-loading>
+    <app-property-item-moon [astronomyLoading]="astronomyLoading" icon="moon/last-quarter" label="Illumination" [value]="moonIllumination ? moonIllumination + '%' : ''"></app-property-item-moon>
   </div>
 </section>

@@ -1,3 +1,6 @@
-<app-astronomy-main class="layout-main"></app-astronomy-main>
+<app-astronomy-main class="layout-main"
+                    [astronomy]="astronomy"
+                    [astronomyLoading]="astronomyLoading"
+></app-astronomy-main>
 
-<app-astronomy-aside class="layout-aside"></app-astronomy-aside>
+<app-astronomy-aside class="layout-aside" [moonPhase]="astronomy.astronomy.astro.moon_phase"></app-astronomy-aside>
