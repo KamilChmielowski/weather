@@ -21,6 +21,7 @@ import { SvgPipe } from '../../../../pipes/svg.pipe';
 })
 export class AstronomyAsideComponent {
   @Input() moonPhase: string | undefined;
+  @Input() north: boolean | undefined;
 
   protected readonly phases = [
     'New Moon',
@@ -31,5 +32,16 @@ export class AstronomyAsideComponent {
     'Waning Gibbous',
     'Last Quarter',
     'Waning Crescent'
+  ];
+
+  protected readonly southIcons = [
+    'New Moon',
+    'Waning Crescent',
+    'Last Quarter',
+    'Waning Gibbous',
+    'Full Moon',
+    'Waxing Gibbous',
+    'First Quarter',
+    'Waxing Crescent'
   ];
 }

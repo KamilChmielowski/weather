@@ -11,3 +11,13 @@
     }
   }
 }
+
+:host-context(.loading) {
+  svg-icon {
+    animation: $skeleton-animation-card;
+
+    svg {
+      opacity: 0;
+    }
+  }
+}

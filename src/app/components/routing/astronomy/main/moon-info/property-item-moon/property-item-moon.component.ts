@@ -20,8 +20,4 @@ import { SvgPipe } from '../../../../../../pipes/svg.pipe';
 })
 export class PropertyItemMoonComponent extends PropertyItemComponent {
   @Input() @HostBinding('class.astronomy-loading') astronomyLoading = true;
-
-  override ngOnInit() {
-    this.isLoading = false;
-  }
 }

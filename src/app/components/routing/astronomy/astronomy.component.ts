@@ -26,16 +26,18 @@ import { WeatherService } from '../../../services/weather/weather.service';
 export class AstronomyComponent implements OnInit {
   @HostBinding('class.astronomy-loading') protected astronomyLoading = true;
   protected astronomy: AstronomyWeatherResponse = this.emptyResponse();
+  protected lat: number | undefined;
 
   constructor(
     private cdr: ChangeDetectorRef,
-    private stateService: StateService,
+    protected stateService: StateService,
     private weatherService: WeatherService,
   ) {}
 
   ngOnInit() {
     this.fetchAstronomyWeather();
     this.fetchForecastWeather();
+    this.lat = this.stateService.weather?.location.lat;
   }
 
   private fetchAstronomyWeather(): void {

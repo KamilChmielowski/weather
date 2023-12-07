@@ -3,4 +3,7 @@
                     [astronomyLoading]="astronomyLoading"
 ></app-astronomy-main>
 
-<app-astronomy-aside class="layout-aside" [moonPhase]="astronomy.astronomy.astro.moon_phase"></app-astronomy-aside>
+<app-astronomy-aside class="layout-aside"
+                     [north]="!!lat && lat >= 0"
+                     [moonPhase]="astronomy.astronomy.astro.moon_phase"
+></app-astronomy-aside>

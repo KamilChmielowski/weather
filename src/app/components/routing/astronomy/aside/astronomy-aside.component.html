@@ -4,7 +4,7 @@
 
     <app-moon-phase *ngFor="let phase of phases; let i = index"
                     [no]="(i + 1).toString()" [name]="phase" [class.current]="moonPhase === phase"
-                    [icon]="phase.toLowerCase().split(' ').join('-')"
+                    [icon]="(north ? phase : southIcons[i]).toLowerCase().split(' ').join('-')"
     ></app-moon-phase>
   </section>
 </aside>
