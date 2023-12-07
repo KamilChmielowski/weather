@@ -5,7 +5,6 @@ import { SvgIconComponent } from 'angular-svg-icon';
 
 import { AstronomyAsideComponent } from './aside/astronomy-aside.component';
 import { AstronomyMainComponent } from './main/astronomy-main.component';
-import { WeatherDataComponent } from '../../abstract/weather-data.component';
 
 @Component({
   selector: 'app-astronomy',
@@ -21,4 +20,4 @@ import { WeatherDataComponent } from '../../abstract/weather-data.component';
     SvgIconComponent,
   ],
 })
-export class AstronomyComponent extends WeatherDataComponent {}
+export class AstronomyComponent {}

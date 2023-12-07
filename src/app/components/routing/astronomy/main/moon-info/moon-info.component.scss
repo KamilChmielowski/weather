@@ -1,0 +1,24 @@
+@import 'variables';
+
+:host {
+  section {
+    padding: 1rem 2rem;
+
+    .properties {
+      width: 100%;
+
+      app-property-item-no-loading {
+        margin-top: 2rem;
+        display: block;
+
+        &[label="Phase"] {
+          width: 60%;
+        }
+
+        &[label="Illumination"] {
+          width: 40%;
+        }
+      }
+    }
+  }
+}

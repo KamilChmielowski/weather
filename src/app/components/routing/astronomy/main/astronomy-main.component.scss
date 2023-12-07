@@ -1,3 +1,12 @@
 @import 'variables';
 
-:host {}
+:host {
+  article {
+    display: flex;
+    flex-flow: column;
+
+    app-rise-set {
+      margin-bottom: 1rem;
+    }
+  }
+}

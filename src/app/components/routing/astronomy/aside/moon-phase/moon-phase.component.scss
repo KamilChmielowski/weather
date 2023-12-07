@@ -1,0 +1,13 @@
+@import 'variables';
+
+:host {
+  p {
+    display: flex;
+    align-items: center;
+
+    span {
+      margin-left: 1.5rem;
+      margin-right: 1.5rem;
+    }
+  }
+}

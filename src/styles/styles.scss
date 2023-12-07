@@ -13,6 +13,15 @@ body {
   font-family: "Verdana", serif;
 }
 
+svg-icon {
+  fill: $color-text;
+
+  svg {
+    fill: $color-text;
+  }
+}
+
+
 button, a {
   cursor: pointer;
   color: $color-text;
@@ -36,11 +45,19 @@ button, a {
   svg-icon {
     fill: $color-text;
     transition: $transition-hover;
+
+    svg {
+      transition: $transition-hover;
+    }
   }
 
   &:hover, &:focus, &.active {
     svg-icon {
       fill: $color-hover;
+
+      svg {
+        fill: $color-hover;
+      }
     }
   }
 }

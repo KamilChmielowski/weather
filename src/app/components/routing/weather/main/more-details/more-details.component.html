@@ -1,12 +1,12 @@
 <section>
-  <app-property-item class="card" icon="wind" label="Wind" [value]="weather | wind"></app-property-item>
-  <app-property-item class="card" icon="pressure" label="Pressure" [value]="weather | pressure"></app-property-item>
-  <app-property-item class="card" icon="rain" label="Precipitation" [value]="weather | precitipation"></app-property-item>
-  <app-property-item class="card" icon="cloud" label="Cloud" [value]="weather ? (weather.current.cloud + '%') : ''"></app-property-item>
-  <app-property-item class="card" icon="humidity" label="Humidity" [value]="weather ? (weather.current.humidity + '%') : ''"></app-property-item>
-  <app-property-item class="card" icon="feelslike" label="Temperature Sense" [value]="weather?.current?.feelslike_c | temp : weather?.current?.feelslike_f"></app-property-item>
-  <app-property-item class="card" icon="visibility" label="Visibility" [value]="weather | distance"></app-property-item>
-  <app-property-item class="card" icon="uv" label="UV Index" [value]="weather ? (weather.current.uv + '') : ''"></app-property-item>
+  <app-property-item class="card" icon="settings/wind" label="Wind" [value]="weather | wind"></app-property-item>
+  <app-property-item class="card" icon="settings/pressure" label="Pressure" [value]="weather | pressure"></app-property-item>
+  <app-property-item class="card" icon="settings/rain" label="Precipitation" [value]="weather | precitipation"></app-property-item>
+  <app-property-item class="card" icon="settings/cloud" label="Cloud" [value]="weather ? (weather.current.cloud + '%') : ''"></app-property-item>
+  <app-property-item class="card" icon="settings/humidity" label="Humidity" [value]="weather ? (weather.current.humidity + '%') : ''"></app-property-item>
+  <app-property-item class="card" icon="settings/feelslike" label="Temperature Sense" [value]="weather?.current?.feelslike_c | temp : weather?.current?.feelslike_f"></app-property-item>
+  <app-property-item class="card" icon="settings/visibility" label="Visibility" [value]="weather | distance"></app-property-item>
+  <app-property-item class="card" icon="settings/uv" label="UV Index" [value]="weather ? (weather.current.uv + '') : ''"></app-property-item>
 
   <button class="chip-btn" (click)="collapse$.emit()">Collapse</button>
 </section>

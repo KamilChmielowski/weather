@@ -1,0 +1,37 @@
+@import 'variables';
+
+:host {
+  section {
+    display: flex;
+    padding: 2rem 1rem;
+
+    .column {
+      width: 50%;
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+
+      p {
+        .text {
+          color: $color-shadow;
+        }
+      }
+
+      svg-icon {
+        margin: 1.5rem 0;
+
+        &.moonrise {
+          svg {
+            fill: #e5e58c;
+          }
+        }
+
+        &.moonset {
+          svg {
+            fill: #d7a74d;
+          }
+        }
+      }
+    }
+  }
+}
