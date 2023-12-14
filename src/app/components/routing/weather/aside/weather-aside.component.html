@@ -2,66 +2,20 @@
   <h2>7-day forecast</h2>
 
   <section>
-    <app-day-item
-      day="Today"
-      [conditions]="weather?.forecast?.forecastday?.at(0)?.day?.condition"
-      [temp]="weather?.forecast?.forecastday?.at(0)?.day?.avgtemp_c | temp : weather?.forecast?.forecastday?.at(0)?.day?.avgtemp_f"
-      [maxTemp]="weather?.forecast?.forecastday?.at(0)?.day?.maxtemp_c | temp : weather?.forecast?.forecastday?.at(0)?.day?.maxtemp_f"
-      [minTemp]="weather?.forecast?.forecastday?.at(0)?.day?.mintemp_c | temp : weather?.forecast?.forecastday?.at(0)?.day?.mintemp_f"
+    <app-day-item *ngFor="let day of [
+                    'Today',
+                    weather?.location?.localtime | day : 1,
+                    weather?.location?.localtime | day : 2,
+                    weather?.location?.localtime | day : 3,
+                    weather?.location?.localtime | day : 4,
+                    weather?.location?.localtime | day : 5,
+                    weather?.location?.localtime | day : 6,
+                  ]; let i = index"
+                  [day]="day"
+                  [conditions]="weather?.forecast?.forecastday?.at(i)?.day?.condition"
+                  [temp]="weather?.forecast?.forecastday?.at(i)?.day?.avgtemp_c | temp : weather?.forecast?.forecastday?.at(i)?.day?.avgtemp_f"
+                  [maxTemp]="weather?.forecast?.forecastday?.at(i)?.day?.maxtemp_c | temp : weather?.forecast?.forecastday?.at(i)?.day?.maxtemp_f"
+                  [minTemp]="weather?.forecast?.forecastday?.at(i)?.day?.mintemp_c | temp : weather?.forecast?.forecastday?.at(i)?.day?.mintemp_f"
     ></app-day-item>
-
-    <app-day-item
-      [day]="weather?.location?.localtime | day : 1"
-      [conditions]="weather?.forecast?.forecastday?.at(1)?.day?.condition"
-      [temp]="weather?.forecast?.forecastday?.at(1)?.day?.avgtemp_c | temp : weather?.forecast?.forecastday?.at(1)?.day?.avgtemp_f"
-      [maxTemp]="weather?.forecast?.forecastday?.at(1)?.day?.maxtemp_c | temp : weather?.forecast?.forecastday?.at(1)?.day?.maxtemp_f"
-      [minTemp]="weather?.forecast?.forecastday?.at(1)?.day?.mintemp_c | temp : weather?.forecast?.forecastday?.at(1)?.day?.mintemp_f"
-      maxTemp="22">
-    </app-day-item>
-
-    <app-day-item
-      [day]="weather?.location?.localtime | day : 2"
-      [conditions]="weather?.forecast?.forecastday?.at(2)?.day?.condition"
-      [temp]="weather?.forecast?.forecastday?.at(2)?.day?.avgtemp_c | temp : weather?.forecast?.forecastday?.at(2)?.day?.avgtemp_f"
-      [maxTemp]="weather?.forecast?.forecastday?.at(2)?.day?.maxtemp_c | temp : weather?.forecast?.forecastday?.at(2)?.day?.maxtemp_f"
-      [minTemp]="weather?.forecast?.forecastday?.at(2)?.day?.mintemp_c | temp : weather?.forecast?.forecastday?.at(2)?.day?.mintemp_f"
-      maxTemp="19">
-    </app-day-item>
-
-    <app-day-item
-      [day]="weather?.location?.localtime | day : 3"
-      [conditions]="weather?.forecast?.forecastday?.at(3)?.day?.condition"
-      [temp]="weather?.forecast?.forecastday?.at(3)?.day?.avgtemp_c | temp : weather?.forecast?.forecastday?.at(3)?.day?.avgtemp_f"
-      [maxTemp]="weather?.forecast?.forecastday?.at(3)?.day?.maxtemp_c | temp : weather?.forecast?.forecastday?.at(3)?.day?.maxtemp_f"
-      [minTemp]="weather?.forecast?.forecastday?.at(3)?.day?.avgtemp_c | temp : weather?.forecast?.forecastday?.at(3)?.day?.mintemp_f"
-      maxTemp="18">
-    </app-day-item>
-
-    <app-day-item
-      [day]="weather?.location?.localtime | day : 4"
-      [conditions]="weather?.forecast?.forecastday?.at(4)?.day?.condition"
-      [temp]="weather?.forecast?.forecastday?.at(4)?.day?.avgtemp_c | temp : weather?.forecast?.forecastday?.at(4)?.day?.avgtemp_f"
-      [maxTemp]="weather?.forecast?.forecastday?.at(4)?.day?.maxtemp_c | temp : weather?.forecast?.forecastday?.at(4)?.day?.maxtemp_f"
-      [minTemp]="weather?.forecast?.forecastday?.at(4)?.day?.mintemp_c | temp : weather?.forecast?.forecastday?.at(4)?.day?.mintemp_f"
-      maxTemp="17">
-    </app-day-item>
-
-    <app-day-item
-      [day]="weather?.location?.localtime | day : 5"
-      [conditions]="weather?.forecast?.forecastday?.at(5)?.day?.condition"
-      [temp]="weather?.forecast?.forecastday?.at(5)?.day?.avgtemp_c | temp : weather?.forecast?.forecastday?.at(5)?.day?.avgtemp_f"
-      [maxTemp]="weather?.forecast?.forecastday?.at(5)?.day?.maxtemp_c | temp : weather?.forecast?.forecastday?.at(5)?.day?.maxtemp_f"
-      [minTemp]="weather?.forecast?.forecastday?.at(5)?.day?.mintemp_c | temp : weather?.forecast?.forecastday?.at(5)?.day?.mintemp_f"
-      maxTemp="18">
-    </app-day-item>
-
-    <app-day-item
-      [day]="weather?.location?.localtime | day : 6"
-      [conditions]="weather?.forecast?.forecastday?.at(6)?.day?.condition"
-      [temp]="weather?.forecast?.forecastday?.at(6)?.day?.avgtemp_c | temp : weather?.forecast?.forecastday?.at(6)?.day?.avgtemp_f"
-      [maxTemp]="weather?.forecast?.forecastday?.at(6)?.day?.maxtemp_c | temp : weather?.forecast?.forecastday?.at(6)?.day?.maxtemp_f"
-      [minTemp]="weather?.forecast?.forecastday?.at(6)?.day?.mintemp_c | temp : weather?.forecast?.forecastday?.at(6)?.day?.mintemp_f"
-      maxTemp="21">
-    </app-day-item>
   </section>
 </aside>

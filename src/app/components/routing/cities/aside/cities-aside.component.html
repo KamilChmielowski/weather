@@ -25,30 +25,12 @@
   <section class="card">
     <h2>3-day forecast</h2>
 
-    <app-day-item
-      day="Today"
-      [conditions]="weather?.forecast?.forecastday?.at(0)?.day?.condition"
-      [temp]="weather?.forecast?.forecastday?.at(0)?.day?.avgtemp_c | temp : weather?.forecast?.forecastday?.at(0)?.day?.avgtemp_f"
-      [maxTemp]="weather?.forecast?.forecastday?.at(0)?.day?.maxtemp_c | temp : weather?.forecast?.forecastday?.at(0)?.day?.maxtemp_f"
-      [minTemp]="weather?.forecast?.forecastday?.at(0)?.day?.mintemp_c | temp : weather?.forecast?.forecastday?.at(0)?.day?.mintemp_f"
+    <app-day-item *ngFor="let day of ['Today', weather?.location?.localtime | day : 1, weather?.location?.localtime | day : 2]; let i = index"
+                  [day]="day"
+                  [conditions]="weather?.forecast?.forecastday?.at(i)?.day?.condition"
+                  [temp]="weather?.forecast?.forecastday?.at(i)?.day?.avgtemp_c | temp : weather?.forecast?.forecastday?.at(i)?.day?.avgtemp_f"
+                  [maxTemp]="weather?.forecast?.forecastday?.at(i)?.day?.maxtemp_c | temp : weather?.forecast?.forecastday?.at(i)?.day?.maxtemp_f"
+                  [minTemp]="weather?.forecast?.forecastday?.at(i)?.day?.mintemp_c | temp : weather?.forecast?.forecastday?.at(i)?.day?.mintemp_f"
     ></app-day-item>
-
-    <app-day-item
-      [day]="weather?.location?.localtime | day : 1"
-      [conditions]="weather?.forecast?.forecastday?.at(1)?.day?.condition"
-      [temp]="weather?.forecast?.forecastday?.at(1)?.day?.avgtemp_c | temp : weather?.forecast?.forecastday?.at(1)?.day?.avgtemp_f"
-      [maxTemp]="weather?.forecast?.forecastday?.at(1)?.day?.maxtemp_c | temp : weather?.forecast?.forecastday?.at(1)?.day?.maxtemp_f"
-      [minTemp]="weather?.forecast?.forecastday?.at(1)?.day?.mintemp_c | temp : weather?.forecast?.forecastday?.at(1)?.day?.mintemp_f"
-      maxTemp="22">
-    </app-day-item>
-
-    <app-day-item
-      [day]="weather?.location?.localtime | day : 2"
-      [conditions]="weather?.forecast?.forecastday?.at(2)?.day?.condition"
-      [temp]="weather?.forecast?.forecastday?.at(2)?.day?.avgtemp_c | temp : weather?.forecast?.forecastday?.at(2)?.day?.avgtemp_f"
-      [maxTemp]="weather?.forecast?.forecastday?.at(2)?.day?.maxtemp_c | temp : weather?.forecast?.forecastday?.at(2)?.day?.maxtemp_f"
-      [minTemp]="weather?.forecast?.forecastday?.at(2)?.day?.mintemp_c | temp : weather?.forecast?.forecastday?.at(2)?.day?.mintemp_f"
-      maxTemp="19">
-    </app-day-item>
   </section>
 </aside>
