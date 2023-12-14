@@ -31,7 +31,7 @@
   background-color: $color-foreground;
   border-radius: 1.5rem;
   padding: 1rem;
-  box-shadow: $box-shadow-dark;
+  box-shadow: $box-shadow;
 
   h2, h3 {
     margin: 1rem 1rem 1.5rem;
@@ -51,5 +51,4 @@
   border-radius: 10rem;
   padding: 0.3rem 0.5rem;
   font-weight: 600;
-  box-shadow: $box-shadow;
 }

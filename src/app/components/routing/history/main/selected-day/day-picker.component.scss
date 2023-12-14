@@ -13,7 +13,7 @@
       border-radius: 50%;
       padding: 0;
       height: 100%;
-      box-shadow: $box-shadow-dark;
+      box-shadow: $box-shadow;
       transition: $transition-hover;
       border: 2px solid $color-border;
       outline: none;
@@ -46,7 +46,7 @@
       font-size: 1.2rem;
       outline: none;
       border-radius: 5px;
-      box-shadow: $box-shadow-dark;
+      box-shadow: $box-shadow;
       border: 2px solid $color-border;
       min-height: 3.4rem;
       box-sizing: border-box;
