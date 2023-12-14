@@ -2,9 +2,12 @@
 
 :host {
   article {
-    app-search-input {
-      display: block;
-      margin-bottom: 2rem;
+    height: 100%;
+
+    mgl-map {
+      box-shadow: $box-shadow;
+      border: 2px solid $color-border;
+      height: 100%;
     }
   }
 }

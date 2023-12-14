@@ -1,3 +1,14 @@
 <article>
-  <section></section>
+  <mgl-map
+    [style]="environment.maptiler.freeMap
+      ? 'https://demotiles.maplibre.org/style.json'
+      : 'https://api.maptiler.com/maps/streets-v2/style.json?key=' + environment.apiKey.maptiler"
+    [zoom]="[environment.maptiler.zoom]"
+    [center]="[location.coords[1], location.coords[0]]"
+    [preserveDrawingBuffer]="true">
+    <mgl-marker
+      [lngLat]="[location.coords[1], location.coords[0]]"
+      [draggable]="false"
+    ></mgl-marker>
+  </mgl-map>
 </article>

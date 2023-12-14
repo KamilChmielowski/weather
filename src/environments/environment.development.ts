@@ -3,7 +3,12 @@ export const environment = {
   apiKey: {
     geoapify: '3d8f5406c9304cc58cabfdb82ac768f9',
     geolocationDb: '70a96070-8761-11ee-93b1-ed9b3fb42532',
+    maptiler: 'GAMmPPiIjIPMJSVssq6d',
     weatherapi: '5342b1c5bbmshed6f38ea124fc16p1bb353jsnfa4eb77a9c57',
+  },
+  maptiler: {
+    freeMap: false,
+    zoom: 10,
   },
   forecastDays: 7,
   isProduction: true,

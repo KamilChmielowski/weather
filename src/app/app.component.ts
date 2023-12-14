@@ -15,6 +15,6 @@ export class AppComponent extends StateComponent {
   constructor(
     protected override stateService: StateService,
   ) {
-    super(stateService)
+    super(stateService);
   }
 }
