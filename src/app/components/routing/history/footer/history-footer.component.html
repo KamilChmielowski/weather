@@ -1,10 +1,10 @@
 <footer>
   <section class="card">
-    <app-hour-item *ngFor="let hour of [0, 2, 5, 8, 11, 14, 17, 20, 23]"
+    <app-hour-item *ngFor="let hour of [0, 3, 6, 9, 12, 15, 18, 21, 24]"
                    [hour]="hour" [class.loading]="historyLoading"
-                   [condition]="history?.forecast?.forecastday?.at(0)?.hour?.at(hour)?.condition"
-                   [temp]="history?.forecast?.forecastday?.at(0)?.hour?.at(hour)?.temp_c |
-                   temp: history?.forecast?.forecastday?.at(0)?.hour?.at(hour)?.temp_f"
+                   [condition]="history?.forecast?.forecastday?.at(0)?.hour?.at(hour > 0 ? hour - 1 : 0)?.condition"
+                   [temp]="history?.forecast?.forecastday?.at(0)?.hour?.at(hour > 0 ? hour - 1 : 0)?.temp_c |
+                   temp: history?.forecast?.forecastday?.at(0)?.hour?.at(hour > 0 ? hour - 1 : 0)?.temp_f"
     ></app-hour-item>
   </section>
 

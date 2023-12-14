@@ -2,34 +2,10 @@
   <h2>Today's forecast</h2>
 
   <div class="hours">
-    <app-hour-item [hour]="6"
-                   [condition]="weather?.forecast?.forecastday?.at(0)?.hour?.at(6)?.condition"
-                   [temp]="weather?.forecast?.forecastday?.at(0)?.hour?.at(6)?.temp_c | temp: weather?.forecast?.forecastday?.at(0)?.hour?.at(6)?.temp_f">
-    </app-hour-item>
-
-    <app-hour-item [hour]="9"
-                   [condition]="weather?.forecast?.forecastday?.at(0)?.hour?.at(9)?.condition"
-                   [temp]="weather?.forecast?.forecastday?.at(0)?.hour?.at(9)?.temp_c | temp: weather?.forecast?.forecastday?.at(0)?.hour?.at(9)?.temp_f">
-    </app-hour-item>
-
-    <app-hour-item [hour]="12"
-                   [condition]="weather?.forecast?.forecastday?.at(0)?.hour?.at(12)?.condition"
-                   [temp]="weather?.forecast?.forecastday?.at(0)?.hour?.at(12)?.temp_c | temp: weather?.forecast?.forecastday?.at(0)?.hour?.at(12)?.temp_f">
-    </app-hour-item>
-
-    <app-hour-item [hour]="15"
-                   [condition]="weather?.forecast?.forecastday?.at(0)?.hour?.at(15)?.condition"
-                     [temp]="weather?.forecast?.forecastday?.at(0)?.hour?.at(15)?.temp_c | temp: weather?.forecast?.forecastday?.at(0)?.hour?.at(15)?.temp_f">
-    </app-hour-item>
-
-    <app-hour-item [hour]="18"
-                   [condition]="weather?.forecast?.forecastday?.at(0)?.hour?.at(18)?.condition"
-                   [temp]="weather?.forecast?.forecastday?.at(0)?.hour?.at(18)?.temp_c | temp: weather?.forecast?.forecastday?.at(0)?.hour?.at(18)?.temp_f">
-    </app-hour-item>
-
-    <app-hour-item [hour]="21"
-                   [condition]="weather?.forecast?.forecastday?.at(0)?.hour?.at(21)?.condition"
-                   [temp]="weather?.forecast?.forecastday?.at(0)?.hour?.at(21)?.temp_c | temp: weather?.forecast?.forecastday?.at(0)?.hour?.at(21)?.temp_f">
+    <app-hour-item *ngFor="let hour of [6, 9, 12, 15, 18, 21]"
+                   [hour]="hour"
+                   [condition]="weather?.forecast?.forecastday?.at(0)?.hour?.at(hour)?.condition"
+                   [temp]="weather?.forecast?.forecastday?.at(0)?.hour?.at(hour)?.temp_c | temp: weather?.forecast?.forecastday?.at(0)?.hour?.at(hour - 1)?.temp_f">
     </app-hour-item>
   </div>
 </section>
