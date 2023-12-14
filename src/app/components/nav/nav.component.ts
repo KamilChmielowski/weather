@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
@@ -6,6 +6,7 @@ import { SvgIconComponent } from 'angular-svg-icon';
 
 import { StateService } from '../../services/state/state.service';
 import { SvgPipe } from '../../pipes/svg.pipe';
+import { StateComponent } from '../abstract/state.component';
 
 @Component({
   selector: 'app-nav',
@@ -21,8 +22,23 @@ import { SvgPipe } from '../../pipes/svg.pipe';
     SvgPipe,
   ],
 })
-export class NavComponent {
-  protected readonly hasLocations = this.stateService.locations?.length > 0;
+export class NavComponent extends StateComponent implements OnInit {
+  protected hasLocations = this.stateService.locations?.length > 0;
 
-  constructor(private stateService: StateService) {}
+  constructor(
+      private cdr: ChangeDetectorRef,
+      protected override stateService: StateService
+  ) {
+    super(stateService);
+  }
+
+  ngOnInit() {
+    this.subscription.add(
+      this.stateService.location$
+        .subscribe(() => {
+          this.hasLocations = this.stateService.locations?.length > 0;
+          this.cdr.markForCheck();
+        })
+    );
+  }
 }

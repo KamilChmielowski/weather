@@ -91,7 +91,7 @@ export class StateService {
     if (index >= 0) {
       this._locations.splice(index, 1);
       this.updateLocationsInStorage(this._locations);
-      this.changeLocation(this._locations[0].city);
+      this.changeLocation(this._locations[0]?.city);
     }
   }
 
