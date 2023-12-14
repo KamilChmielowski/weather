@@ -1,0 +1,11 @@
+<section [formGroup]="form">
+  <button [disabled]="historyLoading" (click)="shiftDate(-1)">
+    <svg-icon [src]="'other/left' | svg"></svg-icon>
+  </button>
+
+  <input type="date" formControlName="date" [max]="yesterday"/>
+
+  <button [disabled]="historyLoading || form.controls.date.value === yesterday" (click)="shiftDate(1)">
+    <svg-icon [src]="'other/right' | svg"></svg-icon>
+  </button>
+</section>

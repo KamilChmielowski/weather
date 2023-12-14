@@ -3,11 +3,17 @@ import { Injectable } from '@angular/core';
 
 import { catchError, delay, finalize, Observable, tap } from 'rxjs';
 
-import { mockAstronomyWeather, mockForecastWeather, mockRealtimeWeather } from './weather.mock';
+import {
+  mockAstronomyWeather,
+  mockForecastWeather,
+  mockHistoryWeather,
+  mockRealtimeWeather,
+} from './weather.mock';
 import {
   AstronomyWeatherResponse,
   ForecastWeatherParams,
   ForecastWeatherResponse,
+  HistoryWeatherResponse,
   RealtimeWeatherParams,
   RealtimeWeatherResponse
 } from './weather.model';
@@ -60,6 +66,17 @@ export class WeatherService {
           catchError(() => mockAstronomyWeather)
         )
       : mockAstronomyWeather;
+  }
+
+  getHistoryWeather(city: string, date: string): Observable<HistoryWeatherResponse> {
+    return environment.isProduction
+      ? this.httpClient.get<HistoryWeatherResponse>(`${this.weatherBase}history.json`, this.options({
+        q: city.toLowerCase(),
+        dt: date,
+      })).pipe(
+        delay(environment.apiDelay),
+        catchError(() => mockHistoryWeather)
+      ) : mockHistoryWeather;
   }
 
   private loadingPipe<T>(observable: Observable<T>): Observable<T> {

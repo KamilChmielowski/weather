@@ -1,0 +1,70 @@
+@import 'mixins';
+@import 'variables';
+
+:host {
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    @include svgSize(12rem, 'svg-icon');
+
+    .details {
+      margin: 0 1rem;
+      width: 100%;
+
+      h1 {
+        font-size: 2rem;
+        min-height: 2.5rem;
+      }
+
+      h1, p, .date1 {
+        margin-bottom: 1rem;
+      }
+
+      .condition, .date1, .date2 {
+        min-height: 1.2rem;
+      }
+
+      .date2 {
+        margin-bottom: 2rem;
+      }
+
+      .temp {
+        font-size: 3rem;
+        font-weight: 600;
+        min-height: 3.7rem;
+      }
+    }
+
+    svg-icon {
+      margin-right: 1rem;
+    }
+  }
+}
+
+:host-context(.history-loading) {
+  header {
+    .details {
+      h1 {
+        color: transparent;
+      }
+
+      h1, p {
+        animation: $skeleton-animation;
+      }
+
+      .condition, .date1, .date2 {
+        width: 60%;
+      }
+
+      .temp {
+        width: 65%;
+      }
+    }
+
+    svg-icon {
+      animation: $skeleton-animation;
+    }
+  };
+}

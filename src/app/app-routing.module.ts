@@ -13,7 +13,9 @@ const routes: Routes = [
       { path: 'cities', loadComponent: () => import('./components/routing/cities/cities.component').then(mod => mod.CitiesComponent) },
       { path: 'map', loadComponent: () => import('./components/routing/map/map.component').then(mod => mod.MapComponent) },
       { path: 'astronomy', loadComponent: () => import('./components/routing/astronomy/astronomy.component').then(mod => mod.AstronomyComponent) },
+      { path: 'history', loadComponent: () => import('./components/routing/history/history.component').then(mod => mod.HistoryComponent) },
       { path: 'settings', loadComponent: () => import('./components/routing/settings/settings.component').then(mod => mod.SettingsComponent) },
+      { path: '**', redirectTo: 'weather' },
     ],
     canActivate: [LocationRequiredGuardService]
   },

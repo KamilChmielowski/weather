@@ -1,0 +1,12 @@
+@import 'variables';
+
+:host {
+  article {
+    display: flex;
+    flex-flow: column;
+
+    app-day-picker {
+      margin-bottom: 1rem;
+    }
+  }
+}

@@ -120,3 +120,10 @@ export interface AstronomyWeather {
     is_sun_up: number,
   }
 }
+
+export interface HistoryWeatherResponse {
+  location: RealtimeWeatherLocation,
+  forecast: {
+    forecastday: Forecastday[];
+  }
+}

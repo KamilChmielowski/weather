@@ -1,0 +1,15 @@
+<header>
+  <section class="details">
+    <h1>{{ history?.location?.name }}</h1>
+
+    <p class="condition">{{ history?.forecast?.forecastday?.at(0)?.day?.condition?.text }}</p>
+
+    <p class="date1">{{ history?.forecast?.forecastday?.at(0)?.date | date: 'EEEE, d.M.y' }}</p>
+
+    <p class="date2">{{ history?.forecast?.forecastday?.at(0)?.date | date: 'h:mm:ss a zzzz' }}</p>
+
+    <p class="temp">{{ history?.forecast?.forecastday?.at(0)?.day?.avgtemp_c | temp: history?.forecast?.forecastday?.at(0)?.day?.avgtemp_f }}</p>
+  </section>
+
+  <svg-icon [src]="history?.forecast?.forecastday?.at(0)?.day?.condition | weather"></svg-icon>
+</header>

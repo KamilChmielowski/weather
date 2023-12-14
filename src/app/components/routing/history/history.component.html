@@ -1,0 +1,14 @@
+<app-history-main class="layout-main"
+                  [history]="currentHistory"
+                  [historyLoading]="currentHistoryLoading"
+                  (date$)="fetchSelectedDayFromPast($event)"
+></app-history-main>
+
+<app-history-aside class="layout-aside"
+                   [history]="history"
+                   [historyLoading]="historyLoading"
+></app-history-aside>
+
+<app-history-footer [history]="currentHistory"
+                    [historyLoading]="currentHistoryLoading">
+</app-history-footer>

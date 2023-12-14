@@ -1,0 +1,12 @@
+<article>
+  <app-day-picker class="card"
+                  [history]="history"
+                  [historyLoading]="historyLoading"
+                  (date$)="date$.emit($event)"
+  ></app-day-picker>
+
+  <app-history-header
+    [history]="history"
+    [historyLoading]="historyLoading"
+  ></app-history-header>
+</article>

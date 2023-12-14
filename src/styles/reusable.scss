@@ -9,7 +9,7 @@
 
   &-main {
     display: block;
-    width: 60%;
+    width: calc(60% - 1rem);
     margin-right: 1rem;
   }
 
@@ -31,6 +31,7 @@
   background-color: $color-foreground;
   border-radius: 1.5rem;
   padding: 1rem;
+  box-shadow: $box-shadow-dark;
 
   h2, h3 {
     margin: 1rem 1rem 1.5rem;
