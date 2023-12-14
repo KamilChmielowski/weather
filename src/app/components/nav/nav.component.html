@@ -7,7 +7,7 @@
     <svg-icon [src]="'nav/cities' | svg"></svg-icon>Cities
   </a>
 
-  <a class="page" routerLink="map" routerLinkActive="active">
+  <a class="page" [routerLink]="hasLocations ? 'map' : null" routerLinkActive="active" [class.disabled]="!hasLocations">
     <svg-icon [src]="'nav/map' | svg"></svg-icon>Map
   </a>
 

@@ -22,6 +22,17 @@
 
       @include svgSize(1.5rem, 'svg-icon');
 
+      &.disabled {
+        color: $color-shadow;
+        cursor: default;
+
+        svg-icon {
+          svg {
+            fill: $color-shadow;
+          }
+        }
+      }
+
       svg-icon {
         margin-bottom: 0.4rem;
       }

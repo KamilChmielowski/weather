@@ -4,6 +4,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 
 import { SvgIconComponent } from 'angular-svg-icon';
 
+import { StateService } from '../../services/state/state.service';
 import { SvgPipe } from '../../pipes/svg.pipe';
 
 @Component({
@@ -20,4 +21,8 @@ import { SvgPipe } from '../../pipes/svg.pipe';
     SvgPipe,
   ],
 })
-export class NavComponent {}
+export class NavComponent {
+  protected readonly hasLocations = this.stateService.locations?.length > 0;
+
+  constructor(private stateService: StateService) {}
+}
