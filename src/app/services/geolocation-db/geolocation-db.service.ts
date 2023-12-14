@@ -8,7 +8,7 @@ import { GeolocationDbResponse } from './geolocation-db.model';
 
 @Injectable({ providedIn: 'root' })
 export class GeolocationDbService {
-  private readonly apiKey = '70a96070-8761-11ee-93b1-ed9b3fb42532';
+  private readonly apiKey = environment.apiKey.geolocationDb;
 
   constructor(private httpClient: HttpClient,) {}
 

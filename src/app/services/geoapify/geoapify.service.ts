@@ -4,13 +4,13 @@ import { Injectable } from '@angular/core';
 import { catchError, delay, Observable } from 'rxjs';
 
 import { environment } from '../../../environments/environment';
-import { GeolocationResponse } from './geolocation.model';
-import { GeoAutocompleteResponse } from './geoautocomplete.model';
 import { getAutocompleteMock } from './get-autocomplete.mock';
+import { GeoAutocompleteResponse } from './geoautocomplete.model';
+import { GeolocationResponse } from './geolocation.model';
 
 @Injectable({ providedIn: 'root' })
 export class GeoapifyService {
-  private readonly apiKey = '3d8f5406c9304cc58cabfdb82ac768f9';
+  private readonly apiKey = environment.apiKey.geoapify;
 
   constructor(private httpClient: HttpClient,) {}
 

@@ -4,12 +4,6 @@ import { Injectable } from '@angular/core';
 import { catchError, delay, finalize, Observable, tap } from 'rxjs';
 
 import {
-  mockAstronomyWeather,
-  mockForecastWeather,
-  mockHistoryWeather,
-  mockRealtimeWeather,
-} from './weather.mock';
-import {
   AstronomyWeatherResponse,
   ForecastWeatherParams,
   ForecastWeatherResponse,
@@ -18,13 +12,19 @@ import {
   RealtimeWeatherResponse
 } from './weather.model';
 import { environment } from '../../../environments/environment';
+import {
+  mockAstronomyWeather,
+  mockForecastWeather,
+  mockHistoryWeather,
+  mockRealtimeWeather,
+} from './weather.mock';
 import { StateService } from '../state/state.service';
 
 @Injectable({ providedIn: 'root' })
 export class WeatherService {
   private readonly weatherBase = 'https://weatherapi-com.p.rapidapi.com/';
   private readonly headers = {
-    'X-RapidAPI-Key': '5342b1c5bbmshed6f38ea124fc16p1bb353jsnfa4eb77a9c57',
+    'X-RapidAPI-Key': environment.apiKey.weatherapi,
     'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com',
   }
   private readonly options = (searchParams: any) => ({
