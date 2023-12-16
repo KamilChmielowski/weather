@@ -1,3 +1,5 @@
+@import 'media';
+
 :host {
   display: flex;
   flex-flow: column;
@@ -5,10 +7,23 @@
 
   .app {
     display: flex;
-    min-width: 1080px;
     max-width: 80vw;
     margin: 0 auto;
     padding: 1rem;
     box-sizing: border-box;
+  }
+
+  @include landscape() {
+    .app {
+      max-width: 90vw;
+      padding: 3rem 1rem;
+    }
+  }
+
+  @include portrait() {
+    .app {
+      max-width: 95vw;
+      padding: 2rem 1rem;
+    }
   }
 }

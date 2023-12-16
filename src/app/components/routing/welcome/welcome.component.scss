@@ -1,11 +1,12 @@
 @import 'mixins';
+@import 'media';
 @import 'variables';
 
 :host {
   width: 100%;
   display: flex;
   justify-content: center;
-  height: 50vh;
+  min-height: 60vh;
   align-items: center;
 
   article {
@@ -13,7 +14,7 @@
     flex-flow: column;
 
     app-search-input {
-      width: 50vw;
+      width: 100%;
     }
 
     .location {
@@ -33,6 +34,55 @@
         margin-left: 1rem;
         padding: 1rem;
         @include svgSize(5rem, 'svg-icon');
+      }
+    }
+  }
+
+  @include tablet() {
+    min-height: 65vh;
+  }
+
+  @include landscape() {
+    article {
+      .location {
+        p {
+          font-size: 1.6rem;
+        }
+      }
+    }
+  }
+
+  @include portrait() {
+    article {
+      .location {
+        p {
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
+
+  @include portrait-tablet() {
+    article {
+      width: 100%;
+
+      .location {
+        flex-flow: column;
+
+        button {
+          margin-top: 3rem;
+          margin-left: 0;
+        }
+      }
+    }
+  }
+
+  @include portrait-landscape() {
+    article {
+      .location {
+        p {
+          text-align: center;
+        }
       }
     }
   }

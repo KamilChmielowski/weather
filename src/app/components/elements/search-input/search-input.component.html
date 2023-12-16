@@ -1,5 +1,6 @@
 <div [formGroup]="form" class="form" (mouseleave)="mouseleave()" (mouseenter)="mouseenter()">
-  <input placeholder="Enter location address here..." aria-label="Enter location address here"
+  <input [placeholder]="'Enter location address here...' | phone : 'Enter location...'"
+         aria-label="Enter location address here"
          formControlName="search" (focusin)="focusin()" (focusout)="focusout()"/>
 
   <div *ngIf="searchResults && showSuggestions" class="suggestions">

@@ -1,4 +1,5 @@
 @import 'mixins';
+@import 'media';
 @import 'variables';
 
 :host {
@@ -29,7 +30,6 @@
 
     .contact {
       margin-left: 4rem;
-
       @include svgSize(1.5rem, 'svg-icon');
 
       p {
@@ -54,6 +54,39 @@
 
     &:last-of-type {
       padding-bottom: 0;
+    }
+  }
+
+  @include portrait-landscape() {
+    footer {
+      flex-flow: column;
+
+      .author {
+        display: flex;
+
+        .img {
+          margin-right: 1rem;
+        }
+
+        p {
+          text-align: left;
+        }
+      }
+
+      .contact {
+        margin-top: 2rem;
+        margin-left: 0;
+      }
+    }
+  }
+
+  @include portrait() {
+    footer {
+      .author {
+        .img {
+          margin-right: 0.5rem;
+        }
+      }
     }
   }
 }

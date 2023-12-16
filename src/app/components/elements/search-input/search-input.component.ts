@@ -13,6 +13,7 @@ import { SvgIconComponent } from 'angular-svg-icon';
 
 import { GeoapifyService } from '../../../services/geoapify/geoapify.service';
 import { GeoAutocompleteFeature, GeoAutocompleteResponse } from '../../../services/geoapify/geoautocomplete.model';
+import { PhonePipe } from '../../../pipes/phone';
 import { StateComponent } from '../../abstract/state.component';
 import { StateService } from '../../../services/state/state.service';
 import { SvgPipe } from '../../../pipes/svg.pipe';
@@ -26,6 +27,7 @@ import { WeatherService } from '../../../services/weather/weather.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     CommonModule,
+    PhonePipe,
     ReactiveFormsModule,
     SvgIconComponent,
     SvgPipe,
