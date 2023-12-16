@@ -21,15 +21,16 @@ import { WeatherService } from '../../../services/weather/weather.service';
   imports: [
     CommonModule,
     HistoryAsideComponent,
-    HistoryMainComponent,
     HistoryFooterComponent,
+    HistoryMainComponent,
   ],
 })
 export class HistoryComponent implements OnInit {
   @HostBinding('class.history-loading') protected historyLoading = true;
+
+  protected currentHistory: HistoryWeatherResponse | undefined;
   protected currentHistoryLoading = true;
   protected history: HistoryWeatherResponse[] = [];
-  protected currentHistory: HistoryWeatherResponse | undefined;
 
   constructor(
     private cdr: ChangeDetectorRef,
@@ -79,7 +80,7 @@ export class HistoryComponent implements OnInit {
   private getHistoryWeatherObservable(shiftDays: number): Observable<HistoryWeatherResponse> {
     return this.weatherService.getHistoryWeather(
       this.stateService.location?.city || this.stateService.locations[0].city,
-      HistoryComponent.getHistoryDate(shiftDays),
+      this.getHistoryDate(shiftDays),
     );
   }
 
@@ -93,7 +94,7 @@ export class HistoryComponent implements OnInit {
     }).subscribe(weather => this.stateService.addWeather(weather))
   }
 
-  static getHistoryDate(shiftDays = 0): string {
+  private getHistoryDate(shiftDays = 0): string {
     const date = new Date();
     date.setDate(date.getDate() + shiftDays);
     return HistoryComponent.getDateString(date);

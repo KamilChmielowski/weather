@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, HostBinding, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NavigationEnd, Router } from '@angular/router';
 
 import { SvgIconComponent } from 'angular-svg-icon';
-import { NavigationEnd, Router } from '@angular/router';
 
 import { StateComponent } from '../abstract/state.component';
 import { StateService } from '../../services/state/state.service';
@@ -14,18 +14,19 @@ import { SvgPipe } from '../../pipes/svg.pipe';
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [
-        CommonModule,
-        SvgIconComponent,
-        SvgPipe
-    ],
+  imports: [
+    CommonModule,
+    SvgIconComponent,
+    SvgPipe,
+  ],
 })
 export class FooterComponent extends StateComponent implements OnInit {
   @HostBinding('class.welcome') protected isWelcome = false;
 
   constructor(
+    private router: Router,
     protected override stateService: StateService,
-    private router: Router) {
+  ) {
     super(stateService);
   }
 

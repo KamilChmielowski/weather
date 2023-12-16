@@ -1,8 +1,6 @@
 import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { SvgIconComponent } from 'angular-svg-icon';
-
 import { PropertyItemMoonComponent } from './property-item-moon/property-item-moon.component';
 
 @Component({
@@ -13,7 +11,6 @@ import { PropertyItemMoonComponent } from './property-item-moon/property-item-mo
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     CommonModule,
-    SvgIconComponent,
     PropertyItemMoonComponent,
   ],
 })

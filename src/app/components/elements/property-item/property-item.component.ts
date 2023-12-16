@@ -12,11 +12,11 @@ import { SvgPipe } from '../../../pipes/svg.pipe';
   templateUrl: './property-item.component.html',
   styleUrls: ['./property-item.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [
-        CommonModule,
-        SvgIconComponent,
-        SvgPipe,
-    ],
+  imports: [
+    CommonModule,
+    SvgIconComponent,
+    SvgPipe,
+  ],
 })
 export class PropertyItemComponent extends LoadingComponent {
   @Input() icon!: string;

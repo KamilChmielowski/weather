@@ -4,8 +4,8 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 import { SvgIconComponent } from 'angular-svg-icon';
 
-import { HistoryWeatherResponse } from '../../../../../services/weather/weather.model';
 import { HistoryComponent } from '../../history.component';
+import { HistoryWeatherResponse } from '../../../../../services/weather/weather.model';
 import { SvgPipe } from '../../../../../pipes/svg.pipe';
 
 @Component({
@@ -31,7 +31,7 @@ export class DayPickerComponent {
     }
   }
 
-  @Output() readonly date$ = new EventEmitter<string>();
+  @Output() protected readonly date$ = new EventEmitter<string>();
 
   protected readonly yesterday = this.getYesterdayStringDate();
   protected _history!: HistoryWeatherResponse | undefined;

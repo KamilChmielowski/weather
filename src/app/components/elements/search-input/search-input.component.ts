@@ -32,15 +32,15 @@ import { WeatherService } from '../../../services/weather/weather.service';
   ],
 })
 export class SearchInputComponent extends StateComponent implements OnInit {
-  readonly form = new FormGroup({
+  protected readonly form = new FormGroup({
     search: new FormControl<string>('')
   })
 
-  isFocused = false;
-  isLoading = false;
-  showSuggestions = false;
-  skipRequest = false;
-  searchResults!: GeoAutocompleteResponse;
+  protected isFocused = false;
+  protected isLoading = false;
+  protected showSuggestions = false;
+  protected skipRequest = false;
+  protected searchResults!: GeoAutocompleteResponse;
 
   private insideForm = false;
 
@@ -61,7 +61,7 @@ export class SearchInputComponent extends StateComponent implements OnInit {
     }
   }
 
-  selectLocation(item: GeoAutocompleteFeature): void {
+  protected selectLocation(item: GeoAutocompleteFeature): void {
     if (this.form.controls.search.value !== item.properties.city) {
       this.setSearchValueProgrammatically(item.properties.city || null);
       this.stateService.updateLocation({
@@ -72,23 +72,23 @@ export class SearchInputComponent extends StateComponent implements OnInit {
     this.showSuggestions = false;
   }
 
-  focusin(): void {
+  protected focusin(): void {
     this.showSuggestions = true;
     this.isFocused = true;
   }
 
-  focusout(): void {
+  protected focusout(): void {
     if (!this.insideForm) {
       this.showSuggestions = false;
     }
     this.isFocused = false;
   }
 
-  mouseleave(): void {
+  protected mouseleave(): void {
     this.insideForm = false;
   }
 
-  mouseenter(): void {
+  protected mouseenter(): void {
     this.insideForm = true;
   }
 

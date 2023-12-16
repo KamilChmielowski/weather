@@ -1,7 +1,5 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
-import { SvgIconComponent } from 'angular-svg-icon';
 import { switchMap } from 'rxjs';
 
 import { environment } from '../../../../environments/environment';
@@ -15,12 +13,9 @@ import { WeatherService } from '../../../services/weather/weather.service';
   selector: 'app-weather',
   standalone: true,
   templateUrl: './weather.component.html',
-  styleUrls: ['./weather.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { 'class': 'layout-page' },
   imports: [
-    CommonModule,
-    SvgIconComponent,
     WeatherAsideComponent,
     WeatherMainComponent,
   ],

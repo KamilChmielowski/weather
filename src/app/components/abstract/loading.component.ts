@@ -11,7 +11,7 @@ export abstract class LoadingComponent extends StateComponent implements OnInit 
     protected cdr: ChangeDetectorRef,
     protected override stateService: StateService,
   ) {
-    super(stateService)
+    super(stateService);
   }
 
   ngOnInit(): void {

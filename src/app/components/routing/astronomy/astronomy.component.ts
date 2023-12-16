@@ -14,23 +14,23 @@ import { WeatherService } from '../../../services/weather/weather.service';
   selector: 'app-astronomy',
   standalone: true,
   templateUrl: './astronomy.component.html',
-  styleUrls: ['./astronomy.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { 'class': 'layout-page' },
   imports: [
-    CommonModule,
     AstronomyAsideComponent,
     AstronomyMainComponent,
+    CommonModule,
   ],
 })
 export class AstronomyComponent implements OnInit {
   @HostBinding('class.astronomy-loading') protected astronomyLoading = true;
+
   protected astronomy: AstronomyWeatherResponse = this.emptyResponse();
   protected lat: number | undefined;
 
   constructor(
     private cdr: ChangeDetectorRef,
-    protected stateService: StateService,
+    private stateService: StateService,
     private weatherService: WeatherService,
   ) {}
 
@@ -57,7 +57,7 @@ export class AstronomyComponent implements OnInit {
     this.weatherService.getForecastWeather({
       q: this.stateService.locations[0].city,
       days: environment.forecastDays
-    }).subscribe(weather => this.stateService.addWeather(weather))
+    }).subscribe(weather => this.stateService.addWeather(weather));
   }
 
   private emptyResponse(): AstronomyWeatherResponse {

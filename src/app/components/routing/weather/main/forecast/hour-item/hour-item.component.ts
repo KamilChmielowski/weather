@@ -1,8 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 import { SvgIconComponent } from 'angular-svg-icon';
-import { SvgPipe } from '../../../../../../pipes/svg.pipe';
 import { WeatherPipe } from '../../../../../../pipes/weather.pipe';
 import { RealtimeWeatherConditions } from '../../../../../../services/weather/weather.model';
 
@@ -13,9 +11,7 @@ import { RealtimeWeatherConditions } from '../../../../../../services/weather/we
   styleUrls: ['./hour-item.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
-    CommonModule,
     SvgIconComponent,
-    SvgPipe,
     WeatherPipe,
   ],
 })

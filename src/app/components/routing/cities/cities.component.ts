@@ -1,8 +1,6 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { SvgIconComponent } from 'angular-svg-icon';
-
 import { CitiesAsideComponent } from './aside/cities-aside.component';
 import { CitiesMainComponent } from './main/cities-main.component';
 import { StateService } from '../../../services/state/state.service';
@@ -17,7 +15,6 @@ import { WeatherService } from '../../../services/weather/weather.service';
   host: { 'class': 'layout-page' },
   imports: [
     CommonModule,
-    SvgIconComponent,
     CitiesAsideComponent,
     CitiesMainComponent,
   ],

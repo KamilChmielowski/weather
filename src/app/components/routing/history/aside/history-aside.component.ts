@@ -1,25 +1,18 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { SvgIconComponent } from 'angular-svg-icon';
-
 import { DayItemComponent } from '../../weather/aside/day-item/day-item.component';
 import { HistoryWeatherResponse } from '../../../../services/weather/weather.model';
-import { SvgPipe } from '../../../../pipes/svg.pipe';
 import { TempPipe } from '../../../../pipes/temp.pipe';
-import { logMessages } from '@angular-devkit/build-angular/src/tools/esbuild/utils';
 
 @Component({
   selector: 'app-history-aside',
   standalone: true,
   templateUrl: './history-aside.component.html',
-  styleUrls: ['./history-aside.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     CommonModule,
     DayItemComponent,
-    SvgIconComponent,
-    SvgPipe,
     TempPipe,
   ],
 })

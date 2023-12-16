@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@
 import { CommonModule } from '@angular/common';
 
 import { MapComponent, MarkerComponent } from '@maplibre/ngx-maplibre-gl';
-import { SvgIconComponent } from 'angular-svg-icon';
+
 import { environment } from '../../../../../environments/environment';
 import { StateComponent } from '../../../abstract/state.component';
 import { StateService } from '../../../../services/state/state.service';
@@ -16,7 +16,6 @@ import { StateService } from '../../../../services/state/state.service';
   imports: [
     CommonModule,
     MapComponent,
-    SvgIconComponent,
     MarkerComponent,
   ],
 })

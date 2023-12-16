@@ -1,7 +1,5 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { SvgIconComponent } from 'angular-svg-icon';
 
 import { HourItemComponent } from './hour-item/hour-item.component';
 import { TempPipe } from '../../../../../pipes/temp.pipe';
@@ -16,7 +14,6 @@ import { WeatherDataComponent } from '../../../../abstract/weather-data.componen
   imports: [
     CommonModule,
     HourItemComponent,
-    SvgIconComponent,
     TempPipe,
   ],
 })

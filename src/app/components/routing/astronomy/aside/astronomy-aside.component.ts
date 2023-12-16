@@ -1,10 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { SvgIconComponent } from 'angular-svg-icon';
-
 import { MoonPhaseComponent } from './moon-phase/moon-phase.component';
-import { SvgPipe } from '../../../../pipes/svg.pipe';
 
 @Component({
   selector: 'app-astronomy-aside',
@@ -15,8 +12,6 @@ import { SvgPipe } from '../../../../pipes/svg.pipe';
   imports: [
     CommonModule,
     MoonPhaseComponent,
-    SvgIconComponent,
-    SvgPipe,
   ],
 })
 export class AstronomyAsideComponent {

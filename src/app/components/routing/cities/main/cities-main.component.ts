@@ -27,24 +27,24 @@ import { WeatherDataComponent } from '../../../abstract/weather-data.component';
   ],
 })
 export class CitiesMainComponent extends WeatherDataComponent {
-  searchDisabled = true;
-  blockButton = false;
-  removeConfirmed = false;
+  protected searchDisabled = true;
+  protected blockButton = false;
+  protected removeConfirmed = false;
 
-  addNewLocation(): void {
+  protected addNewLocation(): void {
     if (this.blockButton) {
       return;
     }
     this.searchDisabled = false;
   }
 
-  focusout(): void {
+  protected focusout(): void {
     this.searchDisabled = true;
     this.blockButton = true;
     setTimeout(() => this.blockButton = false, 100);
   }
 
-  removeLocation(): void {
+  protected removeLocation(): void {
     if (this.removeConfirmed) {
       this.stateService.removeLocation();
       this.removeConfirmed = false;

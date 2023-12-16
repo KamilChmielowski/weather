@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HistoryAsideComponent } from './history-aside.component';
 
-describe('AstronomyAsideComponent', () => {
+describe('HistoryAsideComponent', () => {
   let component: HistoryAsideComponent;
   let fixture: ComponentFixture<HistoryAsideComponent>;
 

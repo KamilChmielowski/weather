@@ -1,8 +1,6 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { SvgIconComponent } from 'angular-svg-icon';
-
 import { MapAsideComponent } from './aside/map-aside.component';
 import { MapMainComponent } from './main/map-main.component';
 import { StateService } from '../../../services/state/state.service';
@@ -13,14 +11,12 @@ import { WeatherService } from '../../../services/weather/weather.service';
   selector: 'app-map',
   standalone: true,
   templateUrl: './map.component.html',
-  styleUrls: ['./map.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { 'class': 'layout-page' },
   imports: [
     CommonModule,
     MapAsideComponent,
     MapMainComponent,
-    SvgIconComponent,
   ],
 })
 export class MapComponent extends WeatherDataComponent {

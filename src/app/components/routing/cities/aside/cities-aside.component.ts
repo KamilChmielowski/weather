@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { SvgIconComponent } from 'angular-svg-icon';
@@ -27,7 +27,7 @@ import { WeatherHeaderComponent } from '../../weather/main/header/weather-header
   ],
 })
 export class CitiesAsideComponent extends WeatherDataComponent {
-  currentHour!: number;
+  protected currentHour!: number;
 
   protected override observeWeather(): void {
     this.subscription.add(

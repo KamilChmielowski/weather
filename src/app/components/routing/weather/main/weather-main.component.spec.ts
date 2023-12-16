@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { WeatherMainComponent } from './weather-main.component';
 
-describe('MainComponent', () => {
+describe('WeatherMainComponent', () => {
   let component: WeatherMainComponent;
   let fixture: ComponentFixture<WeatherMainComponent>;
 

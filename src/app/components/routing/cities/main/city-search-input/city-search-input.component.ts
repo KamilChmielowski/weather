@@ -59,7 +59,7 @@ export class CitySearchInputComponent extends SearchInputComponent implements On
     }
   }
 
-  override selectLocation(item: GeoAutocompleteFeature): void {
+  protected override selectLocation(item: GeoAutocompleteFeature): void {
     if (!this.stateService.locations.find(location => location.city === item.properties.city)) {
       this.city$.emit(item.properties.city);
       this.setSearchValueProgrammatically('');
@@ -72,7 +72,7 @@ export class CitySearchInputComponent extends SearchInputComponent implements On
     this.showSuggestions = false;
   }
 
-  override focusout() {
+  protected override focusout() {
     super.focusout();
     this.focusout$.emit();
   }

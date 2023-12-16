@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { SvgIconComponent } from 'angular-svg-icon';
 
-import { SvgPipe } from '../../../../../pipes/svg.pipe';
 import { TempPipe } from '../../../../../pipes/temp.pipe';
 import { WeatherDataComponent } from '../../../../abstract/weather-data.component';
 import { WeatherPipe } from '../../../../../pipes/weather.pipe';
@@ -17,7 +16,6 @@ import { WeatherPipe } from '../../../../../pipes/weather.pipe';
   imports: [
     CommonModule,
     SvgIconComponent,
-    SvgPipe,
     TempPipe,
     WeatherPipe,
   ],

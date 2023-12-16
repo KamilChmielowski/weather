@@ -1,7 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
-import { SvgIconComponent } from 'angular-svg-icon';
+import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core';
 
 import { DistancePipe } from '../../../../../pipes/distance.pipe';
 import { PrecitipationPipe } from '../../../../../pipes/precitipation.pipe';
@@ -18,12 +15,10 @@ import { WindPipe } from '../../../../../pipes/wind.pipe';
   styleUrls: ['./more-details.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
-    CommonModule,
     DistancePipe,
     PrecitipationPipe,
     PressurePipe,
     PropertyItemComponent,
-    SvgIconComponent,
     TempPipe,
     WindPipe,
   ],

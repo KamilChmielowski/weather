@@ -4,9 +4,9 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 
 import { SvgIconComponent } from 'angular-svg-icon';
 
+import { StateComponent } from '../abstract/state.component';
 import { StateService } from '../../services/state/state.service';
 import { SvgPipe } from '../../pipes/svg.pipe';
-import { StateComponent } from '../abstract/state.component';
 
 @Component({
   selector: 'app-nav',

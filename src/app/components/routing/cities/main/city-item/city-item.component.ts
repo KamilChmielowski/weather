@@ -10,11 +10,11 @@ import { SvgPipe } from '../../../../../pipes/svg.pipe';
   templateUrl: './city-item.component.html',
   styleUrls: ['./city-item.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [
-        CommonModule,
-        SvgIconComponent,
-        SvgPipe,
-    ],
+  imports: [
+    CommonModule,
+    SvgIconComponent,
+    SvgPipe,
+  ],
 })
 export class CityItemComponent {
   @Input() city!: string;
