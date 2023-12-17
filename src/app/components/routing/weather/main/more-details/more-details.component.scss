@@ -1,3 +1,4 @@
+@import 'media';
 @import 'variables';
 
 :host {
@@ -29,6 +30,15 @@
       position: absolute;
       top: 1rem;
       right: 1rem
+    }
+  }
+
+  @include portrait() {
+    section {
+      .chip-btn {
+        background-color: $color-foreground;
+        top: -3rem;
+      }
     }
   }
 }

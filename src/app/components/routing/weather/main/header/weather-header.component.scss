@@ -1,4 +1,5 @@
 @import 'mixins';
+@import 'media';
 @import 'variables';
 
 :host {
@@ -39,6 +40,31 @@
 
     svg-icon {
       margin-right: 1rem;
+    }
+  }
+
+  @include landscape() {
+    header {
+      align-items: flex-start;
+      @include svgSize(10rem, 'svg-icon');
+    }
+  }
+
+  @include portrait() {
+    header {
+      align-items: flex-start;
+      @include svgSize(3rem, 'svg-icon');
+
+      .details {
+        h1 {
+          width: calc(100% - 3.5rem);
+        }
+      }
+
+      svg-icon {
+        position: absolute;
+        right: 0;
+      }
     }
   }
 }

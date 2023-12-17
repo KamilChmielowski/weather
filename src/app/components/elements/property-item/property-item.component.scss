@@ -1,4 +1,5 @@
 @import 'mixins';
+@import 'media';
 @import 'variables';
 
 :host {
@@ -20,6 +21,22 @@
     font-size: 1.4rem;
     font-weight: 600;
     min-height: 1.7rem;
+  }
+
+  @include portrait() {
+    .name {
+      .label {
+        white-space: nowrap;
+        overflow-x: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    .value {
+      margin-left: 0;
+      font-size: 1.3rem;
+      text-align: center;
+    }
   }
 }
 

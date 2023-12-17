@@ -1,4 +1,5 @@
 @import 'mixins';
+@import 'media';
 @import 'variables';
 
 :host {
@@ -52,6 +53,20 @@
 
   .no-data {
     display: none;
+  }
+
+  @include portrait() {
+    .conditions {
+      justify-content: center;
+
+      svg-icon {
+        margin: 0;
+      }
+
+      .label {
+        display: none;
+      }
+    }
   }
 }
 

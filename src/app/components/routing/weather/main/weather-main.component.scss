@@ -1,3 +1,4 @@
+@import 'media';
 @import 'variables';
 
 :host {
@@ -8,5 +9,16 @@
 
   app-forecast {
     margin-bottom: 1rem;
+  }
+
+  @include portrait-landscape() {
+    app-air-conditions {
+      margin-bottom: 1rem;
+    }
+
+    app-more-details {
+      display: block;
+      margin-bottom: 1rem;
+    }
   }
 }

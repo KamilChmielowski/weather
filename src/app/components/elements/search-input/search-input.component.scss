@@ -67,6 +67,17 @@
       right: 0.4rem;
     }
   }
+
+  @include portrait-tablet() {
+    .form {
+      @include svgSize(2.7rem, 'svg-icon');
+
+      input {
+        font-size: 1.2rem;
+        height: 3.5rem;
+      }
+    }
+  }
 }
 
 :host-context(.standalone) {
