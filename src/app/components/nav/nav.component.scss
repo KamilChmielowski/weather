@@ -48,7 +48,6 @@
 
   @include portrait-landscape() {
     nav {
-      justify-content: center;
       padding: 0.5rem;
       flex-flow: row;
       overflow-x: scroll;

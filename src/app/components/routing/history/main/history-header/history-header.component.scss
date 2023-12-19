@@ -1,4 +1,5 @@
 @import 'mixins';
+@import 'media';
 @import 'variables';
 
 :host {
@@ -6,7 +7,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 1rem;
+    margin-top: 1rem;
     @include svgSize(12rem, 'svg-icon');
 
     .details {
@@ -16,6 +17,8 @@
       h1 {
         font-size: 2rem;
         min-height: 2.5rem;
+        text-overflow: ellipsis;
+        overflow-x: hidden;
       }
 
       h1, p, .date1 {
@@ -39,6 +42,27 @@
 
     svg-icon {
       margin-right: 1rem;
+    }
+  }
+
+  @include portrait() {
+    header {
+      @include svgSize(4rem, 'svg-icon');
+      position: relative;
+
+      .details {
+        overflow: hidden;
+
+        h1 {
+          width: calc(100% - 4.5rem);
+        }
+      }
+
+      svg-icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
     }
   }
 }

@@ -1,4 +1,5 @@
 @import 'mixins';
+@import 'media';
 @import 'variables';
 
 :host {
@@ -39,6 +40,10 @@
       }
     }
 
+    .portrait {
+      display: none;
+    }
+
     input[type="date"] {
       background-color: $color-background;
       padding: 0.6rem 1rem;
@@ -58,6 +63,23 @@
       padding: 0.3rem;
       cursor: pointer;
       border: 2px solid $color-border;
+    }
+  }
+
+  @include portrait() {
+    section {
+      flex-flow: column;
+
+      .portrait {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 1rem;
+      }
+
+      .main {
+        display: none;
+      }
     }
   }
 }

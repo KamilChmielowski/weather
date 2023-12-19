@@ -17,6 +17,8 @@
       h1 {
         font-size: 2rem;
         min-height: 2.5rem;
+        text-overflow: ellipsis;
+        overflow-x: hidden;
       }
 
       h1, p, .date1 {
@@ -46,11 +48,13 @@
   @include portrait() {
     header {
       align-items: flex-start;
-      @include svgSize(3rem, 'svg-icon');
+      @include svgSize(4rem, 'svg-icon');
 
       .details {
+        overflow: hidden;
+
         h1 {
-          width: calc(100% - 3.5rem);
+          width: calc(100% - 4.5rem);
         }
       }
 

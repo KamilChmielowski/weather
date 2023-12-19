@@ -5,10 +5,10 @@
     <app-day-item *ngFor="let label of historyLabel; let i = index"
       [day]="label"
       [class.loading]="historyLoading"
-      [conditions]="history[i].forecast.forecastday.at(0)?.day?.condition"
-      [temp]="history[i].forecast.forecastday.at(0)?.day?.avgtemp_c | temp : history[i].forecast.forecastday.at(0)?.day?.avgtemp_f"
-      [maxTemp]="history[i].forecast.forecastday.at(0)?.day?.maxtemp_c | temp : history[i].forecast.forecastday.at(0)?.day?.maxtemp_f"
-      [minTemp]="history[i].forecast.forecastday.at(0)?.day?.mintemp_c | temp : history[i].forecast.forecastday.at(0)?.day?.mintemp_f"
+      [conditions]="history[i]?.forecast.forecastday.at(0)?.day?.condition"
+      [temp]="history[i]?.forecast.forecastday.at(0)?.day?.avgtemp_c | temp : history[i]?.forecast.forecastday.at(0)?.day?.avgtemp_f"
+      [maxTemp]="history[i]?.forecast.forecastday.at(0)?.day?.maxtemp_c | temp : history[i]?.forecast.forecastday.at(0)?.day?.maxtemp_f"
+      [minTemp]="history[i]?.forecast.forecastday.at(0)?.day?.mintemp_c | temp : history[i]?.forecast.forecastday.at(0)?.day?.mintemp_f"
     ></app-day-item>
   </section>
 </aside>

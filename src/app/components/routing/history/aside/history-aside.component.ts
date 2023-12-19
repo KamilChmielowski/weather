@@ -9,6 +9,7 @@ import { TempPipe } from '../../../../pipes/temp.pipe';
   selector: 'app-history-aside',
   standalone: true,
   templateUrl: './history-aside.component.html',
+  styleUrls: ['./history-aside.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     CommonModule,

@@ -1,0 +1,9 @@
+@import 'variables';
+
+:host {
+  app-day-item {
+    &:not(:last-of-type) {
+      border-bottom: 1px solid $color-border;
+    }
+  }
+}

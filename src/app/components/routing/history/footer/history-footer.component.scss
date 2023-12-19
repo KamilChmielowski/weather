@@ -1,3 +1,4 @@
+@import 'media';
 @import 'variables';
 
 :host {
@@ -15,6 +16,139 @@
           margin-right: 2rem;
         }
       }
+
+      app-hour-item {
+        &:not(:last-of-type) {
+          border-right: 1px solid $color-border;
+        }
+      }
     }
+  }
+
+  @include portrait() {
+    footer {
+      section {
+        app-property-item {
+          width: 100%;
+          text-align: center;
+
+          &:not(:last-of-type) {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid $color-border;
+          }
+
+          &:not(:last-of-type) {
+            margin-right: 0;
+          }
+        }
+
+        app-hour-item {
+          width: 50%;
+
+          &:not(:last-of-type) {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid $color-border;
+          }
+        }
+      }
+    }
+  }
+
+  @include landscape() {
+    footer {
+      section {
+        app-property-item {
+          width: 50%;
+          text-align: center;
+
+          &:nth-of-type(1),
+          &:nth-of-type(2),
+          &:nth-of-type(3),
+          &:nth-of-type(4) {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid $color-border;
+          }
+
+          &:not(:last-of-type) {
+            margin-right: 0;
+          }
+        }
+
+        app-hour-item {
+          width: 25%;
+
+          &:nth-of-type(1),
+          &:nth-of-type(2),
+          &:nth-of-type(3),
+          &:nth-of-type(4) {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid $color-border;
+          }
+
+          &:last-of-type {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  @include tablet() {
+    footer {
+      section {
+        app-property-item {
+          width: 33%;
+          text-align: center;
+
+          &:nth-of-type(1),
+          &:nth-of-type(2),
+          &:nth-of-type(3) {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid $color-border;
+          }
+
+          &:not(:last-of-type) {
+            margin-right: 0;
+          }
+        }
+
+        app-hour-item {
+          width: 25%;
+
+          &:nth-of-type(1),
+          &:nth-of-type(2),
+          &:nth-of-type(3),
+          &:nth-of-type(4) {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid $color-border;
+          }
+
+          &:last-of-type {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  @include portrait-tablet() {
+    footer {
+      section {
+        flex-wrap: wrap;
+      }
+    }
+  }
+}
+
+:host-context(.history-loading) {
+  .value {
+    animation: $skeleton-animation-card;
+    width: 70%;
   }
 }
