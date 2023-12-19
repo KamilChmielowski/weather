@@ -1,3 +1,4 @@
+@import 'media';
 @import 'variables';
 
 :host {
@@ -6,6 +7,12 @@
     flex-flow: column;
 
     app-rise-set {
+      margin-bottom: 1rem;
+    }
+  }
+
+  @include portrait-landscape() {
+    app-moon-info {
       margin-bottom: 1rem;
     }
   }

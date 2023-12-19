@@ -43,13 +43,6 @@
     }
   }
 
-  @include landscape() {
-    header {
-      align-items: flex-start;
-      @include svgSize(10rem, 'svg-icon');
-    }
-  }
-
   @include portrait() {
     header {
       align-items: flex-start;
@@ -65,6 +58,13 @@
         position: absolute;
         right: 0;
       }
+    }
+  }
+
+  @include landscape() {
+    header {
+      align-items: flex-start;
+      @include svgSize(10rem, 'svg-icon');
     }
   }
 }

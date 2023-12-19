@@ -1,3 +1,4 @@
+@import 'media';
 @import 'variables';
 
 :host {
@@ -43,6 +44,23 @@
           svg {
             fill: #d7a74d;
           }
+        }
+      }
+    }
+  }
+
+  @include portrait() {
+    section {
+      flex-flow: column;
+      padding: 1.5rem 1rem;
+
+      .column {
+        width: 100%;
+
+        &:first-of-type {
+          padding-bottom: 1.5rem;
+          border-bottom: 2px solid $color-border;
+          margin-bottom: 1.5rem;
         }
       }
     }
