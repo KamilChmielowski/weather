@@ -1,4 +1,5 @@
 @import 'mixins';
+@import 'media';
 @import 'variables';
 
 :host {
@@ -26,18 +27,25 @@
     margin-left: 1rem;
     display: flex;
     align-items: center;
+    overflow: hidden;
 
     .text {
       margin-left: 1rem;
       margin-right: 1rem;
       width: 100%;
+      display: flex;
+      flex-flow: column;
+      overflow: hidden;
 
       .city {
         font-size: 1.6rem;
         font-weight: 600;
         margin-bottom: 0.2rem;
         text-align: left;
-        min-height: 1.85rem;;
+        min-height: 1.85rem;
+        overflow-x: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
 
       .date {
@@ -55,6 +63,17 @@
     justify-content: flex-end;
     font-size: 2rem;
     min-height: 2.25rem;
+    white-space: nowrap;
+  }
+
+  @include portrait() {
+    .city-item {
+      @include svgSize(3.5rem, 'svg-icon');
+    }
+
+    .container {
+      margin-left: 0;
+    }
   }
 }
 
@@ -72,7 +91,6 @@
 
   .container {
     .text {
-
       .city {
         font-size: 1.3rem;
       }
