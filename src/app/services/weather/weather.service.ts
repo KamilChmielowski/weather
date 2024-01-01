@@ -55,7 +55,7 @@ export class WeatherService {
       ? this.loadingPipe<ForecastWeatherResponse>(
         this.httpClient.get<ForecastWeatherResponse>(`${this.weatherBase}forecast.json`, this.options(searchParams))
       ).pipe(catchError(() => mockForecastWeather))
-      : mockForecastWeather;
+      : this.loadingPipe(mockForecastWeather);
   }
 
   getAstronomyWeather(city: string): Observable<AstronomyWeatherResponse> {
@@ -65,7 +65,7 @@ export class WeatherService {
           delay(environment.apiDelay),
           catchError(() => mockAstronomyWeather)
         )
-      : mockAstronomyWeather;
+      : this.loadingPipe(mockAstronomyWeather);
   }
 
   getHistoryWeather(city: string, date: string): Observable<HistoryWeatherResponse> {
@@ -76,7 +76,7 @@ export class WeatherService {
       })).pipe(
         delay(environment.apiDelay),
         catchError(() => mockHistoryWeather)
-      ) : mockHistoryWeather;
+      ) : this.loadingPipe(mockHistoryWeather);
   }
 
   private loadingPipe<T>(observable: Observable<T>): Observable<T> {
