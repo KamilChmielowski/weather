@@ -1,0 +1,13 @@
+{
+  "hosting": {
+    "site": "kamilchmielowski-weather",
+    "public": "dist/weather",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
+
+
