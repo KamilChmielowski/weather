@@ -24,7 +24,7 @@ const routes: Routes = [
     ],
     canActivate: [WelcomeRedirectGuardService]
   },
-  { path: '', redirectTo: 'weather', pathMatch: 'full' },
+  { path: '**', redirectTo: '' },
 ];
 
 @NgModule({
