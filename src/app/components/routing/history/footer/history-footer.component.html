@@ -1,19 +1,27 @@
 <footer>
   <section class="card">
-    <app-hour-item *ngFor="let hour of [0, 3, 6, 9, 12, 15, 18, 21, 24]"
-                   [hour]="hour" [class.loading]="historyLoading"
-                   [condition]="history?.forecast?.forecastday?.at(0)?.hour?.at(hour > 0 ? hour - 1 : 0)?.condition"
-                   [temp]="history?.forecast?.forecastday?.at(0)?.hour?.at(hour > 0 ? hour - 1 : 0)?.temp_c |
-                   temp: history?.forecast?.forecastday?.at(0)?.hour?.at(hour > 0 ? hour - 1 : 0)?.temp_f"
-    ></app-hour-item>
+    <h2>Day's temp</h2>
+
+    <div>
+      <app-hour-item *ngFor="let hour of [0, 3, 6, 9, 12, 15, 18, 21, 24]"
+                     [hour]="hour" [class.loading]="historyLoading"
+                     [condition]="history?.forecast?.forecastday?.at(0)?.hour?.at(hour > 0 ? hour - 1 : 0)?.condition"
+                     [temp]="history?.forecast?.forecastday?.at(0)?.hour?.at(hour > 0 ? hour - 1 : 0)?.temp_c |
+                     temp: history?.forecast?.forecastday?.at(0)?.hour?.at(hour > 0 ? hour - 1 : 0)?.temp_f"
+      ></app-hour-item>
+    </div>
   </section>
 
   <section class="card">
-    <app-property-item [class.loading]="historyLoading" icon="settings/wind" label="Max wind" [value]="history | wind"></app-property-item>
-    <app-property-item [class.loading]="historyLoading" icon="settings/rain" label="Precipitation" [value]="history | precitipation"></app-property-item>
-    <app-property-item [class.loading]="historyLoading" icon="settings/snow" label="Total snow" [value]="history ? ((history.forecast.forecastday.at(0)?.day?.totalsnow_cm || 0) + 'cm') : ''"></app-property-item>
-    <app-property-item [class.loading]="historyLoading" icon="settings/cloud" label="Humidity" [value]="history ? (history.forecast.forecastday.at(0)?.day?.avghumidity + '%') : ''"></app-property-item>
-    <app-property-item [class.loading]="historyLoading" icon="settings/visibility" label="Visibility" [value]="history | distance"></app-property-item>
-    <app-property-item [class.loading]="historyLoading" icon="settings/uv" label="UV Index" [value]="history ? (history.forecast.forecastday.at(0)?.day?.uv + '') : ''"></app-property-item>
+    <h2>Day's conditions</h2>
+
+    <div class="conditions">
+      <app-property-item [class.loading]="historyLoading" icon="settings/wind" label="Max wind" [value]="history | wind"></app-property-item>
+      <app-property-item [class.loading]="historyLoading" icon="settings/rain" label="Precipitation" [value]="history | precitipation"></app-property-item>
+      <app-property-item [class.loading]="historyLoading" icon="settings/snow" label="Total snow" [value]="history ? ((history.forecast.forecastday.at(0)?.day?.totalsnow_cm || 0) + 'cm') : ''"></app-property-item>
+      <app-property-item [class.loading]="historyLoading" icon="settings/cloud" label="Humidity" [value]="history ? (history.forecast.forecastday.at(0)?.day?.avghumidity + '%') : ''"></app-property-item>
+      <app-property-item [class.loading]="historyLoading" icon="settings/visibility" label="Visibility" [value]="history | distance"></app-property-item>
+      <app-property-item [class.loading]="historyLoading" icon="settings/uv" label="UV Index" [value]="history ? (history.forecast.forecastday.at(0)?.day?.uv + '') : ''"></app-property-item>
+    </div>
   </section>
 </footer>

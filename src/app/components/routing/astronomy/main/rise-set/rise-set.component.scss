@@ -52,7 +52,7 @@
   @include portrait() {
     section {
       flex-flow: column;
-      padding: 1.5rem 1rem;
+      padding: 1.5rem 2rem;
 
       .column {
         width: 100%;

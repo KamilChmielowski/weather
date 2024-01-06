@@ -7,9 +7,14 @@
 
   footer {
     section {
-      display: flex;
       margin-bottom: 1rem;
-      justify-content: space-evenly;
+
+      div {
+        display: inline-flex;
+        margin-bottom: 1rem;
+        justify-content: space-evenly;
+        width: 100%;
+      }
 
       app-property-item {
         &:not(:last-of-type) {
@@ -28,15 +33,17 @@
   @include portrait() {
     footer {
       section {
-        app-property-item {
-          width: 100%;
-          text-align: center;
+        .conditions {
+          margin-bottom: 0;
+        }
 
-          &:not(:last-of-type) {
-            margin-bottom: 1rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid $color-border;
-          }
+        app-property-item {
+          width: 50%;
+          text-align: center;
+          margin-bottom: 1rem;
+          padding-bottom: 1rem;
+          border-bottom: 2px solid $color-border;
+
 
           &:not(:last-of-type) {
             margin-right: 0;
@@ -45,11 +52,23 @@
 
         app-hour-item {
           width: 50%;
+          box-sizing: border-box;
+
+          &:nth-of-type(2),
+          &:nth-of-type(4),
+          &:nth-of-type(6),
+          &:nth-of-type(8) {
+            border-right: none;
+          }
 
           &:not(:last-of-type) {
-            margin-bottom: 1rem;
+            padding-top: 1rem;
             padding-bottom: 1rem;
             border-bottom: 2px solid $color-border;
+          }
+
+          &:last-of-type {
+            padding-top: 1rem;
           }
         }
       }
@@ -59,6 +78,10 @@
   @include landscape() {
     footer {
       section {
+        div {
+          justify-content: center;
+        }
+
         app-property-item {
           width: 50%;
           text-align: center;
@@ -78,15 +101,28 @@
         }
 
         app-hour-item {
-          width: 25%;
+          width: 33%;
 
           &:nth-of-type(1),
           &:nth-of-type(2),
           &:nth-of-type(3),
-          &:nth-of-type(4) {
-            margin-bottom: 1rem;
+          &:nth-of-type(4),
+          &:nth-of-type(5),
+          &:nth-of-type(6) {
+            padding-top: 1rem;
             padding-bottom: 1rem;
             border-bottom: 2px solid $color-border;
+          }
+
+          &:nth-of-type(7),
+          &:nth-of-type(8) {
+            padding-top: 1rem;
+          }
+
+          &:nth-of-type(3),
+          &:nth-of-type(6),
+          &:nth-of-type(8) {
+            border-right: none;
           }
 
           &:last-of-type {
@@ -140,7 +176,9 @@
   @include portrait-tablet() {
     footer {
       section {
-        flex-wrap: wrap;
+        div {
+          flex-wrap: wrap;
+        }
       }
     }
   }
