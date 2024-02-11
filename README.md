@@ -2,18 +2,25 @@
 
 Complex app combining few public geolocation APIs.
 
-## APIs
-
-* autocomplete locations (api.geoapify.com)
-* find location by user IP address (geolocation-db.com)
-* fetch forecast / history weather (weatherapi-com.p.rapidapi.com)
+https://kamilchmielowski-weather.web.app/
 
 ## Features
 
-* complex lazy-loaded routing
-* maps integration with maplibre-gl
-* skeleton page loaders
-* standalone app
+* Angular 16
+* Fully standalone app
+* Fully based on onPush change detection
+* Simple routing with few routes and guards
+* Unit tests with Jasmine (test coverage: )
+* End to End tests with Cypress (test coverage: )
+* Skeleton loaders
+* Maps integration (maplibre-gl)
+* Responsive web design
+
+## APIs
+
+* Forecast / history weather (weatherapi-com.p.rapidapi.com)
+* Autocomplete locations (api.geoapify.com)
+* Finding location by user IP address (geolocation-db.com)
 
 ### Contact with me
 
