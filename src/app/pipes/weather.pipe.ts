@@ -8,7 +8,7 @@ import { RealtimeWeatherConditions } from '../services/weather/weather.model';
 export class WeatherPipe implements PipeTransform {
   transform(conditions?: RealtimeWeatherConditions): string {
     return conditions
-      ? `assets/svg/weather/${ conditions.icon?.includes('day') ? 'day' : 'night' }/${conditions.text?.toLowerCase().split(' ').join('-')}.svg`
+      ? `assets/svg/weather/${ conditions.icon?.includes('day') ? 'day' : 'night' }/${conditions.text?.toLowerCase().trim().split(' ').join('-')}.svg`
       : '';
   }
 }
