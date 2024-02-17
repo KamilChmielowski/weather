@@ -45,12 +45,12 @@ export abstract class WeatherDataComponent extends LoadingComponent implements O
     if (this.stateService.locations?.length === 0) {
       return;
     }
-    forkJoin(this.stateService.locations.map(location => {
+    this.subscription.add(forkJoin(this.stateService.locations.map(location => {
       return this.weatherService.getForecastWeather({ q: location.city, days: environment.forecastDays });
     })).subscribe(response => {
       this.stateService.changeLocation(this.stateService.locations[0].city);
       this.stateService.updateWeathers(response);
       this.cdr.markForCheck();
-    })
+    }));
   }
 }
