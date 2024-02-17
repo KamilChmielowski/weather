@@ -4,7 +4,6 @@ import { BehaviorSubject, Observable } from 'rxjs';
 
 import { ForecastWeatherResponse } from '../weather/weather.model';
 import { LocationModel } from './state.model';
-import { locations } from './state.mock';
 
 @Injectable({ providedIn: 'root' })
 export class StateService {
